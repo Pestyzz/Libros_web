@@ -1,9 +1,9 @@
 Wena luchote
 
-##Listado de weas q  hay q hacer
+## Listado de weas q  hay q hacer ##
 
-- Mockup Página principal []
+- Mockup Página principal [] - BASTI
 - Estilado general para las páginas []
 - Catálogo []
 - Carrito []
-- Login, registro []
+- Login, registro [] - LUCHO
