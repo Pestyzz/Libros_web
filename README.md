@@ -1,5 +1,3 @@
-Wena luchote
-
 ## Listado de weas q  hay q hacer ##
 
 - Mockup Página principal [] - BASTI
