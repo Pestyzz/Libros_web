@@ -5,3 +5,9 @@
 - Catálogo []
 - Carrito []
 - Login, registro [] - LUCHO
+
+
+## Paleta de colores ##
+
+Primary: #faeeb0 , rgb(250, 238, 176)
+Secondary: 

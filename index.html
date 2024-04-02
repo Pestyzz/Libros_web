@@ -3,25 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libros Web</title>
+    <title>Rincón Literario</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand navbar-light bg-primary ">
+  <nav class="navbar  navbar-expand-md navbar-light bg-primary rounded-bottom-2">
     <div class="container">
-      <a class="navbar-brand" href="#">Café Literario</a>
+      <a class="navbar-brand" href="#">Rincón Literario</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-          <a class="nav-link" data-bs-toggle="offcanvas" href="#menuCatalogo" role="button" aria-controls="menuCatalogo">
-            Catálogo
-          </a>  
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuCategorias" role="button" aria-controls="menuCategorias">
+              Categorías
+            </a>  
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Ofertas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Novedades</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-md-auto">
+          <form class="d-flex" role="search">
+            <input class="form-control me-md-2" type="search" placeholder="Buscar Libro" aria-label="Buscar Libro">
+          </form>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+            <img src="icons/account_black_18dp.svg" alt="account_icon" height="25" class="opacity-75">
+            Inicar Sesión
+            </a>
+          </li>
+          <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-black">
+              <hr class="d-lg-none my-2 textx-dark-50">
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <img src="icons/favorite_border_black_24dp.svg" alt="favorite_icon">
+            </a>
+          </li>
+          <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-black">
+              <hr class="d-lg-none my-2 textx-dark-50">
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <img src="icons/shopping_cart_black_24dp.svg" alt="cart_icon" class="opacity-75">
+              Carro
+            </a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
   <!--Offcanvas Catálogo-->
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="menuCatalogo" aria-labelledby="menuCatalogoLabel">
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="menuCategorias" aria-labelledby="menuCategoriasLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="menuCatalogoLabel">Categorías</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -31,7 +71,50 @@
         Lista de todas las categorías
       </div>
     </div>
-    <!---->
+  </div>
+  <!---->
+  <div class="container-fluid">
+    <h1 class="display-5 ">alo</h1>
+  </div>
+  <div class="container">
+    <div class="row mt-4 justify-content-center">
+      <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top p-2" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+          <div class="card-body border-top">
+            <h5 class="card-title">Nombre Libro</h5>
+            <a class="btn btn-primary bg-secondary border-secondary" href="#">Ver Producto</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top p-2" src="img/Caja_Botones_Gwnedy_Stephen_King.jpg" alt="libro_img">
+          <div class="card-body border-top">
+            <h5 class="card-title">Nombre Libro</h5>
+            <a class="btn btn-primary bg-secondary border-secondary" href="#">Ver Producto</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top p-2" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+          <div class="card-body border-top">
+            <h5 class="card-title">Nombre Libro</h5>
+            <a class="btn btn-primary bg-secondary border-secondary" href="#">Ver Producto</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top p-2" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+          <div class="card-body border-top">
+            <h5 class="card-title">Nombre Libro</h5>
+            <a class="btn btn-primary bg-secondary border-secondary" href="#">Ver Producto</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
