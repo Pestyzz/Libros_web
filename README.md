@@ -12,4 +12,4 @@ Wena luchote
 ## Paleta de colores ##
 
 Primary: #faeeb0 , rgb(250, 238, 176)
-Secondary: 
+Secondary: #a1631d, rgb(161, 99, 29)
