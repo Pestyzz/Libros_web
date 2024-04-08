@@ -1,10 +1,12 @@
 ## Listado de weas q  hay q hacer ##
 
-- Mockup Página principal [] - BASTI
-- Estilado general para las páginas []
-- Catálogo []
+- Mockup Página principal [X] - BASTI
+- Estilado general para las páginas [X]
+- Catálogo [X]
+- Pestaña Producto []
+- Favoritos []
 - Carrito []
-- Login, registro [] - LUCHO
+- Login, registro [X] - LUCHO
 
 
 ## Paleta de colores ##
