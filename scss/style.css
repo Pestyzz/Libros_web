@@ -4347,7 +4347,7 @@ textarea.form-control-lg {
   --bs-card-cap-padding-x: 1rem;
   --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
   --bs-card-cap-color: ;
-  --bs-card-height: ;
+  --bs-card-height: 375px;
   --bs-card-color: ;
   --bs-card-bg: var(--bs-body-bg);
   --bs-card-img-overlay-padding: 1rem;
@@ -12081,6 +12081,12 @@ legend {
   color: inherit;
 }
 
+.portrait {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 50vw;
+}
+
 .carousel-control-prev {
   background-color: white;
   border: 1px solid black;
@@ -12105,6 +12111,23 @@ legend {
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
-a .btn.btn-sm:hover, a .btn-group-sm > .btn:hover {
-  background-color: var(--bs-primary) !important;
+.card-body {
+  align-content: end;
+}
+
+.card-title {
+  position: absolute;
+  top: 210px;
+  margin-right: 8px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.nav-link:hover {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+
+a.btn:hover {
+  background-color: #8d5519 !important;
+  outline: 1px solid rgba(0, 0, 0, 0.2);
 }/*# sourceMappingURL=style.css.map */
