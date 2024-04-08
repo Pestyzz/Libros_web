@@ -47,7 +47,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
               <img src="icons/favorite_border_black_24dp.svg" alt="favorite_icon">
             </a>
           </li>
@@ -57,15 +57,114 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">
-              <img src="icons/shopping_cart_black_24dp.svg" alt="cart_icon" class="opacity-75">
-              Carro
+            <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
+                <img src="icons/shopping_cart_black_24dp.svg" alt="cart_icon" class="opacity-75">
+                Carro
             </a>
-          </li>
+        </li>
         </ul>
       </div>
     </div>
   </nav>
+   <!---->
+  <!-- Offcanvas Favoritos -->
+<div class="offcanvas offcanvas-end favoritos-menu" tabindex="-1" id="menuFavoritos" aria-labelledby="menuFavoritosLabel">
+  <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="menuFavoritosLabel">Favoritos</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+      <!-- Contenido de los favoritos -->
+      <div class="mb-3">
+        <h6>Artículos favoritos</h6>
+        <div class="container" style="max-height: 400px; overflow-y: auto;">
+        <!-- Ejemplo de artículo en los favoritos -->
+       
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="Libro 1" class="img-fluid">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata</h5>
+        <p class="card-text">Precio: $35.000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="btn btn-danger">Eliminar</button>
+          <button class="btn btn-secondary "><img src="icons/shopping_cart_white_24dp.svg"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin del ejemplo de artículo 1 -->
+<!-- Ejemplo de otro artículo en los favoritos -->
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="img/El_Visitante_Stephen_King.jpg" alt="Libro 3" class="img-fluid">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">El Visitante - Stephen King</h5>
+        <p class="card-text">Precio: $20.500</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="btn btn-danger">Eliminar</button>
+          <button class="btn btn-secondary"><img src="icons/shopping_cart_white_24dp.svg"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin del ejemplo de otro artículo -->
+</div>
+        
+      </div>
+     
+       
+         <!-- Botones en la parte inferior -->
+      <div class="mt-auto">
+       
+          <button type="button" class="btn btn-secondary">Ir al Carro</button>
+      </div>
+      
+  </div>
+</div>
+  <!---->
+<!-- Offcanvas Carrito de Compras -->
+<div class="offcanvas offcanvas-end carrito-menu" tabindex="-1" id="menuCarrito" aria-labelledby="menuCarritoLabel">
+  <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="menuCarritoLabel">Carrito de Compras</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+      <!-- Contenido del carrito de compras -->
+      <div class="mb-3">
+        <h6>Resumen</h6>
+        <!-- Ejemplo de artículo en el carrito -->
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="Libro 1" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata</h5>
+                <p class="card-text">Precio: $35.000</p>
+                <button class="btn btn-danger">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fin del ejemplo de artículo -->
+      </div>
+      <!-- Botones en la parte inferior -->
+      <div class="mt-auto">
+        <a href="login.html" class="btn btn-secondary">Iniciar Pago</a>
+          <button type="button" class="btn btn-secondary">Ir al Carro</button>
+      </div>
+  </div>
+</div>
   <!---->
   <!--Offcanvas Catálogo-->
   <div class="offcanvas offcanvas-start" tabindex="-1" id="menuCategorias" aria-labelledby="menuCategoriasLabel">
