@@ -12,5 +12,5 @@
 
 ## Paleta de colores ##
 
-Primary: #faeeb0 , rgb(250, 238, 176)
-Secondary: #a1631d, rgb(161, 99, 29)
+- Primary: #faeeb0 , rgb(250, 238, 176)
+- Secondary: #a1631d, rgb(161, 99, 29)
