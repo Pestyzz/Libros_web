@@ -2,9 +2,14 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap/dist/bootswatch";
 
+body {
+    padding-top: 56px;
+    height: 700px;
+}
+
 .portrait {
     height: fit-content;
-    width: 50vw;
+    width: 50dvw;
 }
 
 .carousel-control-prev {
@@ -30,20 +35,17 @@
     color:rgba(0, 0, 0, 0.6) !important;
 }
 
-.card-body {
+/*.card-body {
     align-content: end;
-}
+}*/
 
 .nav-link:hover {
     color: rgba(0, 0, 0, 0.65) !important;
 }
 
-/* .card-title {
-    position: absolute;
-    top: 210px;
-    margin-right: 8px;
-    width: fit-content;
-} */
+ .card-title {
+    margin-bottom: 15px;
+}
 
 a.btn:hover {
     background-color: #8d5519 !important;
