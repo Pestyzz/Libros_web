@@ -12116,9 +12116,6 @@ body {
   color: rgba(0, 0, 0, 0.6) !important;
 }
 
-/*.card-body {
-    align-content: end;
-}*/
 .nav-link:hover {
   color: rgba(0, 0, 0, 0.65) !important;
 }
@@ -12127,7 +12124,27 @@ body {
   margin-bottom: 15px;
 }
 
+h5.card-title, .card-title.h5 {
+  font-size: 1.13rem;
+}
+
 a.btn:hover {
   background-color: #8d5519 !important;
   outline: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para fijar el div en la parte inferior solo para el menú del carrito */
+.carrito-menu .offcanvas-body {
+  position: relative;
+}
+
+.carrito-menu .mt-auto {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.btn-volver {
+  padding: 0px !important;
 }/*# sourceMappingURL=style.css.map */

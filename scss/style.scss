@@ -35,16 +35,16 @@ body {
     color:rgba(0, 0, 0, 0.6) !important;
 }
 
-/*.card-body {
-    align-content: end;
-}*/
-
 .nav-link:hover {
     color: rgba(0, 0, 0, 0.65) !important;
 }
 
  .card-title {
     margin-bottom: 15px;
+}
+
+h5.card-title {
+    font-size: 1.13rem;
 }
 
 a.btn:hover {
