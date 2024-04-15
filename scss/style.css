@@ -12086,30 +12086,22 @@ body {
   height: 700px;
 }
 
-.portrait {
-  height: -moz-fit-content;
-  height: fit-content;
-  width: 50dvw;
-}
-
 .carousel-control-prev {
-  background-color: white;
-  border: 1px solid black;
+  background-color: #fff;
+  border: 1px solid #000;
   border-radius: 30px;
-  top: 10rem;
-  opacity: 0.6;
-  height: 40px;
-  width: 40px;
+  opacity: 0.45;
+  height: 38px;
+  width: 38px;
 }
 
 .carousel-control-next {
-  background-color: white;
-  border: 1px solid black;
+  background-color: #fff;
+  border: 1px solid #000;
   border-radius: 30px;
-  top: 10rem;
   opacity: 0.6;
-  height: 40px;
-  width: 40px;
+  height: 38px;
+  width: 38px;
 }
 
 .fw-bold {
@@ -12129,7 +12121,7 @@ h5.card-title, .card-title.h5 {
 }
 
 a.btn:hover {
-  background-color: #8d5519 !important;
+  background-color: #8d5519;
   outline: 1px solid rgba(0, 0, 0, 0.2);
 }
 
