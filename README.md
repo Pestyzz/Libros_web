@@ -10,6 +10,7 @@
 - Dashboard [X]
 - Historial de Pedidos [] - LUCHO 
 - Pago como invitado [] - LUCHO
+- Pestaña de Pago [] - LUCHO
 
 - Fix Login/Register Responsive [] - BASTI
 
