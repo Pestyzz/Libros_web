@@ -70,7 +70,7 @@
   <!-- Offcanvas Favoritos -->
   <div class="offcanvas offcanvas-end favoritos-menu" tabindex="-1" id="menuFavoritos" aria-labelledby="menuFavoritosLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="menuFavoritosLabel">Favoritos</h5>
+      <h3 class="offcanvas-title" id="menuFavoritosLabel">Favoritos</h3>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -95,7 +95,9 @@
                 <div class="card-body border-top pb-0">
                   <div class="pb-3 pt-0">
                     <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
-                      <img src="icons/close_white_24dp.svg" alt="">Eliminar</a>
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
                     <a class="btn btn-sm btn-secondary border-secondary" href="#">
                       <img src="icons/add_shopping_cart_white_24dp.svg" alt="addCart_icon"></a>
                   </div>
@@ -120,7 +122,9 @@
                 <div class="card-body border-top pb-0">
                   <div class="pb-3 pt-0">
                     <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
-                      <img src="icons/close_white_24dp.svg" alt="">Eliminar</a>
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
                     <a class="btn btn-sm btn-secondary border-secondary" href="#">
                       <img src="icons/add_shopping_cart_white_24dp.svg" alt="addCart_icon"></a>
                   </div>
@@ -137,37 +141,71 @@
   </div>
   <!---->
   <!-- Offcanvas Carrito de Compras -->
-  <div class="offcanvas offcanvas-end carrito-menu" tabindex="-1" id="menuCarrito" aria-labelledby="menuCarritoLabel">
+  <div class="offcanvas offcanvas-end favoritos-menu" tabindex="-1" id="menuCarrito" aria-labelledby="menuCarritoLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="menuCarritoLabel">Carrito de Compras</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <h3 class="offcanvas-title" id="menuCarritoLabel">Carro</h3>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body d-flex flex-column">
-        <!-- Contenido del carrito de compras -->
-        <div class="mb-3">
-          <h6>Resumen</h6>
-          <!-- Ejemplo de artículo en el carrito -->
-          <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-4 p-2">
-                <img src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="Libro 1" class="img-fluid">
+    <div class="offcanvas-body">
+      <!-- Contenido de los favoritos -->
+      <div class="mb-3">
+        <h6>Artículos Carro</h6>
+      </div>  
+          <div class="card h-auto mb-2">
+            <div class="row">
+              <div class="col-5">
+                <a href="prodtemplate.html">
+                  <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                </a>
               </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata</h5>
-                  <p class="card-text">Precio: $35.000</p>
-                  <button class="btn btn-danger">Eliminar</button>
+              <div class="col-6 align-content-center mt-3">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                <h5 class="fw-bold">$35.000</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body border-top pb-0">
+                  <div class="pb-3 pt-0">
+                    <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- Fin del ejemplo de artículo -->
+          <div class="card h-auto mb-2">
+            <div class="row">
+              <div class="col-5">
+                <a href="prodtemplate.html">
+                  <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                </a>
+              </div>
+              <div class="col-6 align-content-center mt-3">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                <h5 class="fw-bold">$35.000</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body border-top pb-0">
+                  <div class="pb-3 pt-0">
+                    <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="my-auto">
+          <a class="btn btn-secondary" href="login.html"><img src="icons/shopping_cart_white_24dp.svg" alt="cart_icon">Proceder Pago</a>
+          </div>
         </div>
-        <!-- Botones en la parte inferior -->
-        <div class="mt-auto">
-          <a href="login.html" class="btn btn-secondary">Iniciar Pago</a>
-            <button type="button" class="btn btn-secondary">Ir al Carro</button>
-        </div>
+      </div>
     </div>
   </div>
   <!---->
@@ -270,9 +308,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$35.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -288,9 +326,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$20.500</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -298,17 +336,17 @@
                  </div>
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
-                       <img class="img-fluid p-1" src="img//Un_Cuento_Perfecto.jpg" alt="libro_img">
+                     <a href="prodtemplate.html">
+                       <img class="img-fluid p-1" src="img/Un_Cuento_Perfecto.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
                        <h5 class="card-title">Un Cuento Perfecto</h5>
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$22.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary favorite" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary favorite" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -316,7 +354,7 @@
                  </div>
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/Antologia_del_Terror_HP_Lovecraft.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -324,9 +362,9 @@
                      </div>
                      <div class="p-3 pt-0 ">
                        <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -338,7 +376,7 @@
                <div class="row justify-content-center">
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/El_Mapa_de_los_Anhelos_Alice_Kellen.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -346,9 +384,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$16.500</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -356,7 +394,7 @@
                  </div>
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/Despues_Stephen_King.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -364,9 +402,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -374,7 +412,7 @@
                  </div>
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/El_Principito.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -382,9 +420,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$15.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -392,7 +430,7 @@
                  </div>
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/The_Silver_Eyes_.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -400,9 +438,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -450,7 +488,7 @@
                <div class="row justify-content-center">
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -458,9 +496,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$35.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -477,9 +515,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$20.500</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -487,7 +525,7 @@
                  </div>
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img//Un_Cuento_Perfecto.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -495,7 +533,7 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$22.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
                        <a class="btn btn-sm btn-primary bg-secondary border-secondary favorite" href="#">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
@@ -505,7 +543,7 @@
                  </div>
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/Antologia_del_Terror_HP_Lovecraft.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -513,9 +551,9 @@
                      </div>
                      <div class="p-3 pt-0 ">
                        <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -527,7 +565,7 @@
                <div class="row justify-content-center">
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/El_Mapa_de_los_Anhelos_Alice_Kellen.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -535,9 +573,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$16.500</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -545,7 +583,7 @@
                  </div>
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/Despues_Stephen_King.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -553,9 +591,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -563,7 +601,7 @@
                  </div>
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/El_Principito.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -571,9 +609,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$15.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
@@ -581,7 +619,7 @@
                  </div>
                  <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
                    <div class="card h-100">
-                     <a href="#">
+                     <a href="prodtemplate.html">
                        <img class="img-fluid p-1" src="img/The_Silver_Eyes_.jpg" alt="libro_img">
                      </a>
                      <div class="card-body border-top pb-0">
@@ -589,9 +627,9 @@
                      </div>
                      <div class="p-3 pt-0">
                        <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
                          <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" href="#">
+                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
                          <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
                        </a>
                      </div>
