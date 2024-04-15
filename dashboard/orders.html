@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="scss/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+  <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/navlink.js"></script>
+  <script src="js/datepicker.js"></script>
+</head>
+
+<body class="bg-dark">
+  <!-- Top Navegator -->
+  <nav id="navbar" class="navbar navbar-expand-lg bg-body-secondary shadow fixed-top">
+    <div class="container-fluid d-flex justify-content-start ">
+      <div class="col-auto">
+        <button id="sidebarCollapse" class="btn" class="p-2 text-decoration-none"><i class="fas fa-bars small"
+            style="color:#fff;"></i></button>
+      </div>
+      <a class="navbar-brand ms-2" href="#">Rincón Literario Dashboard</a>
+    </div>
+  </nav>
+
+
+  <div id="content" class="container-fluid" style="margin-left: 0px;">
+    <div class="row flex-nowrap">
+      <!-- Sidebar -->
+      <div class="col-auto px-0 py-0">
+        <div id="mySidebar" class="sidebar navbar bg-dark border-end shadow text-nowrap d-flex flex-column">
+          <ul class="navbar-nav w-100">
+            <li class="nav-item">
+              <a class="nav-link" href="dashboard.html"><i class="fas fa-home fa-lg me-2"></i>Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="charts.html"><i class="fas fa-chart-simple fa-lg me-2"></i>Gráficas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shopping.html"><i class="fas fa-bag-shopping fa-lg me-2"></i>Compras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html"><i class="fas fa-truck fa-sm me-2"></i>Órdenes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html"><i class="fas fa-book fa-lg me-2"></i>Productos</a>
+            </li>
+          </ul>
+          <div class="mb-3 w-100" style="padding-left: 2%;">
+            <div class="d-flex justify-content-start dropdown dropup">
+              <a class="btn align-items-center ps-0" href="#" role="button" data-bs-toggle="dropdown">
+                <span class="fa-stack small">
+                  <i class="fas fa-circle fa-stack-2x me-1"></i>
+                  <i class="fas fa-user fa-stack-1x me-1" style="color: #343a40;"></i>
+                </span>
+                Nombre Usuario
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark shadow text-center mx-3">
+                <li><a class="dropdown-item" href="profile.html">Perfil</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="../login.html">Cerrar Sesión</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main Column -->
+      <div class="col-12 mt-4">
+        <div class="container-fluid">
+          <!-- Content Row -->
+          <div class="row">
+            <!-- Content Column -->
+            <div class="col-sm-12 mb-2">
+              <!--Selled Orders Status Table-->
+              <div class="info-card card shadow mb-2 h-auto">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h5 class="m-0 fw-semibold text-light">Seguimiento Órdenes</h5>
+                </div>
+                <div class="card-body mx-2 overflow-auto" style="max-height: 600px;">
+                  <div class="table-responsive">
+                    <table class="table table-striped text-nowrap">
+                      <thead>
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Pagado</th>
+                          <th scope="col">Método</th>
+                          <th scope="col">Cant. Productos</th>
+                          <th scope="col">Fecha</th>
+                          <th scope="col">Estado</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">430</th>
+                          <td>$445,500</td>
+                          <td>Visa</td>
+                          <td>40</td>
+                          <td>07/04/2024</td>
+                          <td>Entregado</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">440</th>
+                          <td>$460,300</td>
+                          <td>Master Card</td>
+                          <td>50</td>
+                          <td>09/04/2024</td>
+                          <td>Enviado</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">450</th>
+                          <td>$225,500</td>
+                          <td>Master Card</td>
+                          <td>20</td>
+                          <td>13/04/2024</td>
+                          <td>Enviado</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">460</th>
+                          <td>$155,500</td>
+                          <td>Visa</td>
+                          <td>15</td>
+                          <td>13/04/2024</td>
+                          <td>En Proceso</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">470</th>
+                          <td>$545,500</td>
+                          <td>Visa</td>
+                          <td>85</td>
+                          <td>13/04/2024</td>
+                          <td>Entregado</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">480</th>
+                          <td>$360,300</td>
+                          <td>Master Card</td>
+                          <td>45</td>
+                          <td>13/04/2024</td>
+                          <td>Enviado</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">490</th>
+                          <td>$725,500</td>
+                          <td>Master Card</td>
+                          <td>95</td>
+                          <td>13/04/2024</td>
+                          <td>Enviado</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">500</th>
+                          <td>$455,500</td>
+                          <td>Visa</td>
+                          <td>30</td>
+                          <td>13/04/2024</td>
+                          <td>En Proceso</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">510</th>
+                          <td>$145,500</td>
+                          <td>Visa</td>
+                          <td>15</td>
+                          <td>13/04/2024</td>
+                          <td>Entregado</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">520</th>
+                          <td>$360,300</td>
+                          <td>Master Card</td>
+                          <td>40</td>
+                          <td>13/04/2024</td>
+                          <td>Enviado</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">560</th>
+                          <td>$525,500</td>
+                          <td>Master Card</td>
+                          <td>50</td>
+                          <td>14/04/2024</td>
+                          <td>Enviado</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">570</th>
+                          <td>$755,500</td>
+                          <td>Visa</td>
+                          <td>85</td>
+                          <td>14/04/2024</td>
+                          <td>En Proceso</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!---->
+            <div class="col-lg-6 mb-4">
+            </div>
+          </div>
+          <!-- Content Row -->
+          <div class="row">
+            <!-- Area Chart -->
+            <div class="col-xl-6 col-md-6 mb-4">
+              <div class="info-card card shadow mb-4 h-auto">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h5 class="m-0 fw-semibold text-light">Gráfica Cantidad Órdenes (Mensuales)</h5>
+                  <div class="col-auto">
+                    <i class="fas fa-chart-simple fa-lg"></i>
+                  </div>
+                </div>
+                <div class="card-body mx-2">
+                  <img class="" src="img/graph1.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-md-6 mb-4">
+              <div class="info-card card shadow mb-4 h-auto">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h5 class="m-0 fw-semibold text-light">Gráfica Gasto Órdenes (Mensuales)</h5>
+                  <div class="col-auto">
+                    <i class="fas fa-chart-simple fa-lg"></i>
+                  </div>
+                </div>
+                <div class="card-body mx-2">
+                  <img class="" src="img/graph2.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

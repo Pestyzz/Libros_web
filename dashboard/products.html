@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="scss/dashboard.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css" rel="stylesheet" />
+
+  <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/navlink.js"></script>
+</head>
+
+<body class="bg-dark">
+  <!-- Top Navegator -->
+  <nav id="navbar" class="navbar navbar-expand-lg bg-body-secondary shadow fixed-top">
+    <div class="container-fluid d-flex justify-content-start">
+      <div class="col-auto">
+        <button id="sidebarCollapse" class="btn" class="p-2 text-decoration-none">
+          <i class="fas fa-bars small" style="color: #fff"></i>
+        </button>
+      </div>
+      <a class="navbar-brand ms-2" href="#">Rincón Literario Dashboard</a>
+    </div>
+  </nav>
+
+  <div id="content" class="container-fluid" style="margin-left: 0px">
+    <div class="row flex-nowrap">
+      <!-- Sidebar -->
+      <div class="col-auto px-0 py-0">
+        <div id="mySidebar" class="sidebar navbar bg-dark border-end shadow text-nowrap d-flex flex-column">
+          <ul class="navbar-nav w-100">
+            <li class="nav-item">
+              <a class="nav-link" href="dashboard.html"><i class="fas fa-home fa-lg me-2"></i>Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="charts.html"><i class="fas fa-chart-simple fa-lg me-2"></i>Gráficas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shopping.html"><i class="fas fa-bag-shopping fa-lg me-2"></i>Compras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html"><i class="fas fa-truck fa-sm me-2"></i>Órdenes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html"><i class="fas fa-book fa-lg me-2"></i>Productos</a>
+            </li>
+          </ul>
+          <div class="mb-3 w-100" style="padding-left: 2%">
+            <div class="d-flex justify-content-start dropdown dropup">
+              <a class="btn align-items-center ps-0" href="#" role="button" data-bs-toggle="dropdown">
+                <span class="fa-stack small">
+                  <i class="fas fa-circle fa-stack-2x me-1"></i>
+                  <i class="fas fa-user fa-stack-1x me-1" style="color: #343a40"></i>
+                </span>
+                Nombre Usuario
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark shadow text-center mx-3">
+                <li><a class="dropdown-item" href="profile.html">Perfil</a></li>
+                <li>
+                  <hr class="dropdown-divider"/>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../login.html">Cerrar Sesión</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main Column -->
+      <div class="col-12 mt-4">
+        <div class="container-fluid">
+          <!-- Content Row -->
+          <div class="row">
+            <!-- Content Column -->
+            <div class="col-sm-12 mb-2">
+              <!--Product List-->
+              <div class="p-2 py-2 pb-lg-3 pb-2 d-flex justify-content-end">
+                <div>
+                  <a class="btn btn-add border-0" href="productadd.html"><i class="fas fa-plus fa-lg me-2"></i>Añadir Libro</a>
+                </div>
+              </div>
+              <div class="info-card card h-auto shadow mb-2">
+                <div class="card-header py-3 pb-0 d-flex flex-row align-items-center justify-content-between">
+                  <div class="d-flex flex-column me-3 ms-lg-2 mb-3">
+                    <h3 class="fw-semibold text-light text-start">
+                      Productos
+                    </h3>
+                    <form class="" role="search">
+                      <input class="form-control" type="text" placeholder="Buscar Libro" aria-label="Search">
+                    </form>
+                  </div>
+                  <div class="d-flex flex-lg-row flex-column align-items-center">
+                    <div class="dropdown dropdown-center">
+                      <button class="btn btn-dark text-nowrap dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Categoría
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li>
+                          <a class="dropdown-item" href="#">Ciencia Ficción</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Fantasía</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Thriller</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Misterio</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Drama</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Romance</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="dropdown dropdown-center mt-lg-0 mt-2 mx-lg-2">
+                      <button class="btn btn-dark text-nowrap dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Ordenar Por
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li>
+                          <a class="dropdown-item" href="#">Recientes</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Relevantes</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Antiguos</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Precio mayor a menor</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Precio menor a mayor</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body h-100 mx-lg-5" style="max-height: fit-content;">
+                  <div class="row">
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                           <img class="img-fluid" src="../img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$35.000</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                          <img class="img-fluid" src="../img/El_Visitante_Stephen_King.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">Stephen King - El visitante</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$20.500</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                           <img class="img-fluid" src="../img/Un_Cuento_Perfecto.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">Un Cuento Perfecto</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$22.000</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                          <img class="img-fluid" src="../img/Antologia_del_Terror_HP_Lovecraft.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">H.P Lovecraft - Antalogía del Terror</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$25.000</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                           <img class="img-fluid" src="../img/El_Mapa_de_los_Anhelos_Alice_Kellen.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">El Mapa de los anhelos</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$16.500</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                           <img class="img-fluid" src="../img/Despues_Stephen_King.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">Stephen King - Después</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$25.000</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                           <img class="img-fluid" src="../img/El_Principito.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">El Principito</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$15.000</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                           <img class="img-fluid" src="../img/The_Silver_Eyes_.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">Five Night's At Freddy's Los Ojos de Plata</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$25.000</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                           <img class="img-fluid" src="../img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$35.000</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                           <img class="img-fluid" src="../img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$35.000</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                           <img class="img-fluid" src="../img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$35.000</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 mb-2">
+                      <div class="info-card card border-2 text-dark-emphasis h-auto">
+                        <div class="card-header bg-white">
+                           <img class="img-fluid" src="../img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                        </div>
+                        <div class="card-body d-flex flex-column border-top pb-0" style="height: 170px;">
+                          <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                          <div class="py-2 d-flex flex-column">
+                            <h5 class="fw-bold">$35.000</h5>
+                            <div>
+                              <a class="btn btn-sm btn-dark border-light border-opacity-50" href="productedit.html">
+                                <i class="fas fa-pen me-2"></i>Editar</a>
+                              <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
+                                <i class="fas fa-trash me-2"></i>Eliminar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <nav>
+                  <ul class="pagination justify-content-end">
+                    <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
