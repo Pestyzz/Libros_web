@@ -12228,15 +12228,6 @@ input.profile.form-control {
     width: 100%;
   }
 }
-input.profileS.form-control {
-  width: 100%;
-}
-
-@media screen and (max-width: 400px) {
-  input.profileS.form-control {
-    width: 100%;
-  }
-}
 @media screen and (max-width: 400px) {
   .dropdown button.btn {
     font-size: 0.8rem;
