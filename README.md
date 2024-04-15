@@ -8,6 +8,10 @@
 - Carrito [X]
 - Login, registro [X] - LUCHO
 - Dashboard [X]
+- Historial de Pedidos [] - LUCHO 
+- Pago como invitado [] - LUCHO
+
+- Fix Login/Register Responsive [] - BASTI
 
 
 ## Paleta de colores ##
