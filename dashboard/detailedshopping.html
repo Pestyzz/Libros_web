@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="scss/dashboard.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css" rel="stylesheet" />
+
+  <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/navlink.js"></script>
+</head>
+
+<body class="bg-dark">
+  <!-- Top Navegator -->
+  <nav id="navbar" class="navbar navbar-expand-lg bg-body-secondary shadow fixed-top">
+    <div class="container-fluid d-flex justify-content-start">
+      <div class="col-auto">
+        <button id="sidebarCollapse" class="btn" class="p-2 text-decoration-none">
+          <i class="fas fa-bars small" style="color: #fff"></i>
+        </button>
+      </div>
+      <a class="navbar-brand ms-2" href="#">Rincón Literario Dashboard</a>
+    </div>
+  </nav>
+
+  <div id="content" class="container-fluid" style="margin-left: 0px">
+    <div class="row flex-nowrap">
+      <!-- Sidebar -->
+      <div class="col-auto px-0 py-0">
+        <div id="mySidebar" class="sidebar navbar bg-dark border-end shadow text-nowrap d-flex flex-column">
+          <ul class="navbar-nav w-100">
+            <li class="nav-item">
+              <a class="nav-link" href="dashboard.html"><i class="fas fa-home fa-lg me-2"></i>Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="charts.html"><i class="fas fa-chart-simple fa-lg me-2"></i>Gráficas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="shopping.html"><i class="fas fa-bag-shopping fa-lg me-2"></i>Compras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="orders.html"><i class="fas fa-truck fa-sm me-2"></i>Órdenes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html"><i class="fas fa-book fa-lg me-2"></i>Productos</a>
+            </li>
+          </ul>
+          <div class="mb-3 w-100" style="padding-left: 2%">
+            <div class="d-flex justify-content-start dropdown dropup">
+              <a class="btn align-items-center ps-0" href="#" role="button" data-bs-toggle="dropdown">
+                <span class="fa-stack small">
+                  <i class="fas fa-circle fa-stack-2x me-1"></i>
+                  <i class="fas fa-user fa-stack-1x me-1" style="color: #343a40"></i>
+                </span>
+                Nombre Usuario
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark shadow text-center mx-3">
+                <li><a class="dropdown-item" href="profile.html">Perfil</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../login.html">Cerrar Sesión</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main Column -->
+      <div class="col-12 mt-4">
+        <div class="container-fluid">
+          <!-- Content Row -->
+          <div class="row">
+            <!-- Content Column -->
+            <div class="col-sm-12 mb-2">
+              <!--Selled Book Status Table-->
+              <div class="info-card card h-auto shadow mb-2">
+                <div class="card-header py-3 pb-0 d-flex flex-row align-items-center justify-content-between">
+                  <div class="d-flex flex-column">
+                    <h3 class="m-0 fw-semibold text-light">
+                      Detalle Compra#210
+                    </h3>
+                    <p>Domingo 07, Abril, 2023, 21:40PM</p>
+                  </div>
+                  <div class="d-flex flex-lg-row flex-column align-items-center">
+                    <div class="dropdown dropdown-center">
+                      <button class="btn btn-dark text-nowrap dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Cambiar Estado
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li>
+                          <a class="dropdown-item" href="#">En Proceso</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Enviado</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Entregado</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Devuelto</a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <a class="dropdown-item" href="#">Cancelado</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="btn-save mt-lg-0 mt-2 mx-lg-2">
+                      <button class="btn btn-dark">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body mx-lg-5" style="max-height: 800px">
+                  <div class="row">
+                    <div class="col-lg-4 mb-2 d-flex flex-column text-nowrap overflow-auto" style="font-size: 15px">
+                      <div class="fw-semibold">
+                        <i class="pe-2 fas fa-user fa-1x"></i>
+                        Cliente
+                      </div>
+                      <div class="ps-1">
+                        <p class="m-0 overflow-auto">Bastián Ñiripil</p>
+                        <p class="m-0 overflow-auto">
+                          bastiniripil@gmail.com
+                        </p>
+                        <p class="m-0 overflow-auto">9 7563 1721</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 mb-2 d-flex flex-column text-nowrap overflow-auto" style="font-size: 15px">
+                      <div class="fw-semibold text-nowrap">
+                        <i class="pe-2 fas fa-truck fa-sm"></i>
+                        Transportista
+                      </div>
+                      <div class="ps-1">
+                        <p class="m-0 overflow-auto">
+                          International Warehouse
+                        </p>
+                        <p class="m-0 overflow-auto">
+                          Método de pago: Tarjeta
+                        </p>
+                        <p class="m-0 overflow-auto">
+                          Estado:
+                          <span class="fw-bold" style="color: #6cc3d5">Entregado</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 mb-3 d-flex flex-column text-nowrap" style="font-size: 15px">
+                      <div class="fw-semibold text-nowrap">
+                        <i class="pe-2 fas fa-location-dot fa-sm"></i>
+                        Entregar en
+                      </div>
+                      <div class="ps-1">
+                        <p class="m-0 overflow-auto">Ciudad: Concepción</p>
+                        <p class="m-0 overflow-auto">Comuna: Chiguayante</p>
+                        <p class="m-0 overflow-auto">
+                          Dirección: Villa Pie de Monte, Calle 1, Casa 2313
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="table-responsive card h-auto">
+                          <table class="table table-sm table-bordered table-striped text-nowrap border-dark rounded-5">
+                            <thead>
+                              <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio Unitario</th>
+                                <th scope="col">Total</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">
+                                  <a class="" href="#">Stephen King - Después</a>
+                                </th>
+                                <td>1</td>
+                                <td>$25,000</td>
+                                <td>$25,000</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">
+                                  <a class="" href="#">Stephen King - El visitante</a>
+                                </th>
+                                <td>1</td>
+                                <td>$20,500</td>
+                                <td>$20,500</td>
+                              </tr>
+                              <tr>
+                                <td class="text-end pe-3" colspan="4">
+                                  <p class="mb-1">
+                                    Subtotal :
+                                    <span class="fw-semibold">$45,500</span>
+                                  </p>
+                                  <p class="mb-1">
+                                    Coste Envío:
+                                    <span class="fw-semibold">$7,200</span>
+                                  </p>
+                                  <p class="mb-1">
+                                    Total:
+                                    <span class="fw-semibold" style="font-size: 24px">$52,700</span>
+                                  </p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Content Row -->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
