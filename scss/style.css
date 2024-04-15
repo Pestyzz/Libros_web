@@ -12121,7 +12121,7 @@ h5.card-title, .card-title.h5 {
 }
 
 a.btn:hover {
-  background-color: #8d5519 !important;
+  background-color: #8d5519;
   outline: 1px solid rgba(0, 0, 0, 0.2);
 }
 
