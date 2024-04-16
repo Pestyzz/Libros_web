@@ -11,6 +11,7 @@
 - Historial de Pedidos [] - LUCHO 
 - Pago como invitado [] - LUCHO
 - Pestaña de Pago [] - LUCHO
+- Administración Clientes  [] - BASTI
 
 - Fix Login/Register Responsive [] - BASTI
 
