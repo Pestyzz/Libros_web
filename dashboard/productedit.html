@@ -50,6 +50,9 @@
             <li class="nav-item">
               <a class="nav-link active" href="products.html"><i class="fas fa-book fa-lg me-2"></i>Productos</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="adminusers.html"><i class="fas fa-users fa-lg me-2"></i>Usuarios</a>
+            </li>
           </ul>
           <div class="mb-3 w-100" style="padding-left: 2%">
             <div class="d-flex justify-content-start dropdown dropup">
@@ -76,8 +79,7 @@
       <!-- Main Column -->
       <div class="col-12 mt-4">
         <div class="container-fluid">
-          <!-- Content Row -->
-          <form action="products.html" method="get">
+          <!-- Content Row -->       
             <div class="row justify-content-center">
               <!-- Content Column -->
               <div class="col-lg-4 mb-2">
@@ -89,82 +91,90 @@
                     </h3>
                   </div>
                   <div class="card-body h-100">
-                    <div class="w-100 mb-3">
-                      <label for="fIsbnEdit" class="h5">ISBN</label>
-                      <input id="fIsbnEdit" name="isbnEdit" type="text" class="form-control" placeholder="ISBN Actual" disabled>
-                    </div>
-                    <div class="w-100 mb-3">
-                      <label for="fBnameEdit" class="h5">Nombre Libro</label>
-                      <input id="fBnameEdit" name="booknameEdit" type="text" class="form-control" placeholder="Nombre Libro Actual">
-                    </div>
-                    <div class="w-100 mb-3">
-                      <label for="fAutorEdit" class="h5">Autor</label>
-                      <input id="fAutorEdit" name="autorEdit" type="text" class="form-control" placeholder="Autor Actual" disabled>
-                    </div>
-                    <div class="w-100 mb-3">
-                      <label for="fEditorialEdit" class="h5">Editorial</label>
-                      <input id="fEditorialEdit" name="editorialEdit" type="text" class="form-control" placeholder="Editorial Actual" required>
-                    </div>
-                    <div class="w-100 mb-3">
-                      <label for="fIdiomaEdit" class="h5">Idioma</label>
-                      <input id="fIdiomaEdit" name="languageEdit" type="text" class="form-control" placeholder="Idioma Actual" required>
-                    </div>
-                    <div class="w-100 mb-3">
-                      <label for="fReviewEdit" class="h5">Reseña</label>
-                      <textarea id="fReviewEdit" name="reviewEdit" type="text" class="form-control" placeholder="Reseña Actual" rows="6" required></textarea>
-                    </div>
-                    <div class="w-100 mb-3">
-                      <label for="fImageEdit" class="h5">Imagen</label>
-                      <div class="d-flex mb-2 py-5 justify-content-center align-items-center border border-light-subtle rounded-2"
-                        <p style="color: #495057;">Preview Imagen Actual</p>
+                    <form action="products.html" method="get">
+                      <div class="w-100 mb-3">
+                        <label for="fIsbnEdit" class="h5">ISBN</label>
+                        <input id="fIsbnEdit" name="isbnEdit" type="text" class="form-control" placeholder="ISBN Actual" disabled>
                       </div>
-                      <label for="file-input" class="file-input-label">
-                        <i class="fas fa-cloud-upload-alt fa-2x"></i> Subir Imagen
-                      </label>
-                      <input id="file-input" type="file" class="file-input">
-                    </div>
-                    <div class="w-auto mb-3 d-flex flex-lg-column flex-row justify-content-lg-start justify-content-between">
-                      <div class="mb-lg-2">
-                        <label for="fCategEdit" class="h5">Categoría</label>
-                        <select id="fCategEdit" name="categoryEdit" class="form-select">
-                          <option selected>Selecciona</option>
-                          <option value="1">Ciencia Ficción</option>
-                          <option value="2">Fantasía</option>
-                          <option value="3">Thriller</option>
-                          <option value="4">Misterio</option>
-                          <option value="5">Drama</option>
-                          <option value="6">Romance</option>
-                        </select> 
+                      <div class="w-100 mb-3">
+                        <label for="fBnameEdit" class="h5">Nombre Libro</label>
+                        <input id="fBnameEdit" name="booknameEdit" type="text" class="form-control" placeholder="Nombre Libro Actual" required>
                       </div>
-                      <div class="ps-lg-0 ps-2 text-nowrap">
-                        <label for="fSubCategEdit" class="h5">Sub Categoría</label>
-                        <select id="fSubCategEdit" name="subcategoryEdit" class="form-select">
-                          <option value="1">Ciencia Ficción</option>
-                          <option value="2">Fantasía</option>
-                          <option value="3">Thriller</option>
-                          <option value="4">Misterio</option>
-                          <option value="5">Drama</option>
-                          <option value="6">Romance</option>
-                          <option selected value="0"> - </option>
-                        </select> 
+                      <div class="w-100 mb-3">
+                        <label for="fAutorEdit" class="h5">Autor</label>
+                        <input id="fAutorEdit" name="autorEdit" type="text" class="form-control" placeholder="Autor Actual" disabled>
                       </div>
-                    </div>
-                    <div class="w-100 mb-4">
-                      <label for="fPriceEdit" class="h5">Precio</label>
-                      <div class="input-group">
-                        <span class="input-group-text">$</span>
-                        <input id="fPriceEdit" name="priceEdit" type="text" class="form-control" placeholder="Precio Actual">
+                      <div class="w-100 mb-3">
+                        <label for="fEditorialEdit" class="h5">Editorial</label>
+                        <input id="fEditorialEdit" name="editorialEdit" type="text" class="form-control" placeholder="Editorial Actual" required>
                       </div>
-                    </div>
-                    <div class="w-100 mb-3">
-                      <input id="publishCheckDefault" type="checkbox" name="publishEdit" class="form-check-input">
-                      <label for="publishCheckDefault" class="form-check-label">
-                        Publicar cambios en la Web
-                      </label>
-                    </div>
-                    <div class="w-100 mb-3">
-                      <button type="submit" class="btn btn-add border-0">Confirmar Edición</button>
-                    </div>
+                      <div class="w-100 mb-3">
+                        <label for="fIdiomaEdit" class="h5">Idioma</label>
+                        <input id="fIdiomaEdit" name="languageEdit" type="text" class="form-control" placeholder="Idioma Actual" required>
+                      </div>
+                      <div class="w-100 mb-3">
+                        <label for="fReviewEdit" class="h5">Reseña</label>
+                        <textarea id="fReviewEdit" name="reviewEdit" type="text" class="form-control" placeholder="Reseña Actual" rows="6" required></textarea>
+                      </div>
+                      <div class="w-100 mb-3">
+                        <h5>Imagen</h5>
+                        <div class="d-flex mb-2 py-5 justify-content-center align-items-center border border-light-subtle rounded-2"
+                          <p style="color: #495057;">Preview Imagen Actual</p>
+                        </div>
+                        <label for="file-input" class="file-input-label">
+                          <i class="fas fa-cloud-upload-alt fa-2x"></i>
+                          Subir Imagen
+                        </label>
+                        <input id="file-input" name="imageEdit" type="file" class="file-input">
+                      </div>
+                      <div class="w-auto mb-3 d-flex flex-lg-column flex-row justify-content-lg-start justify-content-between">
+                        <div class="mb-lg-2">
+                          <label for="fCategEdit" class="h5">Categoría</label>
+                          <select id="fCategEdit" name="categoryEdit" class="form-select">
+                            <option selected>Selecciona</option>
+                            <option value="1">Ciencia Ficción</option>
+                            <option value="2">Fantasía</option>
+                            <option value="3">Thriller</option>
+                            <option value="4">Misterio</option>
+                            <option value="5">Drama</option>
+                            <option value="6">Romance</option>
+                          </select> 
+                        </div>
+                        <div class="ps-lg-0 ps-2 text-nowrap">
+                          <label for="fSubCategEdit" class="h5">Sub Categoría</label>
+                          <select id="fSubCategEdit" name="subcategoryEdit" class="form-select">
+                            <option value="1">Ciencia Ficción</option>
+                            <option value="2">Fantasía</option>
+                            <option value="3">Thriller</option>
+                            <option value="4">Misterio</option>
+                            <option value="5">Drama</option>
+                            <option value="6">Romance</option>
+                            <option selected value="0"> - </option>
+                          </select> 
+                        </div>
+                      </div>
+                      <div class="w-100 mb-4">
+                        <label for="fPriceEdit" class="h5">Precio</label>
+                        <div class="input-group">
+                          <span class="input-group-text">$</span>
+                          <input id="fPriceEdit" name="priceEdit" type="text" class="form-control" placeholder="Precio Actual">
+                        </div>
+                      </div>
+                      <div class="w-100 mb-3">
+                        <input id="publishCheckDefault" type="checkbox" name="publishEdit" class="form-check-input">
+                        <label for="publishCheckDefault" class="form-check-label">
+                          Publicar cambios en la Web
+                        </label>
+                      </div>
+                      <div class="w-100 mb-3 d-flex">
+                        <div class="me-2">
+                          <button type="submit" class="btn btn-add border-0"></i>Guardar Cambios</button>
+                        </div>
+                        <div>
+                          <a class="btn btn-add border-0" href="products.html"></i>Atrás</a>
+                        </div>                          
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>

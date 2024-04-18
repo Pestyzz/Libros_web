@@ -50,6 +50,9 @@
             <li class="nav-item">
               <a class="nav-link" href="products.html"><i class="fas fa-book fa-lg me-2"></i>Productos</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="adminusers.html"><i class="fas fa-users fa-lg me-2"></i>Usuarios</a>
+            </li>
           </ul>
           <div class="mb-3 w-100" style="padding-left: 2%">
             <div class="d-flex justify-content-start dropdown dropup">
@@ -88,14 +91,14 @@
                   </h3>
                 </div>
                 <div class="card-body h-100">
-                  <form action="dashboard.html" method="get">
+                  <form action="dashboard.html" method="post">
                     <div class="row">
                       <div class="col-lg-4 col-md-5 pb-lg-3 d-flex flex-column justify-content-lg-center align-items-center">
                         <div class="p-3 border rounded-5">
                           <label for="fFile-input" style="cursor: pointer;">
                             <i class="fas fa-user" style="font-size: 300px;"></i>
                         </label>
-                        <input id="fFile-input" type="file" class="file-input">
+                        <input id="fFile-input" name="profileImg" type="file" class="file-input">
                         </div>
                       </div>
                       <div class="col-lg-4 col-md-4 col-sm-12 mt-lg-0 mt-3 ps-lg-4">
@@ -155,11 +158,11 @@
                     </div>
                     <div class="d-flex justify-content-lg-end justify-content-center">
                       <div class="me-2">
-                        <a class="btn btn-add border-0" href="dashboard.html"></i>Volver</a>
-                      </div>
-                      <div>
                         <button type="submit" class="btn btn-add border-0"></i>Guardar Cambios</button>
                       </div>
+                      <div>
+                        <a class="btn btn-add border-0" href="dashboard.html"></i>Atrás</a>
+                      </div>  
                     </div>
                   </form>
                 </div>
