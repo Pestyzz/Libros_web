@@ -267,3 +267,38 @@ tbody tr:hover {
     margin-bottom: 5px;
 }
 
+.state {
+    margin: 0;
+    padding: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: min-content !important;
+}
+
+.state.process {
+    background-color: $warning;
+}
+
+.state.sent {
+    background-color: $success;
+}
+
+.state.delivered {
+    background-color: $info;
+}
+
+.state.canceled {
+    background-color: $danger;
+}
+
+.state.returned {
+    background-color: $pink;
+}
+
+.state.active {
+    background-color: $success;
+}
+
+.state.disabled {
+    background-color: $disabled;
+}
