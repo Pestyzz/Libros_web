@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rincón Literario</title>
+    <link rel="stylesheet" href="scss/style.css">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body class="bg-primary-subtle">
+  <!--Top Navegator-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
+    <div class="container-xxl">
+      <h4 class="m-0 ">
+        <a class="navbar-brand" href="index.html">Rincón Literario</a>
+      </h1>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuCategorias" role="button" aria-controls="menuCategorias">
+              Categorías
+            </a>  
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#ofertasSlider">Ofertas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#novedadesSlider">Novedades</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-lg-auto">
+          <form class="d-flex" role="search">
+            <input class="form-control me-md-2" type="search" placeholder="Buscar Libro" aria-label="Buscar Libro">
+          </form>
+          <li class="nav-item">
+            <a class="nav-link active" href="login.html">
+            <img src="icons/account_black_18dp.svg" alt="account_icon" height="25" class="opacity-75">
+            Cuenta
+            </a>
+          </li>
+          <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-black">
+              <hr class="d-lg-none my-2 textx-dark-50">
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
+              <img src="icons/favorite_border_black_24dp.svg" alt="favorite_icon">
+            </a>
+          </li>
+          <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-black">
+              <hr class="d-lg-none my-2 textx-dark-50">
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
+                <img src="icons/shopping_cart_black_24dp.svg" alt="cart_icon" class="opacity-75">
+                Carro
+            </a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!---->
+  <!-- Offcanvas Favoritos -->
+  <div class="offcanvas offcanvas-end favoritos-menu" tabindex="-1" id="menuFavoritos" aria-labelledby="menuFavoritosLabel">
+    <div class="offcanvas-header">
+      <h3 class="offcanvas-title" id="menuFavoritosLabel">Favoritos</h3>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Contenido de los favoritos -->
+      <div class="mb-3">
+        <h6>Artículos favoritos</h6>
+      </div>  
+          <div class="card h-auto mb-2">
+            <div class="row">
+              <div class="col-5">
+                <a href="prodtemplate.html">
+                  <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                </a>
+              </div>
+              <div class="col-6 align-content-center mt-3">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                <h5 class="fw-bold">$35.000</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body border-top pb-0">
+                  <div class="pb-3 pt-0">
+                    <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
+                    <a class="btn btn-sm btn-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
+                      <img src="icons/add_shopping_cart_white_24dp.svg" alt="addCart_icon"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card h-auto mb-2">
+            <div class="row">
+              <div class="col-5">
+                <a href="prodtemplate.html">
+                  <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                </a>
+              </div>
+              <div class="col-6 align-content-center mt-3">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                <h5 class="fw-bold">$35.000</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body border-top pb-0">
+                  <div class="pb-3 pt-0">
+                    <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
+                    <a class="btn btn-sm btn-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
+                      <img src="icons/add_shopping_cart_white_24dp.svg" alt="addCart_icon"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="my-auto">
+          <a class="btn btn-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito"><img src="icons/shopping_cart_white_24dp.svg" alt="cart_icon">Ir al Carro</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <!-- Offcanvas Carrito de Compras -->
+  <div class="offcanvas offcanvas-end favoritos-menu" tabindex="-1" id="menuCarrito" aria-labelledby="menuCarritoLabel">
+    <div class="offcanvas-header">
+      <h3 class="offcanvas-title" id="menuCarritoLabel">Carro</h3>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Contenido del Carrito -->
+      <div class="mb-3">
+        <h6>Artículos Carro</h6>
+      </div>  
+          <div class="card h-auto mb-2">
+            <div class="row">
+              <div class="col-5">
+                <a href="prodtemplate.html">
+                  <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                </a>
+              </div>
+              <div class="col-6 align-content-center mt-3">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                <h5 class="fw-bold">$35.000</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body border-top pb-0">
+                  <div class="pb-3 pt-0">
+                    <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card h-auto mb-2">
+            <div class="row">
+              <div class="col-5">
+                <a href="prodtemplate.html">
+                  <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                </a>
+              </div>
+              <div class="col-6 align-content-center mt-3">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                <h5 class="fw-bold">$35.000</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body border-top pb-0">
+                  <div class="pb-3 pt-0">
+                    <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="my-auto">
+          <a class="btn btn-secondary" href="login.html"><img src="icons/shopping_cart_white_24dp.svg" alt="cart_icon">Proceder Pago</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!---->
+  
+<!-- Historial de Compra 1 -->
+<div class="container py-5">
+    <h1 class="display-5">Historial de Compras</h1>
+    <section aria-label="Historial de Compra">
+      <ul class="list-unstyled">
+        <!-- Historial de Compras Item 1 -->
+        <li class="purchase-history-item">
+          <div class="row">
+            <div class="col-md-2">
+              <img src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+              <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+              <p class="text-muted">
+                Fecha de compra: 2022-01-01<br>
+                Número de orden: #123456<br>
+                Direción de Envio: ******************
+              </p>
+            </div>
+            <div class="col-md-2">
+              <h5 class="fw-bold">$35.000</h5>
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-sm btn-secondary" aria-label="Ver detalles">
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+  
+  <!-- Historial de Compra 2 -->
+  <div class="container py-5">
+    <section aria-label="Historial de Compra">
+      <ul class="list-unstyled">
+        <!-- Historial de Compras Item 2 -->
+        <li class="purchase-history-item">
+          <div class="row">
+            <div class="col-md-2">
+              <img src="img/Un_Cuento_Perfecto.jpg" alt="libro_img" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+              <h5 class="card-title">Un Cuento Perfecto</h5>
+              <p class="text-muted">
+                Fecha de compra: 2022-03-05<br>
+                Número de orden: #345678<br>
+                Direción de Envio: ******************
+              </p>
+            </div>
+            <div class="col-md-2">
+              <h5 class="fw-bold">$22.000</h5>
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-sm btn-secondary" aria-label="Ver detalles">
+                <img src="icons/details_white_24dp.svg" alt="">Ver detalles
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+  
+  <!-- Historial de Compra 3 -->
+  <div class="container py-5">
+    <section aria-label="Historial de Compra">
+      <ul class="list-unstyled">
+        <!-- Historial de Compras Item 3 -->
+        <li class="purchase-history-item">
+          <div class="row">
+            <div class="col-md-2">
+              <img src="img/El_Visitante_Stephen_King.jpg" alt="libro_img" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+              <h5 class="card-title">Stephen King - El Visitante</h5>
+              <p class="text-muted">
+                Fecha de compra: 2022-01-01<br>
+                Número de orden: #123456<br>
+                Direción de Envio: ******************
+              </p>
+            </div>
+            <div class="col-md-2">
+              <h5 class="fw-bold">$20.500</h5>
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-sm btn-secondary" aria-label="Ver detalles">
+                <img src="icons/details_white_24dp.svg" alt="">Ver detalles
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+  
+  </body>
+  </html>
