@@ -12377,4 +12377,10 @@ tbody tr:hover {
 
 .state.disabled {
   background-color: #888;
+}
+
+.errorMessage {
+  margin-top: 5px;
+  font-weight: normal;
+  color: #ff7851;
 }/*# sourceMappingURL=dashboard.css.map */

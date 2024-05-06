@@ -302,3 +302,9 @@ tbody tr:hover {
 .state.disabled {
     background-color: $disabled;
 }
+
+.errorMessage {
+    margin-top: 5px;
+    font-weight: normal;
+    color: $danger;
+}
