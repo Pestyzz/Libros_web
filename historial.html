@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rincón Literario</title>
     <link rel="stylesheet" href="scss/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body class="bg-primary-subtle">
@@ -35,12 +36,18 @@
           <form class="d-flex" role="search">
             <input class="form-control me-md-2" type="search" placeholder="Buscar Libro" aria-label="Buscar Libro">
           </form>
-          <li class="nav-item">
-            <a class="nav-link active" href="login.html">
-            <img src="icons/account_black_18dp.svg" alt="account_icon" height="25" class="opacity-75">
-            Cuenta
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="icons/account_black_18dp.svg" alt="account_icon" height="25" class="opacity-75">
+                Mi Cuenta
             </a>
-          </li>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <!-- Aquí puedes agregar los elementos del menú desplegable -->
+                <a class="dropdown-item" href="indexLogin.html">Inicio</a>
+                <a class="dropdown-item" href="index.html">Cerrar Sesión</a>
+                <!-- Puedes agregar más elementos según sea necesario -->
+            </div>
+        </li>
           <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
             <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-black">
               <hr class="d-lg-none my-2 textx-dark-50">
