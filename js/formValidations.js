@@ -4,8 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     //Se realizan diferentes validaciones dependiendo de si se está en el formulario de profile.html o addUser.html.
 
     const registerForm = document.getElementById("registerForm");
+    const paymentForm = document.getElementById("paymentForm");
 
-    //Datos a validar
+    //Datos a validar register.html
     const user = document.getElementById("fUser");
     const name = document.getElementById("fName");
     const lastNames = document.getElementById("fLnames");
@@ -14,6 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const psw = document.getElementById("fPsw");
     const confirmNewPsw = document.getElementById("fPsw2");
     const address = document.getElementById("fAddress");
+
+    //Datos a validar payment.html
+    const payName = document.getElementById("pName");
+    const payEmail = document.getElementById("pEmail");
+    const payAddress = document.getElementById("pAddress");
+    const payPhone = document.getElementById("pPhone");
+    const payCardPropetary = document.getElementById("pProp");
+    const payCardNumber = document.getElementById("pCardNumb");
+    const payCardExpDate = document.getElementById("pCardExpDate");
+    const payCardCvv = document.getElementById("pCardCvv");
 
     //Función para mostrar el mensaje de error al usuario
     const showError = (inputElement, errorMessage) => {
@@ -118,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Validación email en tiempo real
     email.addEventListener("input", () => {
-       checkEmail(email.value); 
+    checkEmail(email.value); 
     });
 
     //Fin validación email
@@ -192,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
         checkAddress(address.value);
     });
 
+
     const validateForm = (event) => {
         let isValid = true;
 
@@ -232,8 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
         }
     };
-
-    //Si se encuentra el formulario de register.html, se realizan las validaciones para ese formulario
 
     if (registerForm) {
         registerForm.addEventListener("submit", validateForm);
