@@ -14,7 +14,7 @@
     crossorigin="anonymous"></script>
   <script src="js/sidebar.js"></script>
   <script src="js/navlink.js"></script>
-  <script src="js/validations.js"></script>
+  <script src="js/productValidations.js"></script>
 </head>
 
 <body class="bg-dark">
@@ -81,7 +81,7 @@
       <div class="col-12 mt-4">
         <div class="container-fluid">
           <!-- Content Row -->
-          <form action="products.html" method="get">
+          <form action="products.html" method="post" id="productForm">
             <div class="row justify-content-center">
               <!-- Content Column -->
               <div class="col-lg-4 mb-2">
@@ -96,22 +96,34 @@
                     <div class="w-100 mb-3">
                       <label for="fIsbn" class="h5">ISBN</label>
                       <input id="fIsbn" name="isbn" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <div class="errorMessage"></div>
                     </div>
                     <div class="w-100 mb-3">
                       <label for="fBname" class="h5">Nombre Libro</label>
                       <input id="fBname" name="bookname" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <div class="errorMessage"></div>
                     </div>
                     <div class="w-100 mb-3">
-                      <label for="fAutorname" class="h5">Autor</label>
-                      <input id="fAutorname" name="autor" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <label for="fAuthor" class="h5">Autor</label>
+                      <input id="fAuthor" name="author" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <div class="errorMessage"></div>
                     </div>
                     <div class="w-100 mb-3">
-                      <label for="fEditorial" class="h5">Editorial</label>
-                      <input id="fEditorial" name="editorial" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <label for="fPub" class="h5">Editorial</label>
+                      <input id="fPub" name="publisher" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <div class="errorMessage"></div>
                     </div>
-                    <div class="w-100 mb-3">
+                    <div class="mb-lg-2 mb-3">
                       <label for="fLng" class="h5">Idioma</label>
-                      <input id="fLng" name="language" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <select id="fLng" name="language" class="form-select">
+                        <option selected value="0">Selecciona</option>
+                        <option value="es">Español</option>
+                        <option value="en">Inglés</option>
+                        <option value="fr">Francés</option>
+                        <option value="jp">Japonés</option>
+                        <option value="kr">Coreano</option>
+                      </select> 
+                      <div class="errorMessage"></div>
                     </div>
                     <div class="w-100 mb-3">
                       <label for="fReview" class="h5">Reseña</label>
@@ -128,7 +140,7 @@
                       <div class="mb-lg-2">
                         <label for="fCateg" class="h5">Categoria</label>
                         <select id="fCateg" name="category" class="form-select">
-                          <option selected>Selecciona</option>
+                          <option selected value="none">Selecciona</option>
                           <option value="1">Ciencia Ficción</option>
                           <option value="2">Fantasía</option>
                           <option value="3">Thriller</option>
@@ -136,6 +148,7 @@
                           <option value="5">Drama</option>
                           <option value="6">Romance</option>
                         </select> 
+                        <div class="errorMessage"></div>
                       </div>
                       <div class="ps-lg-0 ps-2 text-nowrap">
                         <label for="fSubCateg" class="h5">Sub Categoria</label>
@@ -155,6 +168,7 @@
                       <div class="input-group">
                         <span class="input-group-text">$</span>
                         <input id="fPrice" name="price" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                        <div class="errorMessage"></div>
                       </div>
                     </div>
                     <div class="w-100 mb-3">

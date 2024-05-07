@@ -52,7 +52,7 @@
               <a class="nav-link" href="products.html"><i class="fas fa-book fa-lg me-2"></i>Productos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="adminusers.html"><i class="fas fa-users fa-lg me-2"></i>Usuarios</a>
+              <a class="nav-link active" href="adminusers.html"><i class="fas fa-users fa-lg me-2"></i>Usuarios</a>
             </li>
           </ul>
           <div class="mb-3 w-100" style="padding-left: 2%">
@@ -81,7 +81,7 @@
       <div class="col-12 mt-4">
         <div class="container-fluid">
           <!-- Content Row -->
-          <form action="dashboard.html" method="post" id="profileForm">
+          <form action="dashboard.html" method="post" id="addUserForm">
             <div class="row justify-content-center">
               <!-- Content Column -->
               <div class="col-lg-10 mb-2">
@@ -89,96 +89,87 @@
                 <div class="info-card card h-auto shadow mb-2">
                   <div class="card-header py-3 pb-0 d-flex flex-row align-items-center justify-content-between">
                     <h3 class="fw-semibold text-light text-start">
-                      Perfil
+                      Añadir Usuario
                     </h3>
                   </div>
                   <div class="card-body h-100">
                     <div class="row">
-                      <div
-                        class="col-lg-4 col-md-5 pb-lg-3 d-flex flex-column justify-content-lg-center align-items-center">
-                        <div class="p-3 border rounded-5">
-                          <label for="fFile-input" style="cursor: pointer;">
-                            <i class="fas fa-user" style="font-size: 300px;"></i>
-                          </label>
-                          <input id="fFile-input" name="profileImg" type="file" class="file-input">
+                      <div class="col-lg-6 col-md-4 col-sm-12 mt-0 ps-lg-4">
+                        <div class="w-100 mb-2">
+                          <label for="fUser" class="h5">Nombre Usuario</label>
+                          <input id="fUser" name="user" type="text" class="profile form-control"
+                            placeholder="Escribe aquí..." required>
+                          <div class="errorMessage"></div>
                         </div>
-                      </div>
-                      <div class="col-lg-4 col-md-4 col-sm-12 mt-lg-0 mt-3 ps-lg-4">
                         <div class="w-100 mb-2">
                           <label for="fName" class="h5">Nombre</label>
                           <input id="fName" name="name" type="text" class="profile form-control"
-                            placeholder="Escribe aquí..." value="Nombre Actual" required>
+                            placeholder="Escribe aquí..." required>
                           <div class="errorMessage"></div>
                         </div>
                         <div class="w-100 mb-3">
                           <label for="fLnames" class="h5">Apellidos</label>
                           <input id="fLnames" name="lastnames" type="text" class="profile form-control"
-                            placeholder="Escribe aquí..." value="Apellidos Actuales" required>
+                            placeholder="Escribe aquí..." required>
                           <div class="errorMessage"></div>
                         </div>
                         <div class="w-100 mb-3">
                           <label for="fEmail" class="h5">E-mail</label>
                           <input id="fEmail" name="email" type="email" class="profile form-control"
-                            placeholder="Correo Electrónico Actual" value="correoActual@gmail.com" required>
+                            placeholder="Escribe aquí..." required>
                             <div class="errorMessage"></div>
-                        </div>
-                        <div class="w-100 mb-3">
-                          <label for="fPhone" class="h5">Número Celular</label>
-                          <input id="fPhone" name="phone" type="text" class="profile form-control"
-                            placeholder="N° Celular Actual" required>
-                            <div class="errorMessage"></div>
-                        </div>
+                        </div>     
                       </div>
-                      <div class="col-lg-4 col-md-3">
+                      <div class="col-lg-6 col-md-4 col-sm-12 mt-0 ps-lg-4">
                         <div class="w-100 mb-3">
-                          <label for="fAbout" class="h5">Sobre mí</label>
-                          <textarea id="fAbout" name="about" type="text" class="form-control"
-                            placeholder="Escribe aquí..." rows="12"></textarea>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-6 ps-lg-4 py-3 d-flex flex-column border-top">
-                        <div class="w-100 mb-3">
-                          <label for="fPsw" class="h5">Contraseña Actual</label>
+                          <label for="fPsw2" class="h5">Contraseña</label>
                           <input id="fPsw" name="psw" type="password" class="profileS form-control"
-                            placeholder="Contraseña Actual">
-                          <div class="errorMessage"></div>
-                        </div>
-                        <div class="w-100 mb-3">
-                          <label for="fPsw2" class="h5">Nueva Contraseña</label>
-                          <input id="fPsw2" name="psw2" type="password" class="profileS form-control"
-                            placeholder="Nueva Contraseña" disabled>
+                            placeholder="Escribe aquí..." required>
                           <div class="errorMessage"></div>
                         </div>
                         <div class="w-100 mb-3">
                           <label for="fPsw3" class="h5">Confirmar Contraseña</label>
                           <input id="fPsw3" name="psw3" type="password" class="profileS form-control"
-                            placeholder="Confirmar Contraseña" disabled>
+                            placeholder="Escribe aquí..." required>
                           <div class="errorMessage"></div>
                         </div>
+                        <div class="w-100 mb-3">
+                          <label for="fPhone" class="h5">Número Celular</label>
+                          <input id="fPhone" name="phone" type="text" class="profileS form-control"
+                            placeholder="Escribe aquí..." required>
+                            <div class="errorMessage"></div>
+                        </div>
+                        <div class="w-100 mb-3">
+                          <label for="fSubCateg" class="h5">Tipo Usuario</label>
+                          <select id="fSubCateg" name="subcategory" class="form-select">
+                            <option selected value="1">Cliente</option>
+                            <option value="2">Empleado</option>
+                          </select> 
+                        </div>
                       </div>
-                      <div class="col-lg-6 ps-lg-4 py-3 d-flex flex-column border-top">
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12 ps-lg-4 d-flex flex-column">
                         <div class="w-100 mb-3">
                           <label for="fAdress" class="h5">Dirección</label>
                           <input id="fAdress" name="adress" type="text" class="profileS form-control"
-                            placeholder="Dirección Actual" required>
+                            placeholder="Escribe aquí..." required>
                         </div>
                         <div class="w-100 mb-3">
                           <label for="fRegion" class="h5">Región</label>
                           <input id="fRegion" name="region" type="text" class="profileS form-control"
-                            placeholder="Región Actual" required>
+                            placeholder="Escribe aquí..." required>
                         </div>
                         <div class="w-100 mb-3">
                           <label for="fCiudad" class="h5">Ciudad</label>
                           <input id="fCiudad" name="city" type="text" class="profileS form-control"
-                            placeholder="Ciudad Actual" required>
+                            placeholder="Escribe aquí..." required>
                         </div>
                       </div>
                     </div>
                     <div class="d-flex justify-content-lg-end justify-content-center">
                       <div class="me-2">
-                        <button type="submit" class="btn btn-add border-0">Guardar Cambios</button>
+                        <button type="submit" class="btn btn-add border-0">Confirmar</button>
                       </div>
                       <div>
                         <a class="btn btn-add border-0" href="dashboard.html">Atrás</a>
