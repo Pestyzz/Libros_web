@@ -1,74 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>registro</title>
-    <link rel="stylesheet" href="scss/style.css">
-    <script src="js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>registro</title>
+  <link rel="stylesheet" href="scss/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css" rel="stylesheet" />
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/formValidations.js"></script>
 </head>
+
 <body class="bg-white d-flex justify-content-center align-items-center vh-100"
-style="background-image: url('img/fondo-login.jpg'); background-size: cover;"></body>>
+  style="background-image: url('img/fondo-login.jpg'); background-size: cover;">
 
-<div class="bg-white p-5 rounded-5 text-secondary shadow" 
-style="width: 25rem">
+  <div class="bg-white m-2 p-5 rounded-5 text-secondary shadow" style="width: 25rem">
 
-<div class="d-flex justify-content-start mt-0">
-    <a href="login.html" class="btn btn-white text-black">
-        <img src="icons/Volver-black-icons.svg" style="height: 2rem" /></a>
-  </div>
+    <div class="d-flex justify-content-start mt-0">
+      <a href="login.html" class="btn btn-white text-black">
+        <img src="icons/Volver-black-icons.svg" style="height: 2rem"/>
+      </a>
+    </div>
     <div class="d-flex justify-content-center">
-        <img src="icons/login-icon.svg" alt="register-icon" style="height: 7rem" />
+      <img src="icons/login-icon.svg" alt="register-icon" style="height: 7rem"/>
     </div>
     <div class="text-center fs-1 fw-bold">Registro</div>
-    <div class="input-group mt-4">
-        <div class="input-group-text bg-secondary">
-            <img src="icons/username-icon.svg" 
-            alt="username-icon" style="height: 1rem" />
+    <form action="login.html" method="post" id="registerForm">
+      <div class="d-flex w-100  flex-column ">
+        <div class="input-group mt-4 w-100">
+          <div class="input-group-text bg-secondary">
+            <img src="icons/username-icon.svg" alt="username-icon" style="height: 1rem"/>
+          </div>
+          <input id="fUser" class="form-control bg-light" type="text" placeholder="Nombre de Usuario" required/>
+          <div class="errorMessage"></div>
         </div>
-        <input class="form-control bg-light" 
-        type="text" 
-        placeholder="Nombre de Usuario" />
-    </div>
-    <div class="input-group mt-1">
-        <div class="input-group-text bg-secondary">
-            <img src="icons/email_white_36dp.svg" 
-            alt="email-icon" 
-            style="height: 1rem" />
+        <div class="input-group mt-1 w-100">
+          <div class="input-group-text bg-secondary">
+            <img src="icons/username-icon.svg" alt="username-icon" style="height: 1rem"/>
+          </div>
+          <input id="fName" class="form-control bg-light" type="text" placeholder="Nombre Real" required/>
+          <div class="errorMessage"></div>
         </div>
-        <input class="form-control bg-light" 
-        type="email" 
-        placeholder="Correo Electrónico" />
-    </div>
-    <div class="input-group mt-1">
-        <div class="input-group-text bg-secondary">
-            <img src="icons/password-icon.svg" 
-            alt="password-icon" 
-            style="height: 1rem" />
+        <div class="input-group mt-1 w-100">
+          <div class="input-group-text bg-secondary">
+            <img src="icons/username-icon.svg" alt="username-icon" style="height: 1rem"/>
+          </div>
+          <input id="fLnames" class="form-control bg-light" type="text" placeholder="Apellidos" required/>
+          <div class="errorMessage"></div>
         </div>
-        <input class="form-control bg-light" 
-        type="password" 
-        placeholder="Contraseña" />
-    </div>
-    <div class="input-group mt-1">
-        <div class="input-group-text bg-secondary">
-            <img src="icons/password-icon.svg" 
-            alt="password-icon" 
-            style="height: 1rem" />
+        <div class="input-group mt-1 w-100">
+          <div class="input-group-text bg-secondary">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <input id="fEmail" class="form-control bg-light" type="email" placeholder="Correo Electrónico" required/>
+          <div class="errorMessage"></div>
         </div>
-        <input class="form-control bg-light" 
-        type="password" 
-        placeholder="Confirmar Contraseña" />
-    </div>
-    <div class="btn btn-secondary text-white w-100 mt-4 fw-semibold shadow-sm">
-        <a class="text-white text-decoration-none" href="login.html">Registrarse</a></div>
+        <div class="input-group mt-1 w-100">
+          <div class="input-group-text bg-secondary">
+            <i class="fas fa-phone"></i>
+          </div>
+          <input id="fPhone" class="form-control bg-light" type="text" placeholder="Número Celular" required/>
+          <div class="errorMessage"></div>
+        </div>
+        <div class="input-group mt-1 w-100">
+          <div class="input-group-text bg-secondary">
+            <img src="icons/password-icon.svg" alt="password-icon" style="height: 1rem"/>
+          </div>
+          <input id="fPsw" class="form-control bg-light" type="password" placeholder="Contraseña" required/>
+          <div class="errorMessage"></div>
+        </div>
+        <div class="input-group mt-1 w-100">
+          <div class="input-group-text bg-secondary">
+            <img src="icons/password-icon.svg" alt="password-icon" style="height: 1rem"/>
+          </div>
+          <input id="fPsw2" class="form-control bg-light" type="password" placeholder="Confirmar Contraseña" required/>
+          <div class="errorMessage"></div>
+        </div>
+        <div class="input-group mt-1 w-100">
+          <div class="input-group-text bg-secondary">
+            <i class="fas fa-location"></i>
+          </div>
+          <input id="fAddress" class="form-control bg-light" type="text" placeholder="Dirección" required/>
+          <div class="errorMessage"></div>
+        </div>
+      </div>
+      <div class="btn btn-secondary text-white w-100 mt-4 fw-semibold shadow-sm">
+        <button type="submit" class="btn btn-sm">
+          Registrarse
+        </a>
+      </div>
+    </form>
     <div class="d-flex gap-1 justify-content-center mt-1">
-        <div>¿Ya tienes una cuenta?</div>
-        <a href="login.html" class="text-decoration-none text-black fw-semibold">
-            Inicia Sesión</a>
+      <div><p>¿Ya tienes una cuenta?</p></div>
+      <a href="login.html" class="text-decoration-none text-black fw-semibold">
+        Inicia Sesión
+      </a>
     </div>
-   
-</div>
+  </div>
 </body>
+
 </html>

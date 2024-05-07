@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Se realizan diferentes validaciones dependiendo de si se está en el formulario de profile.html o addUser.html.
 
     const profileForm = document.getElementById("profileForm");
-    const addUserForm = document.getElementById("addUserForm")
+    const addUserForm = document.getElementById("addUserForm");
 
     //Datos a validar
     const user = document.getElementById("fUser");

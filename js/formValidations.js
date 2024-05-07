@@ -3,8 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Las validaciones se hacen a tiempo real en el momento en el que el usuario ingrese los datos.
     //Se realizan diferentes validaciones dependiendo de si se está en el formulario de profile.html o addUser.html.
 
-    const profileForm = document.getElementById("profileForm");
-    const addUserForm = document.getElementById("addUserForm")
+    const registerForm = document.getElementById("registerForm");
 
     //Datos a validar
     const user = document.getElementById("fUser");
@@ -13,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("fEmail");
     const phoneNumber = document.getElementById("fPhone");
     const psw = document.getElementById("fPsw");
-    const newPsw = document.getElementById("fPsw2");
-    const confirmNewPsw = document.getElementById("fPsw3");
+    const confirmNewPsw = document.getElementById("fPsw2");
+    const address = document.getElementById("fAddress");
 
     //Función para mostrar el mensaje de error al usuario
     const showError = (inputElement, errorMessage) => {
@@ -45,19 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    if (addUserForm) {
-        //Validación nombre de usuario en tiempo real
-        user.addEventListener("input", () => {
-            checkUser(user.value);
-            console.log(checkUser(user.value))
-        });
-    }
+    //Validación nombre de usuario en tiempo real
+    user.addEventListener("input", () => {
+        checkUser(user.value);
+        console.log(checkUser(user.value))
+    });
     //Fin Validación nombre de usuario
 
     //Validación Nombre
     const checkName = (value) => {
         if (value.length < 3) {
-            showError(name, "El nombre no es válido.");
+            showError(name, "El nombre ingresado no es válido.");
             return false;
         } else if (value.charAt(0) != value.charAt(0).toUpperCase()) {
             showError(name, "El nombre debe empezar por mayúscula.");
@@ -112,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailPattern.test(value) || value.length < 10) {
-            showError(email, "El Email es inválido.")
+            showError(email, "El formato Email ingresado es inválido.")
         } else {
             clearError(email);
             return true;
@@ -131,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const phonePattern = /^\d+$/;
 
         if (!phonePattern.test(value) || value.trim().length < 9 || value.trim().length > 9) {
-            showError(phoneNumber, "Número Celular inválido.");
+            showError(phoneNumber, "Número Celular ingresado inválido.");
         } else {
             clearError(phoneNumber);
             return true;
@@ -144,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     //Fin validación número celular
 
-    //Validación contraseña actual
+    //Validación contraseña
     const checkPsw = (value) => {
         if (/\s/.test(value)) {
             showError(psw, "La contraseña no puede contener espacios.");
@@ -158,70 +155,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    //Validación contraseña actual en tiempo real
-    if (profileForm) {
-        psw.addEventListener("input", () => {
-            checkPsw(psw.value);
-    
-            //Si el usuario ingresa valores en contraseña actual
-            //Se activan los input nueva contraseña y confirmar contraseña
-            if (psw.value.length > 0) {
-                newPsw.removeAttribute("disabled");
-                newPsw.setAttribute("required", "");
-    
-                confirmNewPsw.removeAttribute("disabled");
-                confirmNewPsw.setAttribute("required", "");
-            } else {
-                newPsw.removeAttribute("required");
-                newPsw.setAttribute("disabled", "");
-                
-                confirmNewPsw.removeAttribute("required");
-                confirmNewPsw.setAttribute("disabled", "");
-    
-                newPsw.value = "";
-                confirmNewPsw.value = "";
-            }
-    
-            checkNewPsw(newPsw.value, psw.value);
-            checkConfNPsw(confirmNewPsw.value, newPsw.value);
-        });
-        //Fin valdiación contraseña actual
-    } else {
-        psw.addEventListener("input", () => {
-            checkPsw(psw.value);
-            checkConfNPsw(confirmNewPsw.value);
-        })
-    }
-    
-    //Validación nueva contraseña
-    const checkNewPsw = (value, pass) => {
-        if (value === pass && pass.length > 0) {
-            showError(newPsw, "Ingrese una contraseña diferente.");
-            return false;
-        } else if (/\s/.test(value)) {
-            showError(newPsw, "La contraseña no puede contener espacios.");
-            return false;
-        } else if (value.length > 0 && value.length < 12) {
-            showError(newPsw, "La contraseña debe contener al menos 12 caracteres.");
-            return false;
-        } else {
-            clearError(newPsw);
-            return true;
-        }
-    }
-
-    //Validación nueva contraseña en tiempo real
-    if (profileForm) {
-        newPsw.addEventListener("input", () => {
-            checkNewPsw(newPsw.value, psw.value)
-        });
-    }
-    //Fin validación nueva contraseña
+    //Validación contraseña en tiempo real
+    psw.addEventListener("input", () => {
+        checkPsw(psw.value);
+        checkConfNPsw(confirmNewPsw.value, psw.value);
+    });
+    //Fin valdiación contraseña
 
     //Validación confirmar contraseña
     const checkConfNPsw = (value, newPass) => {
         if (value != newPass) {
-            showError(confirmNewPsw, "Las contraseñas deben coincidir.");
+            showError(confirmNewPsw, "Ambas  contraseñas deben coincidir.");
             return false;
         } else {
             clearError(confirmNewPsw);
@@ -230,25 +174,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //Validación confirmar contraseña en tiempo real
-    if (profileForm) {
-        confirmNewPsw.addEventListener("input", () => {
-            checkConfNPsw(confirmNewPsw.value, newPsw.value);
-        });
-    } else {
-        confirmNewPsw.addEventListener("input", () => {
-            checkConfNPsw(confirmNewPsw.value, psw.value)
-        })
-    }
+    confirmNewPsw.addEventListener("input", () => {
+        checkConfNPsw(confirmNewPsw.value, psw.value)
+    });
     //Fin validación confirmar contraseña
+
+    const checkAddress = (value) => {
+        if (value.length < 1) {
+            showError(address, "Debe ingresar una dirección válida.");
+            return false;
+        } else {
+            clearError(address);
+            return true;
+        }
+    }
+    address.addEventListener("input", () => {
+        checkAddress(address.value);
+    });
 
     const validateForm = (event) => {
         let isValid = true;
 
-        if (addUserForm) {
-            //Validación del nombre de usuario
-            if (!checkUser(user.value)) {
-                isValid = false;
-            }
+        //Validación del nombre de usuario
+        if (!checkUser(user.value)) {
+            isValid = false;
         }
 
         // Validación del nombre
@@ -270,30 +219,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!checkPhone(phoneNumber.value.trim())) {
             isValid = false;
         }
-        
-        if (profileForm) {
-            // Validación de la contraseña actual solo si se ha ingresado
-            if (psw.value.length > 0) {
-                if (!checkPsw(psw.value)) {
-                    isValid = false;
-                }
-        
-                if (!checkNewPsw(newPsw.value, psw.value)) {
-                    isValid = false;
-                }
-        
-                if (!checkConfNPsw(confirmNewPsw.value, newPsw.value)) {
-                    isValid = false;
-                }
-            }
-        } else {
-            if (!checkPsw(psw.value)) {
-                isValid = false;
-            }
-    
-            if (!checkConfNPsw(confirmNewPsw.value, psw.value)) {
-                isValid = false;
-            }
+
+        if (!checkPsw(psw.value)) {
+            isValid = false;
+        }
+
+        if (!checkConfNPsw(confirmNewPsw.value, psw.value)) {
+            isValid = false;
         }
     
         if (!isValid) {
@@ -301,12 +233,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    //Si se encuentra el formulario de profile.html, se realizan las validaciones para ese formulario
-    //Si se encuentra el formulario de addUser.html, se realizan las validaciones para ese formulario
+    //Si se encuentra el formulario de register.html, se realizan las validaciones para ese formulario
 
-    if (profileForm) {
-        profileForm.addEventListener("submit", validateForm);
-    } else if (addUserForm){
-        addUserForm.addEventListener("submit", validateForm);
+    if (registerForm) {
+        registerForm.addEventListener("submit", validateForm);
     }
 });
