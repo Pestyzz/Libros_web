@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rincón Literario</title>
+  <link rel="stylesheet" href="scss/style.css">
+  <!-- Importa la biblioteca de íconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="js/paymentValidations.js"></script>
+</head>
+
+<body class="bg-primary-subtle">
+  <!--Top Navegator-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
+    <div class="container-xxl">
+      <h4 class="m-0 ">
+        <a class="navbar-brand" href="index.html">Rincón Literario</a>
+        </h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuCategorias" role="button"
+                aria-controls="menuCategorias">
+                Categorías
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#ofertasSlider">Ofertas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#novedadesSlider">Novedades</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-lg-auto">
+            <form class="d-flex" role="search">
+              <input class="form-control me-md-2" type="search" placeholder="Buscar Libro" aria-label="Buscar Libro">
+            </form>
+            <li class="nav-item">
+              <a class="nav-link active" href="login.html">
+                <i class="fa fa-user"></i> Iniciar Sesión <!-- Agrega la clase 'fa' para el ícono de Font Awesome -->
+              </a>
+            </li>
+            <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-black">
+                <hr class="d-lg-none my-2 textx-dark-50">
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button"
+                aria-controls="menuFavoritos">
+                <i class="fa fa-heart"></i> <!-- Agrega la clase 'fa' para el ícono de Font Awesome -->
+              </a>
+            </li>
+            <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-black">
+                <hr class="d-lg-none my-2 textx-dark-50">
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuCarrito" role="button"
+                aria-controls="menuCarrito">
+                <i class="fa fa-shopping-cart"></i> Carro <!-- Agrega la clase 'fa' para el ícono de Font Awesome -->
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </nav>
+  <!---->
+  <div class="container"><!-- Contenido Principal -->
+    <div>
+      <h1 class="display-3 pt-2 pl-2 text-center">Proceso de Pago</h1>
+    </div>
+    <div class="row pt-2 me-lg-0 me-1">
+      <form action="index.html" method="post" id="paymentForm" class="d-flex flex-lg-row flex-column gap-lg-4">
+        <div class="col-lg-6 pb-4">
+          <div class="card p-2 shadow bg-primary">
+            <div class="text-center mb-6">
+              <h3>Información del Cliente</h3>
+            </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="pName" class="form-label"><i class="fa fa-user me-2"></i>Nombre</label>
+                  <input type="text" class="form-control" id="pName" name="name" required>
+                  <div class="errorMessage"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="pEmail" class="form-label"><i class="fa fa-envelope me-2"></i>Correo Electrónico</label>
+                  <input type="email" class="form-control" id="pEmail" name="email" required>
+                  <div class="errorMessage"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="pAddress" class="form-label"><i class="fa fa-address-card"></i> Dirección</label>
+                  <input type="text" class="form-control" id="pAddress" name="address" required>
+                  <div class="errorMessage"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="pPhone" class="form-label"><i class="fa fa-phone"></i> Teléfono</label>
+                  <input type="tel" class="form-control" id="pPhone" name="phone" required>
+                  <div class="errorMessage"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-2">
+          <div class="card p-2 shadow bg-primary">
+            <div class="text-center mb-4">
+              <h3>Pagar con Tarjeta</h3>
+            </div>
+            <div class="d-flex flex-row align-items-center mb-4 pb-1">
+              <h5 class="mx-2">Tarjetas Aceptadas</h5>
+              <img class="img-fluid me-2" src="https://img.icons8.com/color/48/000000/mastercard-logo.png" />
+              <img class="img-fluid rounded-2 " src="/img/logo-banco-estado.jpg" width="30" height="30" />
+            </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="pProp">Propietario tarjeta</label>
+              <input type="text" id="pProp" class="form-control form-control-lg" placeholder="Luis Perez" required/>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-lg-6 col-5">
+                <div class="form-outline">
+                  <label class="form-label text-nowrap" for="pCardNumb">Número de Tarjeta</label>
+                  <input type="text" id="pCardNumb" class="form-control form-control-lg"
+                    placeholder="1234 5678 1234 5678" required/>
+                  <div class="errorMessage"></div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-4">
+                <div class="form-outline">
+                  <label class="form-label" for="pCardExpDate">Fecha Exp</label>
+                  <input type="text" id="pCardExpDate" class="form-control form-control-lg" placeholder="MM/YYYY" required/>
+                  <div class="errorMessage"></div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-3">
+                <div class="form-outline">
+                  <label class="form-label" for="pCardCvv">Cvv</label>
+                  <input type="password" id="pCardCvv" class="form-control form-control-lg" placeholder="Cvv" required/>
+                  <div class="errorMessage"></div>
+                </div>
+              </div>
+              <div class="container text-end pt-3">
+                <button type="submit" class="btn btn-success btn-lg">Pagar</button>
+                <a href="index.html" role="button" class="btn btn-danger btn-lg">Cancelar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -12117,7 +12117,7 @@ body {
 }
 
 .sidebar ul li.nav-item:hover {
-  background-color: #fff;
+  background-color: #f0f0f0;
 }
 
 .content {
@@ -12340,4 +12340,47 @@ tbody tr:hover {
 
 .file-input-label i {
   margin-bottom: 5px;
+}
+
+.state {
+  margin: 0;
+  padding: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: -moz-min-content !important;
+  width: min-content !important;
+}
+
+.state.process {
+  background-color: #ffce67;
+}
+
+.state.sent {
+  background-color: #56cc9d;
+}
+
+.state.delivered {
+  background-color: #6cc3d5;
+}
+
+.state.canceled {
+  background-color: #ff7851;
+}
+
+.state.returned {
+  background-color: #e83e8c;
+}
+
+.state.active {
+  background-color: #56cc9d;
+}
+
+.state.disabled {
+  background-color: #888;
+}
+
+.errorMessage {
+  margin-top: 5px;
+  font-weight: normal;
+  color: #ff7851;
 }/*# sourceMappingURL=dashboard.css.map */

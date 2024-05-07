@@ -14,6 +14,7 @@
     crossorigin="anonymous"></script>
   <script src="js/sidebar.js"></script>
   <script src="js/navlink.js"></script>
+  <script src="js/productValidations.js"></script>
 </head>
 
 <body class="bg-dark">
@@ -50,6 +51,9 @@
             <li class="nav-item">
               <a class="nav-link active" href="products.html"><i class="fas fa-book fa-lg me-2"></i>Productos</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="adminusers.html"><i class="fas fa-users fa-lg me-2"></i>Usuarios</a>
+            </li>
           </ul>
           <div class="mb-3 w-100" style="padding-left: 2%">
             <div class="d-flex justify-content-start dropdown dropup">
@@ -77,94 +81,115 @@
       <div class="col-12 mt-4">
         <div class="container-fluid">
           <!-- Content Row -->
-          <div class="row justify-content-center">
-            <!-- Content Column -->
-            <div class="col-lg-4 mb-2">
-              <!--Product Add-->
-              <div class="info-card card h-auto shadow mb-2">
-                <div class="card-header py-3 pb-0 d-flex flex-row align-items-center justify-content-between">
-                  <h3 class="fw-semibold text-light text-start">
-                    Añadir Producto
-                  </h3>
-                </div>
-                <div class="card-body h-100">
-                  <div class="w-100 mb-3">
-                    <h5>ISBN</h5>
-                    <input type="text" class="form-control" placeholder="Escribe aquí...">
+          <form action="products.html" method="post" id="productForm">
+            <div class="row justify-content-center">
+              <!-- Content Column -->
+              <div class="col-lg-4 mb-2">
+                <!--Product Add-->
+                <div class="info-card card h-auto shadow mb-2">
+                  <div class="card-header py-3 pb-0 d-flex flex-row align-items-center justify-content-between">
+                    <h3 class="fw-semibold text-light text-start">
+                      Añadir Producto
+                    </h3>
                   </div>
-                  <div class="w-100 mb-3">
-                    <h5>Nombre Libro</h5>
-                    <input type="text" class="form-control" placeholder="Escribe aquí...">
-                  </div>
-                  <div class="w-100 mb-3">
-                    <h5>Autor</h5>
-                    <input type="text" class="form-control" placeholder="Escribe aquí...">
-                  </div>
-                  <div class="w-100 mb-3">
-                    <h5>Editorial</h5>
-                    <input type="text" class="form-control" placeholder="Escribe aquí...">
-                  </div>
-                  <div class="w-100 mb-3">
-                    <h5>Idioma</h5>
-                    <input type="text" class="form-control" placeholder="Escribe aquí...">
-                  </div>
-                  <div class="w-100 mb-3">
-                    <h5>Reseña</h5>
-                    <textarea type="" class="form-control" placeholder="Escribe aquí..." rows="6"></textarea>
-                  </div>
-                  <div class="w-100 mb-3">
-                    <h5>Imagen</h5>
-                    <label for="file-input" class="file-input-label">
-                        <i class="fas fa-cloud-upload-alt fa-2x"></i> Subir Imagen
-                    </label>
-                    <input id="file-input" type="file" class="file-input">
-                  </div>
-                  <div class="w-auto mb-3 d-flex flex-lg-column flex-row justify-content-lg-start justify-content-between">
-                    <div class="mb-lg-2">
-                      <h5>Categoría</h5>
-                      <select class="form-select">
-                        <option selected>Selecciona</option>
-                        <option value="1">Ciencia Ficción</option>
-                        <option value="2">Fantasía</option>
-                        <option value="3">Thriller</option>
-                        <option value="4">Misterio</option>
-                        <option value="5">Drama</option>
-                        <option value="6">Romance</option>
+                  <div class="card-body h-100">
+                    <div class="w-100 mb-3">
+                      <label for="fIsbn" class="h5">ISBN</label>
+                      <input id="fIsbn" name="isbn" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <div class="errorMessage"></div>
+                    </div>
+                    <div class="w-100 mb-3">
+                      <label for="fBname" class="h5">Nombre Libro</label>
+                      <input id="fBname" name="bookname" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <div class="errorMessage"></div>
+                    </div>
+                    <div class="w-100 mb-3">
+                      <label for="fAuthor" class="h5">Autor</label>
+                      <input id="fAuthor" name="author" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <div class="errorMessage"></div>
+                    </div>
+                    <div class="w-100 mb-3">
+                      <label for="fPub" class="h5">Editorial</label>
+                      <input id="fPub" name="publisher" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                      <div class="errorMessage"></div>
+                    </div>
+                    <div class="mb-lg-2 mb-3">
+                      <label for="fLng" class="h5">Idioma</label>
+                      <select id="fLng" name="language" class="form-select">
+                        <option selected value="0">Selecciona</option>
+                        <option value="es">Español</option>
+                        <option value="en">Inglés</option>
+                        <option value="fr">Francés</option>
+                        <option value="jp">Japonés</option>
+                        <option value="kr">Coreano</option>
                       </select> 
+                      <div class="errorMessage"></div>
                     </div>
-                    <div class="ps-lg-0 ps-2 text-nowrap">
-                      <h5>Sub Categoría</h5>
-                      <select class="form-select">
-                        <option value="1">Ciencia Ficción</option>
-                        <option value="2">Fantasía</option>
-                        <option value="3">Thriller</option>
-                        <option value="4">Misterio</option>
-                        <option value="5">Drama</option>
-                        <option value="6">Romance</option>
-                        <option selected value="0"> - </option>
-                      </select> 
+                    <div class="w-100 mb-3">
+                      <label for="fReview" class="h5">Reseña</label>
+                      <textarea id="fReview" name="review" type="text" class="form-control" placeholder="Escribe aquí..." rows="6" required></textarea>
                     </div>
-                  </div>
-                  <div class="w-100 mb-4">
-                    <h5>Precio</h5>
-                    <div class="input-group">
-                      <span class="input-group-text">$</span>
-                      <input type="text" class="form-control" placeholder="Escribe aquí...">
+                    <div class="w-100 mb-3">
+                      <h5>Imagen</h5>
+                      <label for="file-input" class="file-input-label">
+                          <i class="fas fa-cloud-upload-alt fa-2x"></i> Subir Imagen
+                      </label>
+                      <input id="file-input" type="file" class="file-input" required>
                     </div>
-                  </div>
-                  <div class="w-100 mb-3">
-                    <input type="checkbox" id="publishCheckDefault" class="form-check-input" value="">
-                    <label for="publishCheckDefault" class="form-check-label">
-                      Publicar en la Web
-                    </label>
-                  </div>
-                  <div class="w-100 mb-3">
-                    <a role="button" class="btn btn-add border-0" href="products.html">Confirmar Producto</a>
+                    <div class="w-auto mb-3 d-flex flex-lg-column flex-row justify-content-lg-start justify-content-between">
+                      <div class="mb-lg-2">
+                        <label for="fCateg" class="h5">Categoria</label>
+                        <select id="fCateg" name="category" class="form-select">
+                          <option selected value="none">Selecciona</option>
+                          <option value="1">Ciencia Ficción</option>
+                          <option value="2">Fantasía</option>
+                          <option value="3">Thriller</option>
+                          <option value="4">Misterio</option>
+                          <option value="5">Drama</option>
+                          <option value="6">Romance</option>
+                        </select> 
+                        <div class="errorMessage"></div>
+                      </div>
+                      <div class="ps-lg-0 ps-2 text-nowrap">
+                        <label for="fSubCateg" class="h5">Sub Categoria</label>
+                        <select id="fSubCateg" name="subcategory" class="form-select">
+                          <option value="1">Ciencia Ficción</option>
+                          <option value="2">Fantasía</option>
+                          <option value="3">Thriller</option>
+                          <option value="4">Misterio</option>
+                          <option value="5">Drama</option>
+                          <option value="6">Romance</option>
+                          <option selected value="0"> - </option>
+                        </select> 
+                      </div>
+                    </div>
+                    <div class="w-100 mb-4">
+                      <label for="fPrice" class="h5">Precio</label>
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input id="fPrice" name="price" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                        <div class="errorMessage"></div>
+                      </div>
+                    </div>
+                    <div class="w-100 mb-3">
+                      <input type="checkbox" id="publishCheckDefault" name="publish" class="form-check-input">
+                      <label for="publishCheckDefault" class="form-check-label">
+                        Publicar en la Web
+                      </label>
+                    </div>
+                    <div class="w-100 mb-3 d-flex">
+                      <div class="me-2">
+                        <button type="submit" class="btn btn-add border-0"></i>Guardar Cambios</button>
+                      </div>
+                      <div>
+                        <a class="btn btn-add border-0" href="products.html"></i>Atrás</a>
+                      </div>  
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
