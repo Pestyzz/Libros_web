@@ -8,13 +8,14 @@
 - Carrito [X]
 - Login, registro [X] - LUCHO
 - Dashboard [X]
-- Historial de Pedidos [] - LUCHO 
-- Pago como invitado [] - LUCHO
-- Pestaña de Pago [] - LUCHO
-- Administración Clientes  [] - BASTI
+- Historial de Pedidos [X] - LUCHO 
+- Pago como invitado [X] - LUCHO
+- Pestaña de Pago [X] - LUCHO
+- Administración Clientes  [X] - BASTI
 
-- Fix Login/Register Responsive [] - BASTI
-
+- Fix Login/Register Responsive [X] - BASTI
+- Formularcios y Validaciones [X] - BASTI
+- Consumir API Geolocalización [X] - BASTI
 
 ## Paleta de colores ##
 
