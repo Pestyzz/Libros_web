@@ -60,3 +60,28 @@ a.btn:hover {
 .btn-volver{
     padding: 0px !important;
 }
+
+.fas {
+    color: #fff;
+}
+
+.errorMessage {
+    margin-top: 5px;
+    font-weight: normal;
+    color: $danger;
+}
+
+input.form-control {
+    width: 90%;
+}
+
+@media screen and (max-width: 1400px) {
+    input.form-control {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 400px) {
+    input.form-control {
+        width: 100%;
+    }
+}

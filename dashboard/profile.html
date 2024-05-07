@@ -14,6 +14,7 @@
     crossorigin="anonymous"></script>
   <script src="js/sidebar.js"></script>
   <script src="js/navlink.js"></script>
+  <script src="js/userValidations.js"></script>
 </head>
 
 <body class="bg-dark">
@@ -50,6 +51,9 @@
             <li class="nav-item">
               <a class="nav-link" href="products.html"><i class="fas fa-book fa-lg me-2"></i>Productos</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="adminusers.html"><i class="fas fa-users fa-lg me-2"></i>Usuarios</a>
+            </li>
           </ul>
           <div class="mb-3 w-100" style="padding-left: 2%">
             <div class="d-flex justify-content-start dropdown dropup">
@@ -63,7 +67,7 @@
               <ul class="dropdown-menu dropdown-menu-dark shadow text-center mx-3">
                 <li><a class="dropdown-item" href="profile.html">Perfil</a></li>
                 <li>
-                  <hr class="dropdown-divider"/>
+                  <hr class="dropdown-divider" />
                 </li>
                 <li>
                   <a class="dropdown-item" href="../login.html">Cerrar Sesión</a>
@@ -77,96 +81,118 @@
       <div class="col-12 mt-4">
         <div class="container-fluid">
           <!-- Content Row -->
-          <div class="row justify-content-center">
-            <!-- Content Column -->
-            <div class="col-lg-10 mb-2">
-              <!--Product Add-->
-              <div class="info-card card h-auto shadow mb-2">
-                <div class="card-header py-3 pb-0 d-flex flex-row align-items-center justify-content-between">
-                  <h3 class="fw-semibold text-light text-start">
-                    Perfil
-                  </h3>
-                </div>
-                <div class="card-body h-100">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-5 pb-lg-3 d-flex flex-column justify-content-lg-center align-items-center">
-                      <div class="p-3 border rounded-5">
-                        <label for="file-input" style="cursor: pointer;">
-                          <i class="fas fa-user" style="font-size: 300px;"></i>
-                      </label>
-                      <input id="file-input" type="file" class="file-input">
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12 mt-lg-0 mt-3 ps-lg-4">
-                      <div class="w-100 mb-3">
-                        <h5>Nombres</h5>
-                        <input type="text" class="profile form-control" placeholder="Nombres Actuales">
-                      </div>
-                      <div class="w-100 mb-3">
-                        <h5>Apellidos</h5>
-                        <input type="text" class="profile form-control" placeholder="Apellidos Actuales">
-                      </div>
-                      <div class="w-100 mb-3">
-                        <h5>E-mail</h5>
-                        <input type="text" class="profile form-control" placeholder="Correo Electrónico Actual">
-                      </div>
-                      <div class="w-100 mb-3">
-                        <h5>Número Celular</h5>
-                        <input type="text" class="profile form-control" placeholder="N° Celular Actual">
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-3">
-                      <div class="w-100 mb-3">
-                        <h5>Sobre mí</h5>
-                        <textarea type="" class="form-control" placeholder="Escribe aquí..." rows="12"></textarea>
-                      </div>
-                    </div>
+          <form action="dashboard.html" method="post" id="profileForm">
+            <div class="row justify-content-center">
+              <!-- Content Column -->
+              <div class="col-lg-10 mb-2">
+                <!--Product Add-->
+                <div class="info-card card h-auto shadow mb-2">
+                  <div class="card-header py-3 pb-0 d-flex flex-row align-items-center justify-content-between">
+                    <h3 class="fw-semibold text-light text-start">
+                      Perfil
+                    </h3>
                   </div>
-                  <div class="row">
-                    <div class="col-lg-6 ps-lg-4 py-3 d-flex flex-column border-top">
-                      <div class="w-100 mb-3">
-                        <h5>Contraseña Actual</h5>
-                        <input type="text" class="profileS form-control" placeholder="Contraseña Actual">
+                  <div class="card-body h-100">
+                    <div class="row">
+                      <div
+                        class="col-lg-4 col-md-5 pb-lg-3 d-flex flex-column justify-content-lg-center align-items-center">
+                        <div class="p-3 border rounded-5">
+                          <label for="fFile-input" style="cursor: pointer;">
+                            <i class="fas fa-user" style="font-size: 300px;"></i>
+                          </label>
+                          <input id="fFile-input" name="profileImg" type="file" class="file-input">
+                        </div>
                       </div>
-                      <div class="w-100 mb-3">
-                        <h5>Nueva Contraseña</h5>
-                        <input type="text" class="profileS form-control" placeholder="Nueva Contraseña">
+                      <div class="col-lg-4 col-md-4 col-sm-12 mt-lg-0 mt-3 ps-lg-4">
+                        <div class="w-100 mb-2">
+                          <label for="fName" class="h5">Nombre</label>
+                          <input id="fName" name="name" type="text" class="profile form-control"
+                            placeholder="Escribe aquí..." value="Nombre Actual" required>
+                          <div class="errorMessage"></div>
+                        </div>
+                        <div class="w-100 mb-3">
+                          <label for="fLnames" class="h5">Apellidos</label>
+                          <input id="fLnames" name="lastnames" type="text" class="profile form-control"
+                            placeholder="Escribe aquí..." value="Apellidos Actuales" required>
+                          <div class="errorMessage"></div>
+                        </div>
+                        <div class="w-100 mb-3">
+                          <label for="fEmail" class="h5">E-mail</label>
+                          <input id="fEmail" name="email" type="email" class="profile form-control"
+                            placeholder="Correo Electrónico Actual" value="correoActual@gmail.com" required>
+                            <div class="errorMessage"></div>
+                        </div>
+                        <div class="w-100 mb-3">
+                          <label for="fPhone" class="h5">Número Celular</label>
+                          <input id="fPhone" name="phone" type="text" class="profile form-control"
+                            placeholder="N° Celular Actual" required>
+                            <div class="errorMessage"></div>
+                        </div>
                       </div>
-                      <div class="w-100 mb-3">
-                        <h5>Confirmar Contraseña</h5>
-                        <input type="text" class="profileS form-control" placeholder="Confirmar Contraseña">
+                      <div class="col-lg-4 col-md-3">
+                        <div class="w-100 mb-3">
+                          <label for="fAbout" class="h5">Sobre mí</label>
+                          <textarea id="fAbout" name="about" type="text" class="form-control"
+                            placeholder="Escribe aquí..." rows="12"></textarea>
+                        </div>
                       </div>
                     </div>
-                    <div class="col-lg-6 ps-lg-4 py-3 d-flex flex-column border-top">
-                      <div class="w-100 mb-3">
-                        <h5>Dirección</h5>
-                        <input type="text" class="profileS form-control" placeholder="Dirección Actual">
+                    <div class="row">
+                      <div class="col-lg-6 ps-lg-4 py-3 d-flex flex-column border-top">
+                        <div class="w-100 mb-3">
+                          <label for="fPsw" class="h5">Contraseña Actual</label>
+                          <input id="fPsw" name="psw" type="password" class="form-control"
+                            placeholder="Contraseña Actual">
+                          <div class="errorMessage"></div>
+                        </div>
+                        <div class="w-100 mb-3">
+                          <label for="fPsw2" class="h5">Nueva Contraseña</label>
+                          <input id="fPsw2" name="psw2" type="password" class="form-control"
+                            placeholder="Nueva Contraseña" disabled>
+                          <div class="errorMessage"></div>
+                        </div>
+                        <div class="w-100 mb-3">
+                          <label for="fPsw3" class="h5">Confirmar Contraseña</label>
+                          <input id="fPsw3" name="psw3" type="password" class="form-control"
+                            placeholder="Confirmar Contraseña" disabled>
+                          <div class="errorMessage"></div>
+                        </div>
                       </div>
-                      <div class="w-100 mb-3">
-                        <h5>Región</h5>
-                        <input type="text" class="profileS form-control" placeholder="Región Actual">
-                      </div>
-                      <div class="w-100 mb-3">
-                        <h5>Ciudad</h5>
-                        <input type="text" class="profileS form-control" placeholder="Ciudad Actual">
+                      <div class="col-lg-6 ps-lg-4 py-3 d-flex flex-column border-top">
+                        <div class="w-100 mb-3">
+                          <label for="fAdress" class="h5">Dirección</label>
+                          <input id="fAdress" name="adress" type="text" class="form-control"
+                            placeholder="Dirección Actual" required>
+                        </div>
+                        <div class="w-100 mb-3">
+                          <label for="fRegion" class="h5">Región</label>
+                          <input id="fRegion" name="region" type="text" class="form-control"
+                            placeholder="Región Actual" required>
+                        </div>
+                        <div class="w-100 mb-3">
+                          <label for="fCiudad" class="h5">Ciudad</label>
+                          <input id="fCiudad" name="city" type="text" class="form-control"
+                            placeholder="Ciudad Actual" required>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="d-flex justify-content-lg-end justify-content-center">
-                    <div class="me-2">
-                      <a class="btn btn-add border-0" href="dashboard.html"></i>Volver</a>
-                    </div>
-                    <div>
-                      <a class="btn btn-add border-0" href="dashboard.html"></i>Guardar Cambios</a>
+                    <div class="d-flex justify-content-lg-end justify-content-center">
+                      <div class="me-2">
+                        <button type="submit" class="btn btn-add border-0">Guardar Cambios</button>
+                      </div>
+                      <div>
+                        <a class="btn btn-add border-0" href="dashboard.html">Atrás</a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </body>
+
 </html>
