@@ -18,8 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const region = data.localityInfo.administrative[1].name;
                 const city = data.localityInfo.administrative[2].name
                 const locality = data.localityInfo.administrative[3].name;
-                addressInput.value = country + ", " + region +  ", " + city + ", " + locality; // Actualiza el valor del input con el nombre del país
+                // Actualiza el valor del input con la dirección actual en la que se encuentra el usuario
+                addressInput.value = country + ", " + region +  ", " + city + ", " + locality;
+                // Actualiza el valor del input de la region
                 regionInput.value = region;
+                // Actualiza el valor del input de la ciudad
                 cityInput.value = locality;
 
                 // Eliminar el event listener después de actualizar los campos
