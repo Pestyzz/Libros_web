@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     //Las validaciones se hacen a tiempo real en el momento en el que el usuario ingrese los datos.
-    //Se realizan diferentes validaciones dependiendo de si se está en el formulario de profile.html o addUser.html.
 
     const registerForm = document.getElementById("registerForm");
-    const paymentForm = document.getElementById("paymentForm");
 
     //Datos a validar register.html
     const user = document.getElementById("fUser");
@@ -16,21 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmNewPsw = document.getElementById("fPsw2");
     const address = document.getElementById("fAddress");
 
-    //Datos a validar payment.html
-    const payName = document.getElementById("pName");
-    const payEmail = document.getElementById("pEmail");
-    const payAddress = document.getElementById("pAddress");
-    const payPhone = document.getElementById("pPhone");
-    const payCardPropetary = document.getElementById("pProp");
-    const payCardNumber = document.getElementById("pCardNumb");
-    const payCardExpDate = document.getElementById("pCardExpDate");
-    const payCardCvv = document.getElementById("pCardCvv");
-
     //Función para mostrar el mensaje de error al usuario
     const showError = (inputElement, errorMessage) => {
         const errorElement = inputElement.nextElementSibling;
         errorElement.textContent = errorMessage;
-    }   
+    }    
 
     //Función para limpiar el mensaje de error si pasa las validaciones
     const clearError = (inputElement) => {
