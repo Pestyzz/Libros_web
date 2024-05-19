@@ -32,7 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const checkLogPass = (value) => {
-        if (/\s/.test(value) || value.length > 0 && value.length < 12) {
+        if (/\s/.test(value)) {
+            showError(loginPass, "Contraseña Inválida");
+            return false;
+        } else if (value.length > 0 && value.length < 12) {
             showError(loginPass, "Contraseña Inválida");
             return false;
         } else {
@@ -46,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const validateForm = (event) => {
-        isValid = true;
+        let isValid = true;
 
         if (!checkLogUser(loginUser.value)) {
             isValid = false;
@@ -56,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             isValid = false;
         }
 
-        if (isValid === false) {
+        if (!isValid) {
             event.preventDefault();
         }
     }
