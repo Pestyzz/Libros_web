@@ -18,7 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkRecoverEmail = (value) => {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!emailPattern.test(value) || value.length < 10) {
+        if (value.length === 0) {
+            showError(recoverEmail, "Debe ingresar un correo.")
+            return false;
+        } else if (!emailPattern.test(value)) {
             showError(recoverEmail, "El formato Email ingresado es inválido.")
             return false;
         } else {

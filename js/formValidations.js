@@ -145,6 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (/\s/.test(value)) {
             showError(psw, "La contraseña no puede contener espacios.");
             return false;
+        } else if (value.length === 0) {
+            showError(psw, "Debe ingresar una contraseña.")
+            return false;
         } else if (value.length > 0 && value.length < 12) {
             showError(psw, "La contraseña debe contener al menos 12 caracteres.");
             return false;
@@ -163,7 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Validación confirmar contraseña
     const checkConfNPsw = (value, newPass) => {
-        if (value != newPass) {
+        if (value.length === 0) {
+            showError(confirmNewPsw, "Debe ingresar una contraseña.");
+            return false;
+        } else if (value != newPass) {
             showError(confirmNewPsw, "Ambas  contraseñas deben coincidir.");
             return false;
         } else {
@@ -179,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Fin validación confirmar contraseña
 
     const checkAddress = (value) => {
-        if (value.length < 1) {
+        if (value.length === 0) {
             showError(address, "Debe ingresar una dirección válida.");
             return false;
         } else {
@@ -225,6 +231,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!checkConfNPsw(confirmNewPsw.value, psw.value)) {
+            isValid = false;
+        }
+
+        if (!checkAddress(address.value)) {
             isValid = false;
         }
     

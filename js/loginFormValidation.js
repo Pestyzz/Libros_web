@@ -32,7 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const checkLogPass = (value) => {
-        if (/\s/.test(value)) {
+        if (value.length === 0) {
+            showError(loginPass, "Debe ingresar una contraseña.");
+            return false;
+        } else if (/\s/.test(value)) {
             showError(loginPass, "Contraseña Inválida");
             return false;
         } else if (value.length > 0 && value.length < 12) {
@@ -64,7 +67,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    if (loginForm) {
-        loginForm.addEventListener("submit", validateForm)
-    }
+    loginForm.addEventListener("submit", validateForm);
 });
