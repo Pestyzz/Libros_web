@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     //Las validaciones se hacen a tiempo real en el momento en el que el usuario ingrese los datos.
-    //Se realizan diferentes validaciones dependiendo de si se está en el formulario de profile.html o addUser.html.
 
     const registerForm = document.getElementById("registerForm");
-    const paymentForm = document.getElementById("paymentForm");
 
     //Datos a validar register.html
     const user = document.getElementById("fUser");
@@ -16,21 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmNewPsw = document.getElementById("fPsw2");
     const address = document.getElementById("fAddress");
 
-    //Datos a validar payment.html
-    const payName = document.getElementById("pName");
-    const payEmail = document.getElementById("pEmail");
-    const payAddress = document.getElementById("pAddress");
-    const payPhone = document.getElementById("pPhone");
-    const payCardPropetary = document.getElementById("pProp");
-    const payCardNumber = document.getElementById("pCardNumb");
-    const payCardExpDate = document.getElementById("pCardExpDate");
-    const payCardCvv = document.getElementById("pCardCvv");
-
     //Función para mostrar el mensaje de error al usuario
     const showError = (inputElement, errorMessage) => {
         const errorElement = inputElement.nextElementSibling;
         errorElement.textContent = errorMessage;
-    }   
+    }    
 
     //Función para limpiar el mensaje de error si pasa las validaciones
     const clearError = (inputElement) => {
@@ -157,6 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (/\s/.test(value)) {
             showError(psw, "La contraseña no puede contener espacios.");
             return false;
+        } else if (value.length === 0) {
+            showError(psw, "Debe ingresar una contraseña.")
+            return false;
         } else if (value.length > 0 && value.length < 12) {
             showError(psw, "La contraseña debe contener al menos 12 caracteres.");
             return false;
@@ -175,7 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Validación confirmar contraseña
     const checkConfNPsw = (value, newPass) => {
-        if (value != newPass) {
+        if (value.length === 0) {
+            showError(confirmNewPsw, "Debe ingresar una contraseña.");
+            return false;
+        } else if (value != newPass) {
             showError(confirmNewPsw, "Ambas  contraseñas deben coincidir.");
             return false;
         } else {
@@ -191,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Fin validación confirmar contraseña
 
     const checkAddress = (value) => {
-        if (value.length < 1) {
+        if (value.length === 0) {
             showError(address, "Debe ingresar una dirección válida.");
             return false;
         } else {
@@ -237,6 +231,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (!checkConfNPsw(confirmNewPsw.value, psw.value)) {
+            isValid = false;
+        }
+
+        if (!checkAddress(address.value)) {
             isValid = false;
         }
     

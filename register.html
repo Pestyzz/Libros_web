@@ -1,105 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>registro</title>
-  <link rel="stylesheet" href="scss/style.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css" rel="stylesheet" />
+  <title>Rincón Literario</title>
+  <link rel="stylesheet" href="scss/login.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css" rel="stylesheet"/>
 
   <script src="js/bootstrap.min.js"></script>
   <script src="js/formValidations.js"></script>
   <script src="js/geolocationAPI.js"></script>
 </head>
 
-<body class="bg-white d-flex justify-content-center align-items-center vh-100"
-  style="background-image: url('img/fondo-login.jpg'); background-size: cover;">
-
-  <div class="bg-white m-2 p-5 rounded-5 text-secondary shadow" style="width: 25rem">
-
-    <div class="d-flex justify-content-start mt-0">
-      <a href="login.html" class="btn btn-white text-black">
-        <img src="icons/Volver-black-icons.svg" style="height: 2rem"/>
-      </a>
-    </div>
-    <div class="d-flex justify-content-center">
-      <img src="icons/login-icon.svg" alt="register-icon" style="height: 7rem"/>
-    </div>
-    <div class="text-center fs-1 fw-bold">Registro</div>
-    <form action="login.html" method="post" id="registerForm">
-      <div class="d-flex w-100  flex-column ">
-        <div class="input-group mt-4 w-100">
-          <div class="input-group-text bg-secondary">
-            <img src="icons/username-icon.svg" alt="username-icon" style="height: 1rem"/>
-          </div>
-          <input id="fUser" class="form-control bg-light" type="text" placeholder="Nombre de Usuario" required/>
-          <div class="errorMessage"></div>
+<body class="bg-white d-flex justify-content-center align-items-center h-100">
+  <main class="container col-lg-9 col-12">
+    <div class="container bg-white p-0 rounded-5 text-secondary shadow-lg d-flex flex-lg-row flex-md-row flex-column justify-content-center">
+      <div class="col-lg-5 col">
+        <img src="img/fondo-login.webp" alt="img-login" class="img-fluid login w-100">
+      </div>
+      <div class="col p-3">
+        <div class="mt-2">
+          <a href="login.html" class="btn btn-back btn-brand"><i class="fas fa-arrow-left fa-xl text-black"></i></a>
         </div>
-        <div class="input-group mt-1 w-100">
-          <div class="input-group-text bg-secondary">
-            <img src="icons/username-icon.svg" alt="username-icon" style="height: 1rem"/>
-          </div>
-          <input id="fName" class="form-control bg-light" type="text" placeholder="Nombre Real" required/>
-          <div class="errorMessage"></div>
+        <div>
+          <h4 class="mt-lg-5 mt-1 text-center">¡Ingrese sus datos!</h2>
         </div>
-        <div class="input-group mt-1 w-100">
-          <div class="input-group-text bg-secondary">
-            <img src="icons/username-icon.svg" alt="username-icon" style="height: 1rem"/>
-          </div>
-          <input id="fLnames" class="form-control bg-light" type="text" placeholder="Apellidos" required/>
-          <div class="errorMessage"></div>
+        <div class="px-lg-5 px-md-4 px-sm-4">
+          <form action="login.html" method="post" id="registerForm" novalidate>
+            <div class="w-100 mb-4">
+              <label for="fUser" class="form-label text-dark">Usuario</label>
+              <input type="text" placeholder="Ingrese su usuario..." id="fUser" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fName" class="form-label text-dark">Primer Nombre</label>
+              <input type="text" placeholder="Ingrese su primer nombre..." id="fName" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fLnames" class="form-label text-dark">Apellidos</label>
+              <input type="text" placeholder="Ingrese sus apellidos..." id="fLnames" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fEmail" class="form-label text-dark">Correo</label>
+              <input type="mail" placeholder="Ingrese su correo electrónico..." id="fEmail" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fPhone" class="form-label text-dark">Celular</label>
+              <input type="text" placeholder="Ingrese su número celular..." id="fPhone" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fPsw" class="form-label text-dark">Contraseña</label>
+              <input type="password" placeholder="Ingrese su contraseña..." id="fPsw" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fPsw2" class="form-label text-dark">Confirmar Contraseña</label>
+              <input type="password" placeholder="Confirme su contraseña..." id="fPsw2" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-5">
+              <label for="fAddress" class="form-label text-dark">Dirección</label>
+              <input type="text" placeholder="Ingrese su dirección..." id="fAddress" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="d-flex justify-content-center mb-2">
+              <button type="submit" class="btn btn-primary text-dark text-nowrap">Registrarme</button>
+            </div>
+          </form>
         </div>
-        <div class="input-group mt-1 w-100">
-          <div class="input-group-text bg-secondary">
-            <i class="fas fa-envelope"></i>
+        <hr class="hr-text ms-1" data-content="O">
+        <div class="d-flex flex-column w-100">
+          <div class="d-flex justify-content-center gap-4 mb-2">
+            <div>
+              <button type="button" class="btn btn-brand google"><i class="fa-brands fa-google fa-lg"></i></button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-brand facebook"><i class="fa-brands fa-facebook fa-lg"></i></button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-brand instagram"><i class="fa-brands fa-instagram fa-lg"></i></button>
+            </div>
           </div>
-          <input id="fEmail" class="form-control bg-light" type="email" placeholder="Correo Electrónico" required/>
-          <div class="errorMessage"></div>
-        </div>
-        <div class="input-group mt-1 w-100">
-          <div class="input-group-text bg-secondary">
-            <i class="fas fa-phone"></i>
-          </div>
-          <input id="fPhone" class="form-control bg-light" type="text" placeholder="Número Celular" required/>
-          <div class="errorMessage"></div>
-        </div>
-        <div class="input-group mt-1 w-100">
-          <div class="input-group-text bg-secondary">
-            <img src="icons/password-icon.svg" alt="password-icon" style="height: 1rem"/>
-          </div>
-          <input id="fPsw" class="form-control bg-light" type="password" placeholder="Contraseña" required/>
-          <div class="errorMessage"></div>
-        </div>
-        <div class="input-group mt-1 w-100">
-          <div class="input-group-text bg-secondary">
-            <img src="icons/password-icon.svg" alt="password-icon" style="height: 1rem"/>
-          </div>
-          <input id="fPsw2" class="form-control bg-light" type="password" placeholder="Confirmar Contraseña" required/>
-          <div class="errorMessage"></div>
-        </div>
-        <div class="input-group mt-1 w-100">
-          <div class="input-group-text bg-secondary">
-            <i class="fas fa-location"></i>
-          </div>
-          <input onclick="" id="fAddress" class="form-control bg-light" type="text" placeholder="Dirección" required/>
-          <div class="errorMessage"></div>
         </div>
       </div>
-      <div class="btn btn-secondary text-white w-100 mt-4 fw-semibold shadow-sm">
-        <button type="submit" class="btn btn-sm">
-          Registrarse
-        </a>
-      </div>
-    </form>
-    <div class="d-flex gap-1 justify-content-center mt-1">
-      <div><p>¿Ya tienes una cuenta?</p></div>
-      <a href="login.html" class="text-decoration-none text-black fw-semibold">
-        Inicia Sesión
-      </a>
     </div>
-  </div>
+  </main>
 </body>
 
 </html>
