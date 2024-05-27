@@ -17,8 +17,8 @@
 - Formularcios y Validaciones [X] - BASTI
 - Consumir API Geolocalización [X] - BASTI
 
-- Rework Login/Register/Recover [] - BASTI
-- Separar SCSS para index y login [] - BASTI
+- Rework Login/Register/Recover [X] - BASTI
+- Separar SCSS para index y login [X] - BASTI
 
 - Migrar proyecto a Django []
 - Crear BD con MongoDB []
