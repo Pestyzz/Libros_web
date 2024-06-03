@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const lastNamesArray = value.trim().split(" ");
 
         if (lastNamesArray.length !== 2) {
-            showError(lastNames, "Debe ingresar uno o ambos apellidos")
+            showError(lastNames, "Debe ingresar ambos apellidos")
             return false;
         } 
 
@@ -148,8 +148,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (value.length === 0) {
             showError(psw, "Debe ingresar una contraseña.")
             return false;
-        } else if (value.length > 0 && value.length < 12) {
-            showError(psw, "La contraseña debe contener al menos 12 caracteres.");
+        } else if (value.length > 0 && value.length < 8) {
+            showError(psw, "Debe contener al menos 8 caracteres.");
             return false;
         } else {
             clearError(psw);

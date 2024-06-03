@@ -12082,12 +12082,12 @@ legend {
 }
 
 body {
-  padding-top: 0;
-  height: 100vh;
+  margin-top: auto;
+  height: 100dvh;
 }
 
 .errorMessage {
-  position: absolute;
+  max-height: 1.5em;
   margin-top: 2px;
   font-weight: normal;
   color: #ff7851;

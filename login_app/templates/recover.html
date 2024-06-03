@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rincón Literario</title>
-  <link rel="stylesheet" href="scss/login.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css" rel="stylesheet"/>
-
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/recoverValidation.js"></script>
-</head>
-
+{% extends "layouts/baseLogin.html" %}
+{% load static %}
+{% block scriptForms %}
+  <script src="{% static "/js/recoverValidation.js" %}"></script>
+{% endblock %}
 <body class="bg-white d-flex justify-content-center align-items-center">
   <main class="container col-lg-7 col-12">
     <div class="container bg-white p-0 rounded-5 text-secondary shadow-lg d-flex flex-lg-row flex-md-row flex-column justify-content-center">

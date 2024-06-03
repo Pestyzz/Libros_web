@@ -1,14 +1,14 @@
-@import "../node_modules/bootstrap/dist/variables";
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
-@import "../node_modules/bootstrap/dist/bootswatch";
+@import "../../../node_modules/bootstrap/dist/variables";
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../../node_modules/bootstrap/dist/bootswatch";
 
 body {
-    padding-top: 0;
-    height: 100vh;
+    margin-top: auto;
+    height: 100dvh;
 }
 
 .errorMessage {
-    position: absolute;
+    max-height: 1.5em;
     margin-top: 2px;
     font-weight: normal;
     color: $danger;

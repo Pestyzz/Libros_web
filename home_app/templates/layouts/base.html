@@ -16,7 +16,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
     <div class="container-xxl">
       <h4 class="m-0 ">
-        <a class="navbar-brand" href="index.html">Rincón Literario</a>
+        <a class="navbar-brand" href="{% url "home" %}">Rincón Literario</a>
       </h1>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
             <input class="form-control me-md-2" type="search" placeholder="Buscar Libro" aria-label="Buscar Libro">
           </form>
           <li class="nav-item">
-            <a class="nav-link active" href="login.html">
+            <a class="nav-link active" href="{% url "login" %}">
             <i class="fas fa-user fa-x2 me-1"></i>
             Iniciar Sesión
             </a>
