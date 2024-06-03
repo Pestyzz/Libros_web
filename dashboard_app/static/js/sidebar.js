@@ -1,6 +1,5 @@
 $(document).ready(function() {
   $('#sidebarCollapse').click(function() {
-    console.log('Click en el botón de colapsar la barra lateral');
     $('#mySidebar').toggleClass('show'); // Alternar la clase 'show' en la barra lateral
     if ($('#mySidebar').hasClass('show')) {
       openNav();
