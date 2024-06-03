@@ -14,6 +14,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="{% static "/js/sidebar.js" %}"></script>
   <script src="{% static "/js/navlink.js" %}"></script>
+  {% block validationScript %}{% endblock %}
 </head>
 <body class="bg-dark">
     <!--Navegator -->
@@ -22,7 +23,7 @@
       <div class="col-auto">
         <button id="sidebarCollapse" class="btn" class="p-2 text-decoration-none"><i class="fas fa-bars small" style="color:#fff;"></i></button>
       </div>
-      <a class="navbar-brand ms-2" href="#">Rincón Literario Dashboard</a>
+      <a class="navbar-brand ms-2" href="{% url "dashboardHome" %}">Rincón Literario Dashboard</a>
     </div>
   </nav>
 
@@ -33,22 +34,22 @@
         <div id="mySidebar" class="sidebar navbar bg-dark border-end shadow text-nowrap d-flex flex-column">
           <ul class="navbar-nav w-100">
             <li class="nav-item">
-              <a class="nav-link" href="dashboard.html"><i class="fas fa-home fa-lg me-2"></i>Inicio</a>
+              <a class="nav-link" href="{% url "dashboardHome" %}"><i class="fas fa-home fa-lg me-2"></i>Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="charts.html"><i class="fas fa-chart-simple fa-lg me-2"></i>Gráficas</a>
+              <a class="nav-link" href="{% url "dashboardCharts" %}"><i class="fas fa-chart-simple fa-lg me-2"></i>Gráficas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="shopping.html"><i class="fas fa-bag-shopping fa-lg me-2"></i>Compras</a>
+              <a class="nav-link" href="{% url "dashboardShopping" %}"><i class="fas fa-bag-shopping fa-lg me-2"></i>Compras</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="orders.html"><i class="fas fa-truck fa-sm me-2"></i>Órdenes</a>
+              <a class="nav-link" href="{% url "dashboardOrders" %}"><i class="fas fa-truck fa-sm me-2"></i>Órdenes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="products.html"><i class="fas fa-book fa-lg me-2"></i>Productos</a>
+              <a class="nav-link" href="{% url "dashboardProducts" %}"><i class="fas fa-book fa-lg me-2"></i>Productos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="adminusers.html"><i class="fas fa-users fa-lg me-2"></i>Usuarios</a>
+              <a class="nav-link" href="{% url "dashboardUsers" %}"><i class="fas fa-users fa-lg me-2"></i>Usuarios</a>
             </li>
           </ul>
           <div class="mb-3 w-100" style="padding-left: 2%;">
@@ -81,4 +82,4 @@
     </div>
   </div>
 </body>
-
+</html>

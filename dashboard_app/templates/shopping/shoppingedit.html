@@ -1,0 +1,152 @@
+{% extends "layouts/baseDashboard.html" %}
+
+{% block content %}
+  <!-- Content Row -->
+  <div class="row">
+    <!-- Content Column -->
+    <div class="col-sm-12 mb-2">
+      <!--Selled Book Status Table-->
+      <div class="info-card card h-auto shadow mb-2">
+        <div class="card-header py-3 pb-0 d-flex flex-row align-items-center justify-content-between">
+          <div class="d-flex flex-column">
+            <h3 class="m-0 fw-semibold text-light">
+              Detalle Compra#210
+            </h3>
+            <p>Domingo 07, Abril, 2023, 21:40PM</p>
+          </div>
+          <div class="d-flex flex-lg-row flex-column align-items-center">
+            <div class="dropdown dropdown-center">
+              <button class="btn btn-dark text-nowrap dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Cambiar Estado
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                  <a class="dropdown-item" href="#">En Proceso</a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="#">Enviado</a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="#">Entregado</a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="#">Devuelto</a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="#">Cancelado</a>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-save mt-lg-0 mt-2 mx-lg-2">
+              <a role="button" class="btn btn-dark" href="shopping.html">Guardar</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body mx-lg-5" style="max-height: 800px">
+          <div class="row">
+            <div class="col-lg-4 mb-2 d-flex flex-column text-nowrap overflow-auto" style="font-size: 15px">
+              <div class="fw-semibold">
+                <i class="pe-2 fas fa-user fa-1x"></i>
+                Cliente
+              </div>
+              <div class="ps-1">
+                <p class="m-0 overflow-auto">Bastián Ñiripil</p>
+                <p class="m-0 overflow-auto">
+                  bastiniripil@gmail.com
+                </p>
+                <p class="m-0 overflow-auto">9 7563 1721</p>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-2 d-flex flex-column text-nowrap overflow-auto" style="font-size: 15px">
+              <div class="fw-semibold text-nowrap">
+                <i class="pe-2 fas fa-truck fa-sm"></i>
+                Transportista
+              </div>
+              <div class="ps-1">
+                <p class="m-0 overflow-auto">
+                  International Warehouse
+                </p>
+                <p class="m-0 overflow-auto">
+                  Método de pago: Tarjeta
+                </p>
+                <p class="m-0 overflow-auto">
+                  Estado:
+                  <span class="fw-bold" style="color: #6cc3d5">Entregado</span>
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-3 d-flex flex-column text-nowrap" style="font-size: 15px">
+              <div class="fw-semibold text-nowrap">
+                <i class="pe-2 fas fa-location-dot fa-sm"></i>
+                Entregar en
+              </div>
+              <div class="ps-1">
+                <p class="m-0 overflow-auto">Ciudad: Concepción</p>
+                <p class="m-0 overflow-auto">Comuna: Chiguayante</p>
+                <p class="m-0 overflow-auto">
+                  Dirección: Villa Pie de Monte, Calle 1, Casa 2313
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="table-responsive card h-auto">
+                  <table class="table table-sm table-bordered table-striped text-nowrap border-dark rounded-5">
+                    <thead>
+                      <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio Unitario</th>
+                        <th scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <a class="" href="#">Stephen King - Después</a>
+                        </th>
+                        <td>1</td>
+                        <td>$25,000</td>
+                        <td>$25,000</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <a class="" href="#">Stephen King - El visitante</a>
+                        </th>
+                        <td>1</td>
+                        <td>$20,500</td>
+                        <td>$20,500</td>
+                      </tr>
+                      <tr>
+                        <td class="text-end pe-3" colspan="4">
+                          <p class="mb-1">
+                            Subtotal :
+                            <span class="fw-semibold">$45,500</span>
+                          </p>
+                          <p class="mb-1">
+                            Coste Envío:
+                            <span class="fw-semibold">$7,200</span>
+                          </p>
+                          <p class="mb-1">
+                            Total:
+                            <span class="fw-semibold" style="font-size: 24px">$52,700</span>
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Content Row -->
+{% endblock %}

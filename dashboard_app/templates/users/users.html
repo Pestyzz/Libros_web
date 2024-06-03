@@ -1,0 +1,427 @@
+{% extends "layouts/baseDashboard.html" %}
+
+{% load static %}
+{% block content %}
+  <!-- Content Row -->
+  <div class="row">
+    <!-- Content Column -->
+    <div class="col-sm-12 mb-2">
+      <!--Selled Orders Status Table-->
+      <div class="p-2 py-2 pb-lg-3 pb-2 d-flex justify-content-end">
+        <div>
+          <a class="btn btn-add border-0" href="{% url "" %}"><i class="fas fa-plus fa-lg me-2"></i>Añadir Usuario</a>
+        </div>
+      </div>
+      <div class="info-card card shadow mb-2 h-auto">
+        <div class="card-header py-3 pb-0 d-flex flex-row  align-items-center justify-content-between">
+          <div class="d-flex flex-column me-3 ms-lg-2 mb-3">
+            <h3 class="fw-semibold text-light text-start">
+              Administrar Usuarios
+            </h3>
+            <form class="" role="search">
+              <input class="form-control" type="text" placeholder="ID/Nombre/Fecha" aria-label="Search">
+            </form>
+          </div>
+          <div class="d-flex flex-lg-row flex-column align-items-center">
+            <div class="dropdown dropdown-center mt-lg-0 mt-2 mx-lg-2">
+              <button class="btn btn-dark text-nowrap dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fas fa-filter me-2"></i>Filtrar Por
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                  <a class="dropdown-item" href="#">Recientes</a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="#">Antiguos</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown dropdown-center mt-lg-0 mt-2 mx-lg-3">
+              <button class="btn btn-dark text-nowrap dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Tipo
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li>
+                  <a class="dropdown-item" href="#">Clientes</a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="#">Empleados</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-body mx-2 overflow-auto" style="max-height: 600px;">
+          <div class="table-responsive">
+            <table class="table table-striped text-nowrap">
+              <thead>
+                <tr>
+                  <th scope="col">ID Usuario</th>
+                  <th scope="col">Nombre Usuario</th>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Apellidos</th>
+                  <th scope="col">Fecha Registro</th>
+                  <th scope="col">Cant. Compras</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--AÑADIR FOR CON LOS DATOS CORRESPONDIENTES-->
+                <tr>
+                  <th scope="row">210</th>
+                  <td>Pedrito142</td>
+                  <td>José Miguel</td>
+                  <td>Perez Gonzalez</td>
+                  <td>07/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">220</th>
+                  <td>Pedrito142</td>
+                  <td>Pepito Andrés</td>
+                  <td>Fernando Gonzalez</td>
+                  <td>09/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">230</th>
+                  <td>Pedrito142</td>
+                  <td>Pepito Andrés</td>
+                  <td>Fernando Gonzalez</td>
+                  <td>13/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">240</th>
+                  <td>Pedrito142</td>
+                  <td>José Miguel</td>
+                  <td>Perez Gonzalez</td>
+                  <td>13/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">250</th>
+                  <td>Pedrito142</td>
+                  <td>José Miguel</td>
+                  <td>Perez Gonzalez</td>
+                  <td>13/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">260</th>
+                  <td>Pedrito142</td>
+                  <td>Pepito Andrés</td>
+                  <td>Fernando Gonzalez</td>
+                  <td>13/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">270</th>
+                  <td>Pedrito142</td>
+                  <td>Pepito Andrés</td>
+                  <td>Fernando Gonzalez</td>
+                  <td>13/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">280</th>
+                  <td>Pedrito142</td>
+                  <td>José Miguel</td>
+                  <td>Perez Gonzalez</td>
+                  <td>13/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">290</th>
+                  <td>Pedrito142</td>
+                  <td>José Miguel</td>
+                  <td>Perez Gonzalez</td>
+                  <td>13/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">300</th>
+                  <td>Pedrito142</td>
+                  <td>Pepito Andrés</td>
+                  <td>Fernando Gonzalez</td>
+                  <td>13/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">310</th>
+                  <td>Pedrito142</td>
+                  <td>Pepito Andrés</td>
+                  <td>Fernando Gonzalez</td>
+                  <td>14/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">320</th>
+                  <td>Pedrito142</td>
+                  <td>José Miguel</td>
+                  <td>Perez Gonzalez</td>
+                  <td>14/04/2024</td>
+                  <td>30</td>
+                  <td>Cliente</td>
+                  <td><p class="state active rounded-pill bg-opacity-75 fw-semibold">Activo</p></td>
+                  <td class="p-1">
+                    <div class="d-flex justify-content-end">
+                      <div>
+                      <a class="btn btn-sm btn-dark" href="edituser.html">
+                        <i class="fas fa-pen fa-sm me-1"></i>
+                        Editar
+                      </a>
+                    </div>
+                    <div class="ms-2">
+                      <button type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-x fa-sm me-1"></i>
+                        Eliminar
+                      </button>
+                    </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <div class="col-lg-6 mb-4">
+    </div>
+  </div>
+  <!-- Content Row -->
+  <div class="row">
+    <!-- Area Chart -->
+    <div class="col-xl-6 col-md-6 mb-4">
+      <div class="info-card card shadow mb-4 h-auto">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h5 class="m-0 fw-semibold text-light">Gráfica Usuarios Registrados (Mensuales)</h5>
+          <div class="col-auto">
+            <i class="fas fa-chart-simple fa-lg"></i>
+          </div>
+        </div>
+        <div class="card-body mx-2">
+          <img class="" src="{% static "public/img/graph1.png" %}" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+      <div class="info-card card shadow mb-4 h-auto">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h5 class="m-0 fw-semibold text-light">Gráfica Cantidad Compras Usuarios (Mensuales)</h5>
+          <div class="col-auto">
+            <i class="fas fa-chart-simple fa-lg"></i>
+          </div>
+        </div>
+        <div class="card-body mx-2">
+          <img class="" src="{% static "public/img/graph2.png" %}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
