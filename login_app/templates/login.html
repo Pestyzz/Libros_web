@@ -7,6 +7,12 @@
 
 {% block backButton %}{% url "home" %}{% endblock %}
 {% load static %}
+{% block leftCol %}
+  <div class="col-lg-5 col">
+    <img src="{% static "/public/img/fondo-login.webp" %}" alt="img-login" class="img-fluid login w-100">
+  </div>
+{% endblock %}
+{% block topTitle %}¡Bienvenid@ a Rincón Literario!{% endblock %}
 {% block content %}
   <div class="px-lg-5 px-md-4 px-sm-4">
     <form action="{% url "home" %}" method="POST" id="loginForm" novalidate>

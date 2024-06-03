@@ -12086,6 +12086,10 @@ body {
   height: 100dvh;
 }
 
+main {
+  max-height: 100%;
+}
+
 .errorMessage {
   max-height: 1.5em;
   margin-top: 2px;
