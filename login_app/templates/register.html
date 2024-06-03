@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rincón Literario</title>
+  <link rel="stylesheet" href="scss/login.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css" rel="stylesheet"/>
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/formValidations.js"></script>
+  <script src="js/geolocationAPI.js"></script>
+</head>
+
+<body class="bg-white d-flex justify-content-center align-items-center h-100">
+  <main class="container col-lg-9 col-12">
+    <div class="container bg-white p-0 rounded-5 text-secondary shadow-lg d-flex flex-lg-row flex-md-row flex-column justify-content-center">
+      <div class="col-lg-5 col">
+        <img src="img/fondo-login.webp" alt="img-login" class="img-fluid login w-100">
+      </div>
+      <div class="col p-3">
+        <div class="mt-2">
+          <a href="login.html" class="btn btn-back btn-brand"><i class="fas fa-arrow-left fa-xl text-black"></i></a>
+        </div>
+        <div>
+          <h4 class="mt-lg-5 mt-1 text-center">¡Ingrese sus datos!</h2>
+        </div>
+        <div class="px-lg-5 px-md-4 px-sm-4">
+          <form action="login.html" method="post" id="registerForm" novalidate>
+            <div class="w-100 mb-4">
+              <label for="fUser" class="form-label text-dark">Usuario</label>
+              <input type="text" placeholder="Ingrese su usuario..." id="fUser" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fName" class="form-label text-dark">Primer Nombre</label>
+              <input type="text" placeholder="Ingrese su primer nombre..." id="fName" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fLnames" class="form-label text-dark">Apellidos</label>
+              <input type="text" placeholder="Ingrese sus apellidos..." id="fLnames" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fEmail" class="form-label text-dark">Correo</label>
+              <input type="mail" placeholder="Ingrese su correo electrónico..." id="fEmail" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fPhone" class="form-label text-dark">Celular</label>
+              <input type="text" placeholder="Ingrese su número celular..." id="fPhone" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fPsw" class="form-label text-dark">Contraseña</label>
+              <input type="password" placeholder="Ingrese su contraseña..." id="fPsw" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-4">
+              <label for="fPsw2" class="form-label text-dark">Confirmar Contraseña</label>
+              <input type="password" placeholder="Confirme su contraseña..." id="fPsw2" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="w-100 mb-5">
+              <label for="fAddress" class="form-label text-dark">Dirección</label>
+              <input type="text" placeholder="Ingrese su dirección..." id="fAddress" class="form-control border-dark-subtle" required>
+              <div class="errorMessage"></div>
+            </div>
+            <div class="d-flex justify-content-center mb-2">
+              <button type="submit" class="btn btn-primary text-dark text-nowrap">Registrarme</button>
+            </div>
+          </form>
+        </div>
+        <hr class="hr-text ms-1" data-content="O">
+        <div class="d-flex flex-column w-100">
+          <div class="d-flex justify-content-center gap-4 mb-2">
+            <div>
+              <button type="button" class="btn btn-brand google"><i class="fa-brands fa-google fa-lg"></i></button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-brand facebook"><i class="fa-brands fa-facebook fa-lg"></i></button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-brand instagram"><i class="fa-brands fa-instagram fa-lg"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

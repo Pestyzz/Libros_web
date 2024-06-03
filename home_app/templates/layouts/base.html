@@ -1,0 +1,268 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rincón Literario</title>
+    <link rel="stylesheet" href="{% static "/scss/style.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css"/>
+
+    <script src="{% static "/js/bootstrap.min.js" %}"></script>
+</head>
+  <body class="bg-primary-subtle">
+    <!--Navegator-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
+    <div class="container-xxl">
+      <h4 class="m-0 ">
+        <a class="navbar-brand" href="index.html">Rincón Literario</a>
+      </h1>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuCategorias" role="button" aria-controls="menuCategorias">
+              Categorías
+            </a>  
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#ofertasSlider">Ofertas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#novedadesSlider">Novedades</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-lg-auto">
+          <!--Agregar form tipo GET y hacer lógica con Django-->
+          <form class="d-flex" role="search">
+            <input class="form-control me-md-2" type="search" placeholder="Buscar Libro" aria-label="Buscar Libro">
+          </form>
+          <li class="nav-item">
+            <a class="nav-link active" href="login.html">
+            <i class="fas fa-user fa-x2 me-1"></i>
+            Iniciar Sesión
+            </a>
+          </li>
+          <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-black">
+              <hr class="d-lg-none my-2 textx-dark-50">
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
+              <i class="fas fa-heart fa-x2"></i>
+            </a>
+          </li>
+          <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-black">
+              <hr class="d-lg-none my-2 textx-dark-50">
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
+              <i class="fas fa-cart-shopping fa-x2"></i>
+              Carro
+            </a>
+        </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!---->
+  <!-- Offcanvas Favoritos -->
+  <div class="offcanvas offcanvas-end favoritos-menu" tabindex="-1" id="menuFavoritos" aria-labelledby="menuFavoritosLabel">
+    <div class="offcanvas-header">
+      <h3 class="offcanvas-title" id="menuFavoritosLabel">Favoritos</h3>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Contenido de los favoritos -->
+      <div class="mb-3">
+        <h6>Artículos favoritos</h6>
+      </div>  
+          <div class="card h-auto mb-2">
+            <div class="row">
+              <div class="col-5">
+                <a href="prodtemplate.html">
+                  <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                </a>
+              </div>
+              <div class="col-6 align-content-center mt-3">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                <h5 class="fw-bold">$35.000</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body border-top pb-0">
+                  <div class="pb-3 pt-0">
+                    <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
+                    <a class="btn btn-sm btn-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
+                      <img src="icons/add_shopping_cart_white_24dp.svg" alt="addCart_icon"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card h-auto mb-2">
+            <div class="row">
+              <div class="col-5">
+                <a href="prodtemplate.html">
+                  <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                </a>
+              </div>
+              <div class="col-6 align-content-center mt-3">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                <h5 class="fw-bold">$35.000</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body border-top pb-0">
+                  <div class="pb-3 pt-0">
+                    <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
+                    <a class="btn btn-sm btn-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
+                      <img src="icons/add_shopping_cart_white_24dp.svg" alt="addCart_icon"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="my-auto">
+          <a class="btn btn-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito"><img src="icons/shopping_cart_white_24dp.svg" alt="cart_icon">Ir al Carro</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <!-- Offcanvas Carrito de Compras -->
+  <div class="offcanvas offcanvas-end favoritos-menu" tabindex="-1" id="menuCarrito" aria-labelledby="menuCarritoLabel">
+    <div class="offcanvas-header">
+      <h3 class="offcanvas-title" id="menuCarritoLabel">Carro</h3>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Contenido del Carrito -->
+      <div class="mb-3">
+        <h6>Artículos Carro</h6>
+      </div>  
+          <div class="card h-auto mb-2">
+            <div class="row">
+              <div class="col-5">
+                <a href="prodtemplate.html">
+                  <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                </a>
+              </div>
+              <div class="col-6 align-content-center mt-3">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                <h5 class="fw-bold">$35.000</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body border-top pb-0">
+                  <div class="pb-3 pt-0">
+                    <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card h-auto mb-2">
+            <div class="row">
+              <div class="col-5">
+                <a href="prodtemplate.html">
+                  <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
+                </a>
+              </div>
+              <div class="col-6 align-content-center mt-3">
+                <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
+                <h5 class="fw-bold">$35.000</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card-body border-top pb-0">
+                  <div class="pb-3 pt-0">
+                    <a class="btn btn-sm btn-primary bg-danger border-danger" href="#">
+                      <img src="icons/close_white_24dp.svg" alt="close_icon">
+                      Eliminar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="my-auto">
+          <a class="btn btn-secondary" href="payment.html"><img src="icons/shopping_cart_white_24dp.svg" alt="cart_icon">Proceder Pago</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <!--Offcanvas Catálogo-->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="menuCategorias" aria-labelledby="menuCategoriasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title border-bottom" id="menuCatalogoLabel">Categorías</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item h5">
+                <a class="link-secondary link-underline link-underline-opacity-0" href="">Ciencia Ficción</a>
+            </li>
+            <li class="list-group-item h5">
+                <a class="link-secondary link-underline link-underline-opacity-0" href="">Fantasía</a>
+            </li>
+            <li class="list-group-item h5">
+                <a class="link-secondary link-underline link-underline-opacity-0" href="">Thriller</a>
+            </li>
+            <li class="list-group-item h5">
+                <a class="link-secondary link-underline link-underline-opacity-0" href="">Misterio</a>
+            </li>
+            <li class="list-group-item h5">
+                <a class="link-secondary link-underline link-underline-opacity-0" href="">Drama</a>
+            </li>
+            <li class="list-group-item h5">
+                <a class="link-secondary link-underline link-underline-opacity-0" href="">Romance</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!---->
+
+  {% block content %}
+  {% endblock %}
+
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-5 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="#inicio" class="ms-4 mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        Rincón Literario
+      </a>
+      <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="#"><img src="icons/instagram_icon.png" alt="" style="height: 1.8rem;"></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><img src="icons/x_icon.png" alt="" style="height: 1.8rem;"></a></li>
+      <li class="ms-3 me-3"><a class="text-muted" href="#"><img src="icons/facebook_icon.png" alt="" style="height: 1.8rem;"></a></li>
+    </ul>
+  </footer>
+  </body>
+<html>
