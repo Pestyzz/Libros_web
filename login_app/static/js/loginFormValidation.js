@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (/\s/.test(value)) {
             showError(loginPass, "Contraseña Inválida");
             return false;
-        } else if (value.length > 0 && value.length < 12) {
+        } else if (value.length > 0 && value.length < 8) {
             showError(loginPass, "Contraseña Inválida");
             return false;
         } else {

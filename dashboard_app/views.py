@@ -5,6 +5,9 @@ from django.shortcuts import render
 def dashboard(request):
     return render(request, 'dashboard.html')
 
+def dashboardProfile(request):
+    return render(request, 'adminprofile.html')
+
 def dashboardCharts(request):
     return render(request, 'charts.html')
 
@@ -31,3 +34,6 @@ def dashboardUsers(request):
 
 def dashboardUserAdd(request):
     return render(request, 'users/useradd.html')
+
+def dashboardUserEdit(request):
+    return render(request, 'users/useredit.html')

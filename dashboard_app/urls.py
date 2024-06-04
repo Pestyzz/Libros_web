@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.dashboard, name='dashboardHome'),
+    path('profile/', views.dashboardProfile, name='dashboardProfile'),
     path('charts/', views.dashboardCharts, name='dashboardCharts'),
     path('shopping/', views.dashboardShopping, name='dashboardShopping'),
     path('shopping_edit/', views.dashboardShoppingEdit, name='dashboardShoppingEdit'),
@@ -11,5 +12,6 @@ urlpatterns = [
     path('product_add/', views.dashboardProductAdd, name='dashboardProductAdd'),
     path('product_edit/', views.dashboardProductEdit, name='dashboardProductEdit'),
     path('users/', views.dashboardUsers, name='dashboardUsers'),
-    path('user_add/', views.dashboardUserAdd, name='dashboardUserAdd')
+    path('user_add/', views.dashboardUserAdd, name='dashboardUserAdd'),
+    path('user_edit/', views.dashboardUserEdit, name='dashboardUserEdit')
 ]

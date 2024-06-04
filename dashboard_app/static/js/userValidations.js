@@ -149,8 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (/\s/.test(value)) {
             showError(psw, "La contraseña no puede contener espacios.");
             return false;
-        } else if (value.length > 0 && value.length < 12) {
-            showError(psw, "La contraseña debe contener al menos 12 caracteres.");
+        } else if (value.length > 0 && value.length < 8) {
+            showError(psw, "La contraseña debe contener al menos 8 caracteres.");
             return false;
         } else {
             clearError(psw);
@@ -201,8 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (/\s/.test(value)) {
             showError(newPsw, "La contraseña no puede contener espacios.");
             return false;
-        } else if (value.length > 0 && value.length < 12) {
-            showError(newPsw, "La contraseña debe contener al menos 12 caracteres.");
+        } else if (value.length > 0 && value.length < 8) {
+            showError(newPsw, "La contraseña debe contener al menos 8 caracteres.");
             return false;
         } else {
             clearError(newPsw);
