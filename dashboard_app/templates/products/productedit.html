@@ -4,7 +4,8 @@
 
 {% block content %}
   <!-- Content Row -->
-  <form action="products.html" method="post" id="productForm">
+  <form action="{% url "dashboardProducts" %}" method="POST" id="productForm">
+    {% csrf_token %}
     <div class="row justify-content-center">
       <!-- Content Column -->
       <div class="col-lg-4 mb-2">
@@ -105,7 +106,7 @@
                 <button type="submit" class="btn btn-add border-0"></i>Guardar Cambios</button>
               </div>
               <div>
-                <a class="btn btn-add border-0" href="products.html"></i>Atrás</a>
+                <a class="btn btn-add border-0" href="{% url "dashboardProducts" %}"></i>Atrás</a>
               </div>  
             </div>
           </div>
