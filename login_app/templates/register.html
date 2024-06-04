@@ -3,63 +3,64 @@
 {% block scriptForms %}
   <script src="{% static "/js/geolocationAPI.js" %}"></script>
   <script src="{% static "/js/formValidations.js" %}"></script>
-{% endblock  %}
+{% endblock scriptForms %}
 
-{% block backButton %}{% url "login" %}{% endblock %}
+{% block backButton %}{% url "login" %}{% endblock backButton %}
 {% load static %}
 {% block leftCol %}
   <div class="col-lg-5 col">
     <img src="{% static "/public/img/fondo-login.webp" %}" alt="img-login" class="img-fluid login w-100">
   </div>
-{% endblock %}
-{% block topTitle %}¡Ingresa tus datos!{% endblock %}
+{% endblock leftCol %}
+{% block topTitle %}¡Ingresa tus datos!{% endblock topTitle %}
 {% block content %}
       <div class="px-lg-5 px-md-4 px-sm-4">
-        <form action="login.html" method="post" id="registerForm" novalidate>
+        <form method="POST" id="registerForm" novalidate>
+          {% csrf_token %}
           <div class="w-100 mb-4">
             <label for="fUser" class="form-label text-dark">Usuario</label>
-            <input type="text" placeholder="Ingrese su usuario..." id="fUser" class="form-control border-dark-subtle" required>
+            <input type="text" placeholder="Ingrese su usuario..." id="fUser" name="username" class="form-control border-dark-subtle" required>
             <div class="errorMessage"></div>
           </div>
           <div class="w-100 mb-4 d-flex gap-2">
             <div class="w-50">
               <label for="fName" class="form-label text-dark">Primer Nombre</label>
-              <input type="text" placeholder="Ingrese su primer nombre..." id="fName" class="form-control border-dark-subtle" required>
+              <input type="text" placeholder="Ingrese su primer nombre..." id="fName" name="firstName" class="form-control border-dark-subtle" required>
               <div class="errorMessage"></div>
             </div>
             <div class="w-50">
               <label for="fLnames" class="form-label text-dark">Apellidos</label>
-              <input type="text" placeholder="Ingrese sus apellidos..." id="fLnames" class="form-control border-dark-subtle" required>
+              <input type="text" placeholder="Ingrese sus apellidos..." id="fLnames" name="lastNames" class="form-control border-dark-subtle" required>
               <div class="errorMessage"></div>
             </div>
           </div>
           <div class="w-100 mb-4 d-flex gap-2">
             <div class="w-50">
               <label for="fEmail" class="form-label text-dark">Correo</label>
-              <input type="mail" placeholder="Ingrese su correo electrónico..." id="fEmail" class="form-control border-dark-subtle" required>
+              <input type="mail" placeholder="Ingrese su correo electrónico..." id="fEmail" name="email" class="form-control border-dark-subtle" required>
               <div class="errorMessage"></div>
             </div>
             <div class="w-50">
               <label for="fPhone" class="form-label text-dark">Celular</label>
-              <input type="text" placeholder="Ingrese su número celular..." id="fPhone" class="form-control border-dark-subtle" required>
+              <input type="text" placeholder="Ingrese su número celular..." id="fPhone" name="phone" class="form-control border-dark-subtle" required>
               <div class="errorMessage"></div>
             </div>
           </div>
           <div class="w-100 mb-4 d-flex gap-2">
             <div class="w-50">
               <label for="fPsw" class="form-label text-dark">Contraseña</label>
-              <input type="password" placeholder="Ingrese su contraseña..." id="fPsw" class="form-control border-dark-subtle" required>
+              <input type="password" placeholder="Ingrese su contraseña..." id="fPsw" name="password" class="form-control border-dark-subtle" required>
               <div class="errorMessage"></div>
             </div>
             <div class="w-50">
               <label for="fPsw2" class="form-label text-dark">Confirmar Contraseña</label>
-              <input type="password" placeholder="Confirme su contraseña..." id="fPsw2" class="form-control border-dark-subtle" required>
+              <input type="password" placeholder="Confirme su contraseña..." id="fPsw2" name="password2" class="form-control border-dark-subtle" required>
               <div class="errorMessage"></div>
             </div>
           </div>
           <div class="w-100 mb-5">
             <label for="fAddress" class="form-label text-dark">Dirección</label>
-            <input type="text" placeholder="Ingrese su dirección..." id="fAddress" class="form-control border-dark-subtle" required>
+            <input type="text" placeholder="Ingrese su dirección..." id="fAddress" name="address" class="form-control border-dark-subtle" required>
             <div class="errorMessage"></div>
           </div>
           <div class="d-flex justify-content-center mb-2">
@@ -83,4 +84,4 @@
       </div>
     </div>
   </div>
-{% endblock %}
+{% endblock content %}
