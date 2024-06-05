@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //Validación nombre de usuario en tiempo real
     user.addEventListener("input", () => {
         checkUser(user.value);
-        console.log(checkUser(user.value))
     });
     //Fin Validación nombre de usuario
 
