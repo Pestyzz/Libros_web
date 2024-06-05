@@ -9,12 +9,11 @@ from django.db import IntegrityError
 def signin(request):
     if request.method == "GET":
         return render(request, 'login.html')
-    else:   
-        user = authenticate(
-            request, 
-            username=request.POST["username"], 
-            password=request.POST["password"]
-            )
+    else:
+        username = request.POST["username"]
+        password = request.POST["password"]
+           
+        user = authenticate(request, username=username, password=password)
         
         if user is None:
             return render(request, 'login.html', {

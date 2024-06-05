@@ -42,11 +42,10 @@
           <form class="d-flex" role="search">
             <input class="form-control me-md-2" type="search" placeholder="Buscar Libro" aria-label="Buscar Libro">
           </form>
-          {% if user.is_authenticated  %}
+          {% if user.is_authenticated %}
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="icons/account_black_18dp.svg" alt="account_icon" height="25" class="opacity-75">
-                Mi Cuenta
+            <a class="nav-link dropdown-toggle" href="" id="dropdownId" data-bs-toggle="dropdown">
+                {{user.username}}
             </a>
             <div class="dropdown-menu">
                 <!-- Aquí puedes agregar los elementos del menú desplegable -->
@@ -58,8 +57,8 @@
           {% else %}
           <li class="nav-item">
             <a class="nav-link active" href="{% url "login" %}">
-            <i class="fas fa-user fa-x2 me-1"></i>
-            Iniciar Sesión
+              <i class="fas fa-user fa-x2 me-1"></i>
+              Iniciar Sesión
             </a>
           </li>
           {% endif %}
@@ -265,7 +264,7 @@
   <!---->
 
   {% block content %}
-  {% endblock %}
+  {% endblock content %}
 
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-5 border-top">
     <div class="col-md-4 d-flex align-items-center">
