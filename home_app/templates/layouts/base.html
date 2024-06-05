@@ -3,13 +3,15 @@
 <!DOCTYPE html>
 <html lang="es" data-bs-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rincón Literario</title>
-    <link rel="stylesheet" href="{% static "/scss/style.css" %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rincón Literario</title>
+  <link rel="stylesheet" href="{% static "/scss/style.css" %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css"/>
 
-    <script src="{% static "/js/bootstrap.min.js" %}"></script>
+  <script src="{% static "/node_modules/@popperjs/core/dist/umd/popper.min.js" %}"></script>
+  <script src="{% static "/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>
+
 </head>
   <body class="bg-primary-subtle">
     <!--Navegator-->
@@ -40,12 +42,27 @@
           <form class="d-flex" role="search">
             <input class="form-control me-md-2" type="search" placeholder="Buscar Libro" aria-label="Buscar Libro">
           </form>
+          {% if user.is_authenticated  %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="icons/account_black_18dp.svg" alt="account_icon" height="25" class="opacity-75">
+                Mi Cuenta
+            </a>
+            <div class="dropdown-menu">
+                <!-- Aquí puedes agregar los elementos del menú desplegable -->
+                <a class="dropdown-item" href="{% url "myhistory" %}">Historial</a>
+                <a class="dropdown-item" href="{% url "logout" %}">Cerrar Sesión</a>
+                <!-- Puedes agregar más elementos según sea necesario -->
+            </div>
+          </li>
+          {% else %}
           <li class="nav-item">
             <a class="nav-link active" href="{% url "login" %}">
             <i class="fas fa-user fa-x2 me-1"></i>
             Iniciar Sesión
             </a>
           </li>
+          {% endif %}
           <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
             <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-black">
               <hr class="d-lg-none my-2 textx-dark-50">

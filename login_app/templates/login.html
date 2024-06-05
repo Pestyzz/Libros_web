@@ -2,28 +2,29 @@
 {% load static %}
 {% block scriptForms %}
   <script src="{% static "/js/loginValidations.js" %}"></script>
-  <script src="{% static "/js/loginDashboard" %}"></script>
-{% endblock  %}
+{% endblock scriptForms %}
 
-{% block backButton %}{% url "home" %}{% endblock %}
+{% block backButton %}{% url "home" %}{% endblock backButton %}
 {% load static %}
 {% block leftCol %}
   <div class="col-lg-5 col">
     <img src="{% static "/public/img/fondo-login.webp" %}" alt="img-login" class="img-fluid login w-100">
   </div>
-{% endblock %}
-{% block topTitle %}¡Bienvenid@ a Rincón Literario!{% endblock %}
+{% endblock leftCol %}
+{% block topTitle %}¡Bienvenid@ a Rincón Literario!{% endblock topTitle %}
 {% block content %}
+  <div class="errorMessage text-center">{{error}}</div>
   <div class="px-lg-5 px-md-4 px-sm-4">
-    <form action="{% url "home" %}" method="POST" id="loginForm" novalidate>
+    <form method="POST" id="loginForm" novalidate>
+      {% csrf_token %}
       <div class="w-100 mb-4">
         <label for="lUser" class="form-label text-dark">Usuario</label>
-        <input type="text" placeholder="Ingrese su usuario..." id="lUser" class="form-control border-dark-subtle" required>
+        <input type="text" placeholder="Ingrese su usuario..." id="lUser" name="username" class="form-control border-dark-subtle" required>
         <div class="errorMessage"></div>
       </div>
       <div class="w-100 mb-4">
         <label for="lPass" class="form-label text-dark">Contraseña</label>
-        <input type="password" placeholder="Ingrese su contraseña..." id="lPass" class="form-control border-dark-subtle" required>
+        <input type="password" placeholder="Ingrese su contraseña..." id="lPass" name="password" class="form-control border-dark-subtle" required>
         <div class="errorMessage"></div>
       </div>
       <div class="w-100 mb-3 d-flex align-items-center gap-2">
@@ -57,4 +58,4 @@
       </div>
     </div>
   </div>
-{% endblock  %}
+{% endblock content %}

@@ -34,6 +34,5 @@ class CustomUser(AbstractUser):
     
     pass
 
-
 class Book(models.Model):
     id = models.BigAutoField(primary_key=True)

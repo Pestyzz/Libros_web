@@ -13,7 +13,9 @@
   </div>
 {% endblock leftCol %}
 {% block topTitle %}¡Ingresa tus datos!{% endblock topTitle %}
+
 {% block content %}
+      <div class="errorMessage text-center">{{error}}</div>
       <div class="px-lg-5 px-md-4 px-sm-4">
         <form method="POST" id="registerForm" novalidate>
           {% csrf_token %}
