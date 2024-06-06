@@ -21,7 +21,11 @@ def signin(request):
             })
         else:
             login(request, user)
-            return redirect('home')
+            
+            if user.is_staff:
+                return redirect('dashboardHome')
+            else:
+                return redirect('home')
                         
 def signout(request):
     logout(request)
@@ -40,16 +44,12 @@ def register(request):
         try:
             username = request.POST["username"]
             first_name = request.POST["firstName"]
-                
             lastNames = request.POST["lastNames"].split()
             surname = lastNames[0]
             last_name = lastNames[1]
-                
             email = request.POST["email"]
             phone = request.POST["phone"]
-            
-            password = request.POST["password"]
-                
+            password = request.POST["password"] 
             address = request.POST["address"]
                 
             user = CustomUser.objects.create(

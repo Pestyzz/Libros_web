@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.db import IntegrityError
+from .lists import BOOK_LANGUAGES, CATEGORIES
+from .models import Book, CustomUser
 
 # Create your views here.
 
@@ -24,8 +27,54 @@ def dashboardProducts(request):
     return render(request, 'products/products.html')
 
 def dashboardProductAdd(request):
-    return render(request, 'products/productadd.html')
-
+    if request.method == "GET":
+        print("Enviando datos")
+        return render(request, 'products/productadd.html', {
+            "languages": BOOK_LANGUAGES,
+            "categories": CATEGORIES
+        })
+    else:
+        print("Obteniendo Datos")
+        print(request.POST)
+        
+        try:
+            isbn = request.POST["isbn"]
+            book_name = request.POST["bookName"]
+            author = request.POST["author"]
+            publisher = request.POST["publisher"]
+            language = request.POST["language"]
+            description = request.POST["review"]
+            image = request.FILES.get("bookImage")
+            category = request.POST["category"]
+            sub_category = request.POST["subCategory"]
+            price = request.POST["price"].replace(".", "")
+            price = int(price)
+            
+            publish = request.POST.get("publish") == "on"
+            
+            book = Book.objects.create(
+                isbn=isbn,
+                book_name=book_name,
+                author=author,
+                publisher=publisher,
+                languages=language,
+                description=description,
+                image=image,
+                category=category,
+                sub_category=sub_category,
+                price=price,
+                publish=publish
+            )
+            
+            book.save()
+            return redirect('dashboardProducts')   
+        except IntegrityError:
+            return render(request, 'products/productadd.html', {
+                "languages": BOOK_LANGUAGES,
+                "categories": CATEGORIES,
+                'error': "ISBN ya registrado."
+            })
+        
 def dashboardProductEdit(request):
     return render(request, 'products/productedit.html')
 

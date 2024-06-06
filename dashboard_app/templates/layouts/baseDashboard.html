@@ -52,19 +52,19 @@
               <a class="nav-link" href="{% url "dashboardUsers" %}"><i class="fas fa-users fa-lg me-2"></i>Usuarios</a>
             </li>
           </ul>
-          <div class="mb-3 w-100" style="padding-left: 2%;">
-            <div class="d-flex justify-content-start dropdown dropup">
-              <a class="btn align-items-center ps-0" href="#" role="button" data-bs-toggle="dropdown">
+          <div class="mb-3 w-100 px-2">
+            <div class="d-flex justify-content-start w-100 dropdown dropup">
+              <div class="btn text-start w-100" data-bs-toggle="dropdown">
                 <span class="fa-stack small">
                   <i class="fas fa-circle fa-stack-2x me-1"></i>
                   <i class="fas fa-user fa-stack-1x me-1" style="color: #343a40;"></i>
                 </span>
-                Nombre Usuario
-              </a>
+                <span class="text-end">{{user.username}}</span>
+              </div>
               <ul class="dropdown-menu dropdown-menu-dark shadow text-center mx-3">
                 <li><a class="dropdown-item" href="{% url "dashboardProfile" %}">Perfil</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url "home" %}">Cerrar Sesión</a></li>
+                <li><a class="dropdown-item" href="{% url "logout" %}">Cerrar Sesión</a></li>
               </ul>
             </div>  
           </div>
