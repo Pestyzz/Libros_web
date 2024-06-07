@@ -15,7 +15,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(blank=False, max_length=254, unique=True, null=False)
     phone_number = models.IntegerField(validators=[MinValueValidator(100000000), MaxValueValidator(999999999)], unique=True, blank=True, null=True)
     
-    profile_img = models.ImageField(upload_to='dashboard/media/users', blank=True) 
+    profile_img = models.ImageField(upload_to='users', blank=True) 
     
     first_name = models.CharField(blank=False, max_length=50, null=False)
     surname = models.CharField(blank=False, max_length=50, null=False)

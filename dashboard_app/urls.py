@@ -1,6 +1,4 @@
 from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -12,8 +10,9 @@ urlpatterns = [
     path('orders/', views.dashboardOrders, name='dashboardOrders'),
     path('products/', views.dashboardProducts, name='dashboardProducts'),
     path('product_add/', views.dashboardProductAdd, name='dashboardProductAdd'),
-    path('product_edit/', views.dashboardProductEdit, name='dashboardProductEdit'),
+    path('product_edit/<int:isbn>', views.dashboardProductEdit, name='dashboardProductEdit'),
+    path('product_delete/<int:isbn>', views.dashboardProductDelete, name='dashboardProductDelete'),
     path('users/', views.dashboardUsers, name='dashboardUsers'),
     path('user_add/', views.dashboardUserAdd, name='dashboardUserAdd'),
     path('user_edit/', views.dashboardUserEdit, name='dashboardUserEdit')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

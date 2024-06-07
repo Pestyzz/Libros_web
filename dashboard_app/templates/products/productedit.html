@@ -1,10 +1,14 @@
 {% extends "layouts/baseDashboard.html" %}
 {% load static %}
-{% block validationScript %}<script src="{% static "/js/productValidations.js" %}"></script>{% endblock %}
+{% block validationScript %}
+  <script src="{% static "/js/productValidations.js" %}"></script>
+  <script src="{% static "/js/productEditImage.js" %}"></script>
+{% endblock validationScript %}
 
+{% load static %}
 {% block content %}
   <!-- Content Row -->
-  <form action="{% url "dashboardProducts" %}" method="POST" id="productForm">
+  <form method="POST" id="productForm" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="row justify-content-center">
       <!-- Content Column -->
@@ -19,71 +23,78 @@
           <div class="card-body h-100">
             <div class="w-100 mb-3">
               <label for="fIsbn" class="h5">ISBN</label>
-              <input id="fIsbn" name="isbn" type="text" class="form-control" placeholder="Escribe aquí..." value="1234567890123" disabled>
+              <input id="fIsbn" name="isbn" type="text" class="form-control" placeholder="Escribe aquí..." value="{{book.isbn}}" disabled>
               <div class="errorMessage"></div>
             </div>
             <div class="w-100 mb-3">
               <label for="fBname" class="h5">Nombre Libro</label>
-              <input id="fBname" name="bookname" type="text" class="form-control" placeholder="Escribe aquí..." required>
+              <input id="fBname" name="bookname" type="text" class="form-control" placeholder="Escribe aquí..." value="{{book.book_name}}" required>
               <div class="errorMessage"></div>
             </div>
             <div class="w-100 mb-3">
               <label for="fAuthor" class="h5">Autor</label>
-              <input id="fAuthor" name="author" type="text" class="form-control" placeholder="Escribe aquí..." value="Autor Actual" disabled>
+              <input id="fAuthor" name="author" type="text" class="form-control" placeholder="Escribe aquí..." value="{{book.author}}" required>
               <div class="errorMessage"></div>
             </div>
             <div class="w-100 mb-3">
               <label for="fPub" class="h5">Editorial</label>
-              <input id="fPub" name="publisher" type="text" class="form-control" placeholder="Escribe aquí..." required>
+              <input id="fPub" name="publisher" type="text" class="form-control" placeholder="Escribe aquí..." value="{{book.publisher}}" required>
               <div class="errorMessage"></div>
             </div>
             <div class="mb-lg-2 mb-3">
               <label for="fLng" class="h5">Idioma</label>
               <select id="fLng" name="language" class="form-select">
-                <option selected value="0">Selecciona</option>
-                <option value="es">Español</option>
-                <option value="en">Inglés</option>
-                <option value="fr">Francés</option>
-                <option value="jp">Japonés</option>
-                <option value="kr">Coreano</option>
+                <option value="0">Selecciona</option>
+                {% for code, name in languages  %}
+                  {% if code == book.languages %}
+                  <option selected value="{{code}}">{{name}}</option>
+                  {% else %}
+                  <option value="{{code}}">{{name}}</option>
+                  {% endif %}
+                {% endfor %}
               </select> 
               <div class="errorMessage"></div>
             </div>
             <div class="w-100 mb-3">
               <label for="fReview" class="h5">Reseña</label>
-              <textarea id="fReview" name="review" type="text" class="form-control" placeholder="Escribe aquí..." rows="6"></textarea>
+              <textarea id="fReview" name="review" type="text" class="form-control" placeholder="Escribe aquí..." rows="6">{{book.description}}</textarea>
             </div>
             <div class="w-100 mb-3">
               <h5>Imagen</h5>
               <label for="file-input" class="file-input-label">
-                  <i class="fas fa-cloud-upload-alt fa-2x"></i> Subir Imagen
+                  <i class="fas fa-cloud-upload-alt fa-2x"></i>Subir Imagen
               </label>
               <input id="file-input" type="file" class="file-input">
+            </div>
+            <div class="w-100 mb-3">
+              <img id="preview-image" src="{{book.image.url}}" alt="preview-img">
             </div>
             <div class="w-auto mb-3 d-flex flex-lg-column flex-row justify-content-lg-start justify-content-between">
               <div class="mb-lg-2">
                 <label for="fCateg" class="h5">Categoria</label>
                 <select id="fCateg" name="category" class="form-select">
-                  <option selected value="none">Selecciona</option>
-                  <option value="1">Ciencia Ficción</option>
-                  <option value="2">Fantasía</option>
-                  <option value="3">Thriller</option>
-                  <option value="4">Misterio</option>
-                  <option value="5">Drama</option>
-                  <option value="6">Romance</option>
+                  <option value="0">Selecciona</option>
+                  {% for code, name in categories  %}
+                    {% if code == book.category %}
+                    <option selected value="{{code}}">{{name}}</option>
+                    {% else %}
+                    <option value="{{code}}">{{name}}</option>
+                    {% endif %}
+                  {% endfor %}
                 </select> 
                 <div class="errorMessage"></div>
               </div>
               <div class="ps-lg-0 ps-2 text-nowrap">
                 <label for="fSubCateg" class="h5">Sub Categoria</label>
                 <select id="fSubCateg" name="subcategory" class="form-select">
-                  <option value="1">Ciencia Ficción</option>
-                  <option value="2">Fantasía</option>
-                  <option value="3">Thriller</option>
-                  <option value="4">Misterio</option>
-                  <option value="5">Drama</option>
-                  <option value="6">Romance</option>
-                  <option selected value="0"> - </option>
+                  <option value="0"> --- </option>
+                  {% for code, name in categories  %}
+                    {% if code == book.sub_category %}
+                    <option selected value="{{code}}">{{name}}</option>
+                    {% else %}
+                    <option value="{{code}}">{{name}}</option>
+                    {% endif %}
+                  {% endfor %}
                 </select> 
               </div>
             </div>
@@ -91,12 +102,12 @@
               <label for="fPrice" class="h5">Precio</label>
               <div class="input-group">
                 <span class="input-group-text">$</span>
-                <input id="fPrice" name="price" type="text" class="form-control" placeholder="Escribe aquí..." required>
+                <input id="fPrice" name="price" type="text" class="form-control" placeholder="Escribe aquí..." value="{{book.price}}" required>
                 <div class="errorMessage"></div>
               </div>
             </div>
             <div class="w-100 mb-3">
-              <input type="checkbox" id="publishCheckDefault" name="publish" class="form-check-input">
+              <input type="checkbox" id="publishCheckDefault" name="publish" class="form-check-input" value="{{book.publish}}">
               <label for="publishCheckDefault" class="form-check-label">
                 Publicar en la Web
               </label>

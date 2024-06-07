@@ -8,4 +8,7 @@ urlpatterns = [
     path('', include('home_app.urls')),
     path('login/', include('login_app.urls')),
     path('dashboard/', include('dashboard_app.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

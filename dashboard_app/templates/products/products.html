@@ -1,6 +1,7 @@
 {% extends "layouts/baseDashboard.html" %}
 
 {% load static %}
+{% load custom_filters %}
 {% block content %}
   <!-- Content Row -->
   <div class="row">
@@ -96,19 +97,18 @@
                 <div class="card-body d-flex flex-column justify-content-between border-top pb-1" style="height: 30vh;">
                   <h5 class="card-title overflow-auto" style="font-size: 18px; max-height: 65px; height: 65px;">{{book.book_name}}</h5>
                   <div class="py-2 d-flex flex-column">
-                    <h5 class="fw-bold">${{book.price}}</h5>
+                    <h5 class="fw-bold">{{book.price|currency_format}}</h5>
                     <div class="d-lg-flex flex-column">
-                      <a class="btn btn-sm mb-lg-2 btn-dark border-light border-opacity-50" href="{% url "dashboardProductEdit" %}">
+                      <a class="btn btn-sm mb-lg-2 btn-dark border-light border-opacity-50" role="button" href="{% url "dashboardProductEdit" book.isbn%}">
                         <i class="fas fa-pen me-2"></i>Editar</a>
-                      <button class="btn btn-sm btn-dark border-light border-opacity-50" type="button" style="color: #fd4949;">
-                        <i class="fas fa-trash me-2"></i>Eliminar</button>
+                      <a class="btn btn-sm btn-dark border-light border-opacity-50" role="button" href="{% url "dashboardProductDelete" book.isbn %}" style="color: #fd4949;">
+                        <i class="fas fa-trash me-2"></i>Eliminar</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             {% endfor %}
-            
           </div>
         </div>
       </div>

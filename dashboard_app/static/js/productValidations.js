@@ -52,7 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const MIN_BOOK_NAME_LENGTH = 3;
         const MAX_BOOK_NAME_LENGTH = 50;
     
-        const bookNamePattern = new RegExp(`^[A-Za-z0-9\\s',.()!-]{${MIN_BOOK_NAME_LENGTH},${MAX_BOOK_NAME_LENGTH}}$`);
+        // Permitir letras Unicode, espacios y caracteres especiales, pero no números
+        const bookNamePattern = new RegExp(`^[A-Za-zÀ-ÖØ-öø-ÿ0-9\\s',.()!\\-]{${MIN_BOOK_NAME_LENGTH},${MAX_BOOK_NAME_LENGTH}}$`);
     
         if (!bookNamePattern.test(value)) {
             showError(bookName, "Nombre de Libro Inválido.");
@@ -62,6 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return true;
         }
     }
+    
+    
+    
+     
     //Validación nombre libro en tiempo real
     bookName.addEventListener("input", () => {
         checkBookName(bookName.value);

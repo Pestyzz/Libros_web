@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.db import IntegrityError
+from django.shortcuts import get_object_or_404
 from .lists import BOOK_LANGUAGES, CATEGORIES
 from .models import Book, CustomUser
 
@@ -81,8 +82,19 @@ def dashboardProductAdd(request):
                 'error': "ISBN ya registrado."
             })
         
-def dashboardProductEdit(request):
-    return render(request, 'products/productedit.html')
+def dashboardProductEdit(request, isbn):
+    book = get_object_or_404(Book, isbn=isbn)
+    
+    context = {
+        "book": book,
+        "languages": BOOK_LANGUAGES,
+        "categories": CATEGORIES
+    }
+    return render(request, 'products/productedit.html', context)
+
+def dashboardProductDelete(request, isbn):
+    
+    return render(request, 'products/products.html')
 
 def dashboardUsers(request):
     return render(request, 'users/users.html')
