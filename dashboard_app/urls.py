@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -14,4 +16,4 @@ urlpatterns = [
     path('users/', views.dashboardUsers, name='dashboardUsers'),
     path('user_add/', views.dashboardUserAdd, name='dashboardUserAdd'),
     path('user_edit/', views.dashboardUserEdit, name='dashboardUserEdit')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -46,7 +46,7 @@ class Book(models.Model):
     
     description = models.TextField(blank=False, max_length=1500, null=False)
     
-    image = models.ImageField(upload_to="dashboard_app/media/books", blank=False)
+    image = models.ImageField(upload_to="books", blank=False)
     
     category = models.CharField(blank=False, max_length=20, choices=CATEGORIES, null=False)
     sub_category = models.CharField(blank=True, max_length=20, choices=CATEGORIES, null=True)

@@ -24,7 +24,13 @@ def dashboardOrders(request):
     return render(request, 'orders.html')
 
 def dashboardProducts(request):
-    return render(request, 'products/products.html')
+    
+    books = Book.objects.all()
+    
+    context = {
+        "books": books
+    }
+    return render(request, 'products/products.html', context)
 
 def dashboardProductAdd(request):
     if request.method == "GET":
