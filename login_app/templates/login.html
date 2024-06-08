@@ -1,14 +1,14 @@
 {% extends "layouts/baseLogin.html" %}
 {% load static %}
 {% block scriptForms %}
-  <script src="{% static "/js/loginValidations.js" %}"></script>
+  <script src="{% static "js/loginValidations.js" %}"></script>
 {% endblock scriptForms %}
 
 {% block backButton %}{% url "home" %}{% endblock backButton %}
 {% load static %}
 {% block leftCol %}
   <div class="col-lg-5 col">
-    <img src="{% static "/public/img/fondo-login.webp" %}" alt="img-login" class="img-fluid login w-100">
+    <img src="{% static "public/img/fondo-login.webp" %}" alt="img-login" class="img-fluid login w-100">
   </div>
 {% endblock leftCol %}
 {% block topTitle %}¡Bienvenid@ a Rincón Literario!{% endblock topTitle %}
