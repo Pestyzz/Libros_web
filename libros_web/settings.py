@@ -80,24 +80,22 @@ WSGI_APPLICATION = 'libros_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.oracle',
-#         'NAME': 'test_high',
-#         'USER': 'Admin',
-#         'PASSWORD': 'Diamanco2313',
-#         'HOST': 'adb.sa-santiago-1.oraclecloud.com',
-#         'PORT': '1522'
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
 
+#BASE DE DATOS CON CONEXIÓN A ORACLE
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': '127.0.0.1:1521/orcl',
+        'USER': 'clean',
+        'PASSWORD': 'casa2313'
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
