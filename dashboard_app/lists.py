@@ -39,7 +39,7 @@ CATEGORIES = {
     ("33", "Cómics"),
     ("34", "Poesía"),
     ("35", "Ensayo"),
-    ("36 Literaria", "Crítica Literaria"),
+    ("36", "Crítica Literaria"),
     ("37", "Religión"),
     ("38", "Espiritualidad"),
     ("39", "Juvenil"),

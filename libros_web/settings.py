@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)z2(a8)zth!#br$$bi*q7j8_rcqei9s!*4r#@#++w9%u^9zxz5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['<django_server_public_IP_address>','localhost','127.0.0.0','127.0.0.1']
 
 
 # Application definition
@@ -87,6 +87,17 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.oracle',
+#         'NAME': 'test_high',
+#         'USER': 'Admin',
+#         'PASSWORD': 'Diamanco2313',
+#         'HOST': 'adb.sa-santiago-1.oraclecloud.com',
+#         'PORT': '1522'
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -120,9 +131,12 @@ USE_TZ = True
 
 
 # Media files
+
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'dashboard_app/media')
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/

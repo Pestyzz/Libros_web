@@ -79,7 +79,7 @@ def dashboardProductAdd(request):
             return render(request, 'products/productadd.html', {
                 "languages": BOOK_LANGUAGES,
                 "categories": CATEGORIES,
-                'error': "ISBN ya registrado."
+                'error': "ISBN ya existente."
             })
         
 def dashboardProductEdit(request, isbn):
@@ -90,11 +90,46 @@ def dashboardProductEdit(request, isbn):
         "languages": BOOK_LANGUAGES,
         "categories": CATEGORIES
     }
-    return render(request, 'products/productedit.html', context)
-
-def dashboardProductDelete(request, isbn):
     
-    return render(request, 'products/products.html')
+    if request.method == "GET":
+        print("Enviando datos")
+        return render(request, 'products/productedit.html', context)
+    else:
+        print("Obteniendo datos")
+        print(request.POST)
+        
+        book_name = request.POST.get("bookName")
+        author = request.POST.get("author")
+        publisher = request.POST.get("publisher")
+        language = request.POST.get("language")
+        description = request.POST.get("review")
+        image = request.FILES.get("bookImage")
+        category = request.POST.get("category")
+        sub_category = request.POST.get("subCategory")
+        price = request.POST.get("price").replace(".", "")
+        price = int(price)
+        publish = request.POST.get("publish") == "on"       
+        
+        book.book_name = book_name
+        book.author = author
+        book.publisher = publisher
+        book.languages = language
+        book.description = description
+        if image:
+            book.image = image
+        book.category = category
+        book.sub_category = sub_category
+        book.price = price
+        book.publish = publish
+
+        book.save()
+        
+        return redirect("dashboardProducts")
+
+def dashboardProductDelete(isbn):
+    book = get_object_or_404(Book, isbn=isbn)
+    book.objects.delete()
+    redirect ("dashboardProducts")
 
 def dashboardUsers(request):
     return render(request, 'users/users.html')

@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const publisher = document.getElementById("fPub");
     const language = document.getElementById("fLng");
     const category = document.getElementById("fCateg");
+    const bookImage = document.getElementById("file-input")
     const price = document.getElementById("fPrice");
 
     //Función para mostrar el mensaje de error al usuario
@@ -64,9 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     
-    
-    
-     
     //Validación nombre libro en tiempo real
     bookName.addEventListener("input", () => {
         checkBookName(bookName.value);
@@ -145,6 +143,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     //Fin Validación Categoría
 
+    //Validación Imágen
+    const checkImage = (file) => {
+        const validImageTypes = ["image/apng", "image/avif", "image/jpeg", "image/png", "image/webp"]
+        console.log(file.type)
+        console.log(validImageTypes.includes(file.type))
+        if (!validImageTypes.includes(file.type)) {
+            showError(bookImage, "Solo se permiten archivos de imagen (APNG, AVIF, JPEG, PNG, WEBP).")
+            return false;
+        } else {
+            clearError(bookImage)
+            return true;
+        }
+    }
+    //Validación imágen en tiempo real
+    bookImage.addEventListener("change", () => {
+        if (bookImage.files.length > 0) {
+            console.log(checkImage(bookImage.files[0]))
+        }
+    })
+    //Fin Validación Imágen
+
     //Formatear Precio
     const checkPrice = (value) => {
         const cleanedValue = value.replace(/\D/g, '');
@@ -193,6 +212,10 @@ document.addEventListener("DOMContentLoaded", () => {
             isValid = false;
         }
 
+        if (!checkImage(bookImage.files[0])) {
+            isValid = false;
+        }
+
         if (!checkPrice(price.value)) {
             isValid = false;
         }
@@ -201,9 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
         }
     };
-
-    //Si se encuentra el formulario de profile.html, se realizan las validaciones para ese formulario
-    //Si se encuentra el formulario de addauthor.html, se realizan las validaciones para ese formulario
 
     if (form) {
         form.addEventListener("submit", validateForm);
