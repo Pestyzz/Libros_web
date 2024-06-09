@@ -103,9 +103,15 @@ WSGI_APPLICATION = 'libros_web.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=f'oracle://Clean:casa2313@127.0.0.1:1521/orcl'
+#     )
+# }
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=f'oracle://Clean:casa2313@127.0.0.1:1521/orcl'
+        default=f'postgresql://postgres:postgres@localhost/postgres'
     )
 }
 
