@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'libros_web.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=f'oracle://clean:casa2313@127.0.0.1:1521/orcl'
+        default=f'oracle://Clean:casa2313@127.0.0.1:1521/orcl'
     )
 }
 
