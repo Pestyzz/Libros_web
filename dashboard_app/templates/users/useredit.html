@@ -7,17 +7,18 @@
 
 {% block content %}
   <!-- Content Row -->
-  <form action="dashboard.html" method="post" id="addUserForm">
+  <form method="post" id="addUserForm" novalidate>
+    {% csrf_token %}
     <div class="row justify-content-center">
       <!-- Content Column -->
       <div class="col-lg-10 mb-2">
-        <!--Product Add-->
+        <!--User Edit-->
         <div class="info-card card h-auto shadow mb-2">
           <div class="card-header py-3 pb-0 d-flex flex-column align-items-start justify-content-between">
             <h3 class="fw-semibold text-light text-start">
               Editar Usuario
             </h3>
-            <h4>ID: 230</h5>
+            <h4>ID: {{user.id}}</h5>
           </div>
           <div class="card-body h-100">
             <div class="row">
@@ -25,25 +26,25 @@
                 <div class="w-100 mb-2">
                   <label for="fUser" class="h5">Nombre Usuario</label>
                   <input id="fUser" name="username" type="text" class="profile form-control"
-                    placeholder="Escribe aquí..." required>
+                    placeholder="Escribe aquí..." value="{{user.username}}" required>
                   <div class="errorMessage"></div>
                 </div>
                 <div class="w-100 mb-2">
                   <label for="fName" class="h5">Nombre</label>
                   <input id="fName" name="name" type="text" class="profile form-control"
-                    placeholder="Escribe aquí..." required>
+                    placeholder="Escribe aquí..." value="{{user.first_name}}" required>
                   <div class="errorMessage"></div>
                 </div>
                 <div class="w-100 mb-3">
                   <label for="fLnames" class="h5">Apellidos</label>
                   <input id="fLnames" name="lastnames" type="text" class="profile form-control"
-                    placeholder="Escribe aquí..." required>
+                    placeholder="Escribe aquí..." value="{{user.surname}} {{user.last_name}}" required>
                   <div class="errorMessage"></div>
                 </div>
                 <div class="w-100 mb-3">
                   <label for="fEmail" class="h5">E-mail</label>
                   <input id="fEmail" name="email" type="email" class="profile form-control"
-                    placeholder="Escribe aquí..." required>
+                    placeholder="Escribe aquí..." value="{{user.email}}" required>
                     <div class="errorMessage"></div>
                 </div>     
               </div>
@@ -63,14 +64,14 @@
                 <div class="w-100 mb-3">
                   <label for="fPhone" class="h5">Número Celular</label>
                   <input id="fPhone" name="phone" type="text" class="profileS form-control"
-                    placeholder="Escribe aquí..." required>
+                    placeholder="Escribe aquí..." value="{{user.phone_number}}" required>
                     <div class="errorMessage"></div>
                 </div>
                 <div class="w-100 mb-3">
-                  <label for="fSubCateg" class="h5">Tipo Usuario</label>
-                  <select id="fSubCateg" name="subcategory" class="form-select">
-                    <option selected value="1">Cliente</option>
-                    <option value="2">Empleado</option>
+                  <label for="fUserType" class="h5">Tipo Usuario</label>
+                  <select id="fUserType" name="userType" class="form-select">
+                    <option {% if user.is_staff == false %}selected{% endif %} value="False">Cliente</option>
+                    <option {% if user.is_staff %}selected{% endif %} value="True">Empleado</option>
                   </select> 
                 </div>
               </div>
@@ -80,7 +81,7 @@
                 <div class="w-100 mb-3">
                   <label for="fAddress" class="h5">Dirección</label>
                   <input id="fAddress" name="adress" type="text" class="profileS form-control"
-                    placeholder="Escribe aquí..." required>
+                    placeholder="Escribe aquí..." value="{{user.address}}" required>
                 </div>
                 <div class="w-100 mb-3">
                   <label for="fRegion" class="h5">Región</label>
@@ -99,7 +100,7 @@
                 <button type="submit" class="btn btn-add border-0">Guardar Cambios</button>
               </div>
               <div>
-                <a class="btn btn-add border-0" href="dashboard.html">Atrás</a>
+                <a class="btn btn-add border-0" href="{% url "dashboardUsers" %}">Atrás</a>
               </div>
             </div>
           </div>

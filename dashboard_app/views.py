@@ -144,4 +144,17 @@ def dashboardUserAdd(request):
     return render(request, 'users/useradd.html')
 
 def dashboardUserEdit(request, id):
-    return render(request, 'users/useredit.html')
+    user = get_object_or_404(CustomUser, id=id)
+    
+    context = {
+        "user": user
+    }
+    
+    if request.method == "GET":
+        print("Enviando Datos")
+        return render(request, 'users/useredit.html', context)
+    else:
+        print("Obteniendo Datos")
+        print(request.POST)
+        return render(request, 'users/useredit.html', context)
+        

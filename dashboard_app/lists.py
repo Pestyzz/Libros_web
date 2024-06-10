@@ -43,5 +43,7 @@ CATEGORIES = {
     ("37", "Religión"),
     ("38", "Espiritualidad"),
     ("39", "Juvenil"),
-    ("40", "Infantil")
+    ("40", "Infantil"),
+    ("41", "Novela"),
+    ("42", "Suspenso")
 }
