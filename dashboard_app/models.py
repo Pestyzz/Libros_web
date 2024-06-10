@@ -37,7 +37,7 @@ class CustomUser(AbstractUser):
 
 class Book(models.Model):
     id = models.BigAutoField(primary_key=True)
-    isbn = models.IntegerField(validators=[MinValueValidator(1000000000000), MaxValueValidator(9999999999999)], unique=True)
+    isbn = models.BigIntegerField(validators=[MinValueValidator(1000000000000), MaxValueValidator(9999999999999)], unique=True)
     book_name = models.CharField(blank=False, max_length=50, null=False)
     author = models.CharField(blank=False, max_length=30, null=False)
     publisher = models.CharField(blank=False, max_length=15, null=False)
