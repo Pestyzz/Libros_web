@@ -14,5 +14,5 @@ urlpatterns = [
     path('product_delete/<int:isbn>', views.dashboardProductDelete, name='dashboardProductDelete'),
     path('users/', views.dashboardUsers, name='dashboardUsers'),
     path('user_add/', views.dashboardUserAdd, name='dashboardUserAdd'),
-    path('user_edit/', views.dashboardUserEdit, name='dashboardUserEdit')
+    path('user_edit/<int:id>', views.dashboardUserEdit, name='dashboardUserEdit')
 ]

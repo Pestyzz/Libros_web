@@ -128,14 +128,20 @@ def dashboardProductEdit(request, isbn):
 
 def dashboardProductDelete(isbn):
     book = get_object_or_404(Book, isbn=isbn)
-    book.objects.delete()
+    print(book.objects.delete())
     redirect ("dashboardProducts")
 
 def dashboardUsers(request):
-    return render(request, 'users/users.html')
+    users = CustomUser.objects.all
+    
+    context = {
+        "users": users
+    }
+    
+    return render(request, 'users/users.html', context)
 
 def dashboardUserAdd(request):
     return render(request, 'users/useradd.html')
 
-def dashboardUserEdit(request):
+def dashboardUserEdit(request, id):
     return render(request, 'users/useredit.html')
