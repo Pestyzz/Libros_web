@@ -20,8 +20,27 @@
 - Rework Login/Register/Recover [X] - BASTI
 - Separar SCSS para index y login [X] - BASTI
 
-- Migrar proyecto a Django []
-- Crear BD con MongoDB []
+- Migrar proyecto a Django [X]
+- Crear BD con PostgreSQL [X]
+
+Dashboard - Productos:
+
+- Listar Productos [X]
+- Añadir Productos [X]
+- Editar Productos [X]
+- Eliminar Productos [.] 
+
+Dashboard - Usuarios:
+
+- Listar Usuarios [X]
+- Añadir Usuarios []
+- Editar Usuarios [X]
+- Eliminar Usuarios []
+
+Dashboard - Pedidos:
+
+- Listar Pedidos []
+- Editar Pedidos []
 
 ## Paleta de colores ##
 
