@@ -111,7 +111,7 @@ WSGI_APPLICATION = 'libros_web.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=f'postgresql://postgres:postgres@localhost/postgres'
+        default='postgres://cleanzz:7b82R8R0bkJE5BLYs7YU0CfU9dnRB0h9@dpg-cpj3su6ct0pc7383o700-a.oregon-postgres.render.com/bd_rincon_literario'
     )
 }
 
