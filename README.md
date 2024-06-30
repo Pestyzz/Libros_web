@@ -28,14 +28,16 @@ Dashboard - Productos:
 - Listar Productos [X]
 - Añadir Productos [X]
 - Editar Productos [X]
-- Eliminar Productos [.] 
+- Eliminar Productos [X] 
+
+- Estandarizar Imágenes Correctamente [X]
 
 Dashboard - Usuarios:
 
 - Listar Usuarios [X]
-- Añadir Usuarios []
+- Añadir Usuarios [X]
 - Editar Usuarios [X]
-- Eliminar Usuarios []
+- Eliminar Usuarios [X]
 
 Dashboard - Pedidos:
 

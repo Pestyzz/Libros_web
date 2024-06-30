@@ -13,7 +13,7 @@ class CustomUser(AbstractUser):
     username = models.CharField(error_messages={'unique': 'A user with that username already exists.'}, help_text='Required. 16 characters or fewer. Letters, digits and @/./+/-/_ only.', max_length=16, unique=True, validators=[django.contrib.auth.validators.UnicodeUsernameValidator()])
     password = models.CharField(max_length=100, null=False)
     email = models.EmailField(blank=False, max_length=254, unique=True, null=False)
-    phone_number = models.IntegerField(validators=[MinValueValidator(100000000), MaxValueValidator(999999999)], unique=True, blank=True, null=True)
+    phone_number = models.IntegerField(validators=[MinValueValidator(100000000), MaxValueValidator(999999999)], blank=True, null=True)
     
     profile_img = models.ImageField(upload_to='users', blank=True) 
     
@@ -32,8 +32,6 @@ class CustomUser(AbstractUser):
     
     def __str__(self):
         return f"ID: {self.id} USER: {self.username} NAME: {self.first_name} {self.surname} {self.last_name}"
-    
-    pass
 
 class Book(models.Model):
     id = models.BigAutoField(primary_key=True)

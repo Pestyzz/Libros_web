@@ -98,6 +98,34 @@ a .btn.user {
     height: 250px;
 }
 
+@media (max-width >= 1700px) {
+    .card-header img.img-fluid {
+        width: 180px;
+        height: 250px;
+    }
+}
+
+@media (max-width >= 1400px) {
+    .card-header img.img-fluid {
+        width: 400px;
+        height: 250px;
+    }
+}
+
+@media (max-width >= 1200px) {
+    .card-header img.img-fluid {
+        width: 400px;
+        height: 250px;
+    }
+}
+
+@media (max-width >= 992px) {
+    .card-header img.img-fluid {
+        width: 180px;
+        height: 250px;
+    }
+}
+
 .pagination {
     border-radius: 0px !important;
 }

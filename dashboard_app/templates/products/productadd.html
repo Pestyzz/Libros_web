@@ -1,6 +1,9 @@
 {% extends "layouts/baseDashboard.html" %}
 {% load static %}
-{% block validationScript %}<script src="{% static "js/productValidations.js" %}"></script>{% endblock validationScript %}
+{% block validationScript %}
+<script src="{% static "js/productValidations.js" %}"></script>
+<script src="{% static "js/productImagePreview  .js" %}"></script>
+{% endblock validationScript %}
 
 {% block content %}
   <!-- Content Row -->
@@ -97,7 +100,7 @@
             </div>
             <div class="w-100 mb-3 d-flex">
               <div class="me-2">
-                <button type="submit" class="btn btn-add border-0"></i>Guardar Cambios</button>
+                <button type="submit" class="btn btn-add border-0"></i>Agregar Libro</button>
               </div>
               <div>
                 <a class="btn btn-add border-0" href="{% url "dashboardProducts" %}"></i>Atrás</a>

@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.hashers import make_password
 from django.db import IntegrityError
-from django.shortcuts import get_object_or_404
 from .lists import BOOK_LANGUAGES, CATEGORIES
 from .models import Book, CustomUser
 
@@ -25,13 +25,9 @@ def dashboardOrders(request):
     return render(request, 'orders.html')
 
 def dashboardProducts(request):
-    
     books = Book.objects.all()
-    
-    context = {
-        "books": books
-    }
-    return render(request, 'products/products.html', context)
+
+    return render(request, 'products/products.html', {"books": books})
 
 def dashboardProductAdd(request):
     if request.method == "GET":
@@ -126,35 +122,122 @@ def dashboardProductEdit(request, isbn):
         
         return redirect("dashboardProducts")
 
-def dashboardProductDelete(isbn):
+def dashboardProductDelete(request, isbn):
     book = get_object_or_404(Book, isbn=isbn)
-    print(book.objects.delete())
-    redirect ("dashboardProducts")
+    
+    if request.method == "POST":
+        book.delete()
+        return redirect("dashboardProducts")
+    
+    return redirect("dashboardProducts")
 
 def dashboardUsers(request):
     users = CustomUser.objects.all
     
-    context = {
-        "users": users
-    }
-    
-    return render(request, 'users/users.html', context)
+    return render(request, 'users/users.html', {"users": users})
 
 def dashboardUserAdd(request):
-    return render(request, 'users/useradd.html')
+    if request.method == "GET":
+        print("Enviando datos")
+        return render(request, 'users/useradd.html')
+    else:
+        print("Obteniendo Datos")
+        print(request.POST)
+        
+        try:
+            username = request.POST.get("user")
+            first_name = request.POST.get("name")
+            lastNames = request.POST.get("lastnames").split()
+            surname = lastNames[0]
+            last_name = lastNames[1]
+            email = request.POST.get("email")
+            password = request.POST.get("psw")
+            phone_number = request.POST.get("phone")
+            
+            if request.POST.get("typeuser") == "2":
+                is_superuser = True
+                is_staff = True
+            else:
+                is_superuser = False
+                is_staff = False
+            
+            address = request.POST.get("address")
+            
+            user = CustomUser.objects.create(
+                username = username,
+                password = make_password(password),
+                email = email,
+                first_name = first_name,
+                surname = surname,
+                last_name = last_name,
+                phone_number = phone_number,
+                address = address,
+                is_superuser = is_superuser,
+                is_staff = is_staff
+            )
+            
+            user.save()
+            return redirect('dashboardUsers')   
+        except IntegrityError as e:
+            return render(request, 'users/users.html', {
+                'error': "Usuario o Email ya existen."
+            })
 
 def dashboardUserEdit(request, id):
     user = get_object_or_404(CustomUser, id=id)
     
-    context = {
-        "user": user
-    }
-    
     if request.method == "GET":
-        print("Enviando Datos")
-        return render(request, 'users/useredit.html', context)
+        print("Enviando datos")
+        return render(request, 'users/useredit.html', {"user": user})
     else:
-        print("Obteniendo Datos")
+        print("Obteniendo datos")
         print(request.POST)
-        return render(request, 'users/useredit.html', context)
+        
+        try:
+            username = request.POST.get("user")
+            first_name = request.POST.get("name")
+            lastNames = request.POST.get("lastnames").split()
+            surname = lastNames[0]
+            last_name = lastNames[1]
+            email = request.POST.get("email")
+            password = request.POST.get("psw")
+            phone_number = request.POST.get("phone")
+            
+            user_type = request.POST.get("userType")
+            if user_type == "True":
+                is_superuser = True
+                is_staff = True
+            else:
+                is_superuser = False
+                is_staff = False
+            
+            address = request.POST.get("address")
+            
+            user.username = username
+            if password:
+                user.password = make_password(password)
+            user.email = email
+            user.first_name = first_name
+            user.surname = surname
+            user.last_name = last_name
+            user.phone_number = phone_number
+            user.address = address
+            user.is_superuser = is_superuser
+            user.is_staff = is_staff
+
+            user.save()
+            
+            return redirect("dashboardUsers")
+        except IntegrityError as e:
+            print(f"IntegrityError: {e}")
+            return render(request, 'users/useredit.html', {
+                'user': user,
+                'error': "Usuario o Email ya existen."
+            })
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+            return render(request, 'users/useredit.html', {
+                'user': user,
+                'error': "Ocurrió un error inesperado. Por favor, intente de nuevo."
+            })
         

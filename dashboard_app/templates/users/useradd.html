@@ -7,7 +7,8 @@
 
 {% block content %}
   <!-- Content Row -->
-  <form action="dashboard.html" method="post" id="addUserForm">
+  <form method="POST" id="addUserForm" novalidate>
+    {% csrf_token %}
     <div class="row justify-content-center">
       <!-- Content Column -->
       <div class="col-lg-10 mb-2">
@@ -67,7 +68,7 @@
                 </div>
                 <div class="w-100 mb-3">
                   <label for="fSubCateg" class="h5">Tipo Usuario</label>
-                  <select id="fSubCateg" name="subcategory" class="form-select">
+                  <select id="fSubCateg" name="typeuser" class="form-select">
                     <option selected value="1">Cliente</option>
                     <option value="2">Empleado</option>
                   </select> 
