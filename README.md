@@ -23,6 +23,10 @@
 - Migrar proyecto a Django [X]
 - Crear BD con PostgreSQL [X]
 
+- Rework CARDS Home []
+- Añadir Carrito []
+_ Añadir Pago []
+
 Dashboard - Productos:
 
 - Listar Productos [X]
