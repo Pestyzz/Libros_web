@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block scripts %}
+<script src="{% static "js/marginQuery.js" %}"></script>
+<script src="{% static "js/widthQuery.js" %}"></script>
+{% endblock scripts %}
+
+{% load custom_filters %}
+{% block content %}
+<main class="container d-flex">
+    <div class="d-flex flex-column justify-content-center w-100 mb-2">
+        <div class="mt-4 mb-3 align-items-center text-start">
+            {% if category != None %}
+            <h4 class="fw-bold text-body">{{books|length}}{% if books|length != 1 %} Resultados{% else %} Resultado{% endif %} de {{category}}.</h4>
+            {% else %}
+            <h4 class="fw-bold text-body">{{books|length}}{% if books|length != 1 %} Resultados{% else %} Resultado{% endif %} para "{{searchQ}}".</h4>
+            {% endif %} 
+        </div>
+        <section class="container bg-transparent mb-4">
+            <div class="d-flex flex-wrap mt-3 align-items-stretch justify-content-center">
+                {% for book in books %}
+                <div class="card bg-body-tertiary mb-xl-3 mb-md-3">
+                    <div class="card-header">
+                      <div class="img-fluid m-xl-1"><a href="{% url "product" book.id %}"><img src="{{book.image.url}}" alt="book-image"></a></div>
+                    </div>
+                    <div class="card-body text-body pb-0">
+                        <p class="card-title">{{book.publisher}}</p>
+                        <h5 class="card-text overflow-auto">{{book.book_name}}</h5>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <div class="mx-3">
+                        <h5 class="m-0">{{book.price|currency_format}}</h5>
+                      </div>
+                      <div class="mx-3">
+                        <a href="{% url "favAdd" book.id %}" class="btn btn-secondary">
+                          <i class="fas fa-heart fa-lg"></i>
+                        </a>
+                        <a href="{% url "add" book.id %}" class="btn btn-secondary">
+                            <i class="fas fa-cart-plus fa-lg"></i>
+                        </a>
+                      </div>
+                  </div>
+                </div>
+                {% endfor %}          
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock content %}

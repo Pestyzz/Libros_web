@@ -1,0 +1,64 @@
+{% load custom_filters %}
+<!-- Offcanvas Carrito de Compras -->
+<div class="offcanvas bg-primary-subtle offcanvas-end favoritos-menu" tabindex="-1" id="menuCarrito" aria-labelledby="menuCarritoLabel">
+    <div class="offcanvas-header">
+        <h3 class="offcanvas-title" id="menuCarritoLabel"><i class="fas fa-cart-shopping fa-lg me-2"></i>Carro</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between">
+        <!-- Contenido del Carrito -->
+        <div class="overflow-y-auto overflow-x-hidden">
+            <div class="mb-4 border-bottom border-primary">
+                <h6>Artículos ({{request.session.cart.items|length}})</h6>
+            </div>
+            {% if request.session.cart.items %}
+            {% for key, value in request.session.cart.items %}
+            <div class="card h-auto mb-4">
+                <div class="row">
+                    <div class="col-5">
+                        <a href="{% url "product" value.product_id %}">
+                            <img class="img-fluid p-1" src="{{value.image}}" alt="book-img" style="height: 180px">
+                        </a>
+                    </div>
+                    <div class="col-6 align-content-center mt-3">
+                        <h5 class="card-title">{{value.name}}</h5>
+                        <h5 class="fw-bold">{{value.price|currency_format}}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-body border-top pb-0">
+                            <div class="d-flex justify-content-between align-items-center pb-3 pt-0">
+                                <h6 class="m-0">Cantidad: {{value.quantity}}</h6>
+                                <div>
+                                    <a class="btn btn-primary text-dark" href="{% url "add" value.product_id %}">
+                                        +
+                                    </a>
+                                    <a class="btn btn-primary text-dark" href="{% url "remove" value.product_id %}">
+                                        -
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div>
+                <h6>No hay artículos en el carro.</h6>
+            </div>
+            {% endif %}
+        </div>
+        
+        {% if total_cart > 0 %}
+        <div class="mt-2">
+            <h4 class="fw-bold">Total: {{total_cart|currency_format}}</h4>
+            <a class="btn btn-lg btn-secondary w-100" href="{% url "payment" %}"><i class="fas fa-cart-shopping fa-1x me-1"></i>Proceder Pago</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+</div>
+<!---->

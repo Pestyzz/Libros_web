@@ -7,28 +7,95 @@ body {
     height: 100vh;
 }
 
-.carousel .carousel-indicators button {
-    width: 8px;
-    height: 8px;
-    border-radius: 100%;
+#carouselNovedades .carousel-inner {
+    padding: 1em;
 }
 
-.carousel-control-prev {
-    background-color: #fff;
-    border: 1px solid #000;
-    border-radius: 30px;
-    opacity: 0.45;
-    height: 38px;
-    width: 38px;
+.card {
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
 }
+
+.img-fluid img {
+    height: 300px;
+    width: 232px;
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text {
+    max-width: 240px;
+    width: 240px;
+}
+
+.carousel-control-prev,
 .carousel-control-next {
-    background-color: #fff;
-    border: 1px solid #000;
-    border-radius: 30px;
-    opacity: 0.6;
-    height: 38px;
-    width: 38px;
+    background-color: rgba(0, 0, 0, 0.5);;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
 }
+
+@media (min-width: 768px) {
+    /* Estilos específicos para las tarjetas en dispositivos de escritorio */
+    .card-item {
+        margin-right: 0; /* Ajusta el margen derecho según necesites */
+        flex: 0 0 25%; /* Ajusta el tamaño de las tarjetas */
+        display: block; /* Asegura que las tarjetas sean elementos de bloque */
+    }
+
+    /* Estilos específicos para los elementos del carrusel */
+    #carouselNovedades .carousel-item {
+        margin-right: 0; /* Ajusta el margen derecho según necesites */
+        flex: 0 0 25%; /* Ajusta el tamaño de los elementos del carrusel */
+        display: block; /* Asegura que los elementos del carrusel sean elementos de bloque */
+    }
+
+    /* Ajustes adicionales para el carrusel interno */
+    #carouselNovedades .carousel-inner {
+        display: flex; /* Asegura que el carrusel interno use flexbox */
+    }
+}
+
+
+@media (max-width: 767px) {
+    .card-item,
+    #carouselNovedades .carousel-item {
+        flex: 0 0 100%;
+        display: block;
+    }
+
+    #carouselNovedades .carousel-inner {
+        display: block;
+    }
+
+    .card {
+        margin: 0 0 1em 0;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 4vh;
+        height: 4vh;
+    }
+
+    .img-fluid img {
+        height: 300px;
+    }
+}
+
+
+
 
 .fw-bold {
     color:rgba(0, 0, 0, 0.6) !important;
@@ -38,8 +105,8 @@ body {
     color: rgba(0, 0, 0, 0.65) !important;
 }
 
- .card-title {
-    margin-bottom: 15px;
+.card-title {
+    margin-bottom: 10px;
 }
 
 h5.card-title {
@@ -51,7 +118,6 @@ a.btn:hover {
     outline: 1px solid #00000033;
 }
 
-/* Estilos para fijar el div en la parte inferior solo para el menú del carrito */
 .carrito-menu .offcanvas-body {
     position: relative;
 }
@@ -61,4 +127,38 @@ a.btn:hover {
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+.product-media-container {
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Center the container */
+}
+
+.product-media {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+@media (max-width: 768px) {
+    .product-media-container {
+        width: 100%;
+        height: auto; /* Allow height to adjust based on the width */
+    }
+    .product-media {
+        width: 100%;
+        height: auto; /* Allow height to adjust based on the width */
+    }
+    .product-info {
+        text-align: center; /* Center text for better readability on small screens */
+    }
+    .product-info .btn {
+        width: 100%; /* Make buttons full-width for small screens */
+        margin-bottom: 10px; /* Add some spacing between buttons */
+    }
 }

@@ -1,9 +1,25 @@
-BOOK_LANGUAGES = {
-    ("ES", "Español"),
-    ("EN", "Inglés")
+STATUS = [
+    ("EP", "EN PROCESO"),
+    ("E", "ENVIADO"),
+    ("EN", "ENTREGADO"),
+    ("D", "DEVUELTO"),
+    ("C", "CANCELADO"),
+]
+
+STATUS_CLASS_MAPPING = {
+    "EP": "process",
+    "E": "sent",
+    "EN": "delivered",
+    "D": "returned",
+    "C": "canceled",
 }
 
-CATEGORIES = {
+BOOK_LANGUAGES = [
+    ("ES", "Español"),
+    ("EN", "Inglés")
+]
+
+CATEGORIES = [
     ("1", "Ficción"),
     ("2", "No Ficción"),
     ("3", "Aventura"),
@@ -46,4 +62,4 @@ CATEGORIES = {
     ("40", "Infantil"),
     ("41", "Novela"),
     ("42", "Suspenso")
-}
+]

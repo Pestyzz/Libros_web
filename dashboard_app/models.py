@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils import timezone
 import django.contrib.auth.validators
-from .lists import BOOK_LANGUAGES, CATEGORIES
+from .lists import BOOK_LANGUAGES, CATEGORIES, STATUS
 
 # Create your models here.
 
@@ -16,6 +16,7 @@ class CustomUser(AbstractUser):
     phone_number = models.IntegerField(validators=[MinValueValidator(100000000), MaxValueValidator(999999999)], blank=True, null=True)
     
     profile_img = models.ImageField(upload_to='users', blank=True) 
+    about = models.CharField(blank=True, max_length=500, null=True)
     
     first_name = models.CharField(blank=False, max_length=50, null=False)
     surname = models.CharField(blank=False, max_length=50, null=False)
@@ -57,3 +58,27 @@ class Book(models.Model):
     
     def __str__(self):
         return f"ID: {self.id} ISBN: {self.isbn} BOOK NAME: {self.book_name}"
+    
+class Shopping(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    client = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=254)
+    address = models.CharField(blank=False, max_length=250, null=False)
+    phone_number = models.IntegerField(validators=[MinValueValidator(100000000), MaxValueValidator(999999999)], blank=True, null=True)
+    paid = models.IntegerField(null=False)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(default="EP", blank=False, max_length=20, choices=STATUS, null=False)
+
+    def __str__(self):
+        return str(self.id) + '-' + self.client.username
+
+    
+from django.db import models
+
+class ShoppingItem(models.Model):
+    shopping = models.ForeignKey(Shopping, on_delete=models.CASCADE, related_name='items')
+    product_id = models.ForeignKey(Book, on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=False)
+    
+    def __str__(self):
+        return f"Shopping #{self.shopping} - Product: {self.product_id}, Quantity: {self.quantity}"

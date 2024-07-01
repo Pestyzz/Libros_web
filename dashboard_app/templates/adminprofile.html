@@ -7,7 +7,7 @@
 
 {% block content %}
   <!-- Content Row -->
-  <form action="{% url "dashboardHome" %}" method="POST" id="profileForm">
+  <form method="POST" id="profileForm">
     {% csrf_token %}
     <div class="row justify-content-center">
       <!-- Content Column -->
@@ -34,33 +34,40 @@
                 <div class="w-100 mb-2">
                   <label for="fName" class="h5">Nombre</label>
                   <input id="fName" name="name" type="text" class="profile form-control"
-                    placeholder="Escribe aquí..." value="Nombre Actual" required>
+                    placeholder="Escribe aquí..." value="{{user.first_name}}" required>
                   <div class="errorMessage"></div>
                 </div>
                 <div class="w-100 mb-3">
                   <label for="fLnames" class="h5">Apellidos</label>
                   <input id="fLnames" name="lastnames" type="text" class="profile form-control"
-                    placeholder="Escribe aquí..." value="Apellidos Actuales" required>
+                    placeholder="Escribe aquí..." value="{{user.surname}} {{user.last_name}}" required>
                   <div class="errorMessage"></div>
                 </div>
                 <div class="w-100 mb-3">
                   <label for="fEmail" class="h5">E-mail</label>
                   <input id="fEmail" name="email" type="email" class="profile form-control"
-                    placeholder="Correo Electrónico Actual" value="correoActual@gmail.com" required>
+                    placeholder="Escribe aquí..." value="{{user.email}}" required>
                     <div class="errorMessage"></div>
                 </div>
                 <div class="w-100 mb-3">
                   <label for="fPhone" class="h5">Número Celular</label>
                   <input id="fPhone" name="phone" type="text" class="profile form-control"
-                    placeholder="N° Celular Actual" required>
+                    placeholder="Escribre aquí..." value="{{user.phone_number}}" required>
                     <div class="errorMessage"></div>
                 </div>
               </div>
               <div class="col-lg-4 col-md-3">
                 <div class="w-100 mb-3">
                   <label for="fAbout" class="h5">Sobre mí</label>
+                  {% if user.about %}
                   <textarea id="fAbout" name="about" type="text" class="form-control"
-                    placeholder="Escribe aquí..." rows="12"></textarea>
+                    placeholder="Escribe aquí..." maxlength="500" rows="12">
+                    {{user.about}}
+                  </textarea>
+                  {% else %}
+                  <textarea id="fAbout" name="about" type="text" class="form-control"
+                    placeholder="Escribe aquí..." maxlength="500" rows="12"></textarea>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -89,17 +96,17 @@
                 <div class="w-100 mb-3">
                   <label for="fAddress" class="h5">Dirección</label>
                   <input id="fAddress" name="address" type="text" class="form-control"
-                    placeholder="Dirección Actual" required>
+                    placeholder="Escribre aquí..." value="{{user.address}}" required>
                 </div>
                 <div class="w-100 mb-3">
                   <label for="fRegion" class="h5">Región</label>
                   <input id="fRegion" name="region" type="text" class="form-control"
-                    placeholder="Región Actual" required>
+                    placeholder="Región Actual.." required>
                 </div>
                 <div class="w-100 mb-3">
                   <label for="fCity" class="h5">Ciudad</label>
                   <input id="fCity" name="city" type="text" class="form-control"
-                    placeholder="Ciudad Actual" required>
+                    placeholder="Ciudad Actual.." required>
                 </div>
               </div>
             </div>

@@ -1,416 +1,82 @@
 {% extends 'layouts/base.html' %}
-
 {% load static %}
+{% block scripts %}
+<script src="{% static "js/cardSlider.js" %}"></script>
+{% endblock scripts %}
+
+{% load custom_filters %}
 {% block content %}
-  <!--Top Banners de la web-->
-  <div id="inicio" class="container">
-    <div class="row d-flex justify-content-center">
-      <div class="col-lg-8">
-        <div id="carouselBanner" class="carousel carousel-dark slide" data-bs-ride="carousel">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="carousel-indicators top-100">
-                <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              </div>
-            </div>
+<!--Top Banners de la web-->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div id="carouselBanner" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'public/img/Banner_1.png' %}" class="d-block w-100" alt="banner1_img">
           </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="carousel-inner">
-                <!--Agregar BD para Banners y añadir FOR correspondiente-->
-                <div class="carousel-item active">
-                  <img class="d-block w-100" src="{% static "public/img/Banner_1.png" %}" alt="banner1_img">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block w-100" src="{% static "public/img/Banner_2.png" %}" alt="banner2_img">
-                </div>
-              </div>
-              <button class="carousel-control-prev top-50" type="button" data-bs-target="#carouselBanner" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-              </button>
-              <button class="carousel-control-next top-50" type="button" data-bs-target="#carouselBanner" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
-              </button>
-            </div>
+          <div class="carousel-item">
+            <img src="{% static 'public/img/Banner_2.png' %}" class="d-block w-100" alt="banner2_img">
           </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
       </div>
     </div>
   </div>
-   <!--Slider Novedades-->
- <section id="novedadesSlider">
-   <div class="container mb-3 mt-5">
-     <div class="row row-cols-lg-4 justify-content-center">
-       <div class="col-lg-9 col-md-12 col-sm-7">
-         <h4 class="border-bottom border-2 border-primary mb-3 p-1">Novedades</h4>
-       </div>
-       <div class="col-lg-9 col-md-12 col-sm-7">
-         <div id="carouselNovedades" class="carousel carousel-dark slide" data-bs-ride="carousel">
-           <div class="row">
-             <div class="col-lg-6">
-               <div class="carousel-indicators top-100">
-                 <button type="button" data-bs-target="#carouselNovedades" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                 <button type="button" data-bs-target="#carouselNovedades" data-bs-slide-to="1" aria-label="Slide 2"></button>
-               </div>
-             </div>
-           </div>
-           <div class="carousel-inner">
-             <div class="carousel-item active">
-               <div class="row justify-content-center">
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$35.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/El_Visitante_Stephen_King.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">Stephen King - El Visitante</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$20.500</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/Un_Cuento_Perfecto.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">Un Cuento Perfecto</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$22.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary favorite" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/Antologia_del_Terror_HP_Lovecraft.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">H.P Lovecraft - Antalogía del Terror</h5>
-                     </div>
-                     <div class="p-3 pt-0 ">
-                       <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-               </div> 
-             </div>
-             <div class="carousel-item">
-               <div class="row justify-content-center">
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/El_Mapa_de_los_Anhelos_Alice_Kellen.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">El Mapa de los anhelos</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$16.500</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/Despues_Stephen_King.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">Stephen King - Después</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/El_Principito.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">El Principito</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$15.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/The_Silver_Eyes_.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Libro</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div> 
-           </div> 
-           <div class="row">
-            <div class="h-25">
-              <button class="carousel-control-prev top-50" type="button" data-bs-target="#carouselNovedades" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previo</span>
-              </button>
-              <button class="carousel-control-next top-50" type="button" data-bs-target="#carouselNovedades" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
-              </button>
+</div>
+
+<!--Slider Novedades-->
+<main class="container">
+  <section class="mt-5">
+    <div class="d-flex justify-content-between align-items-end border-bottom border-2 border-primary">
+        <h1 class="mb-1 ms-4 mb-0">Novedades</h1>
+        {% comment %} <a class="me-4 text-decoration-none show-more" href="{% url "finderCategory" "Bicicletas" %}">Ver más</a> {% endcomment %}
+    </div>
+    <div id="carouselNovedades" class="carousel">
+        <div class="carousel-inner">
+            {% for book in books %}
+            <div class="carousel-item">
+                <div class="card bg-body-tertiary">
+                    <div class="card-header">
+                      <div class="img-fluid m-xl-1"><a href="{% url "product" book.id %}"><img src="{{book.image.url}}" class="w-100" alt="book-image"></a></div>
+                    </div>
+                    <div class="card-body text-body pb-0">
+                        <p class="card-title">{{book.publisher}}</p>
+                        <h5 class="card-text overflow-auto">{{book.book_name}}</h5>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <div class="mx-3">
+                        <h5 class="m-0">{{book.price|currency_format}}</h5>
+                      </div>
+                      <div class="mx-3">
+                        <a href="{% url "favAdd" book.id %}" class="btn btn-secondary">
+                          <i class="fas fa-heart fa-lg"></i>
+                        </a>
+                        <a href="{% url "add" book.id %}" class="btn btn-secondary">
+                            <i class="fas fa-cart-plus fa-lg"></i>
+                        </a>
+                      </div>
+                  </div>
+                </div>
             </div>
-          </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </section>
- <!--Slider Ofertas-->
- <section id="ofertasSlider">
-   <div class="container mb-3 mt-5">
-     <div class="row justify-content-center">
-       <div class="col-lg-9 col-md-12 col-sm-7">
-         <h4 class="border-bottom border-2 border-primary mb-3 p-1">Ofertas</h4>
-       </div>
-       <div class="col-lg-9 col-md-12 col-sm-7">
-         <div id="carouselOfertas" class="carousel carousel-dark slide" data-bs-ride="carousel">
-           <div class="row">
-             <div class="col-lg-6">
-               <div class="carousel-indicators top-100">
-                 <button type="button" data-bs-target="#carouselOfertas" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                 <button type="button" data-bs-target="#carouselOfertas" data-bs-slide-to="1" aria-label="Slide 2"></button>
-               </div>
-             </div>
-           </div>
-           <div class="carousel-inner">
-             <div class="carousel-item active">
-               <div class="row justify-content-center">
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/The_Silver_Eyes_29_-_Portada.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Novela Gráfica</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$35.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/El_Visitante_Stephen_King.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">Stephen King - El Visitante</h5>
-                       
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$20.500</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img//Un_Cuento_Perfecto.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">Un Cuento Perfecto</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$22.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary favorite" href="#">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/Antologia_del_Terror_HP_Lovecraft.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">H.P Lovecraft - Antalogía del Terror</h5>
-                     </div>
-                     <div class="p-3 pt-0 ">
-                       <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-               </div> 
-             </div>
-             <div class="carousel-item">
-               <div class="row justify-content-center">
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/El_Mapa_de_los_Anhelos_Alice_Kellen.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">El Mapa de los anhelos</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$16.500</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/Despues_Stephen_King.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">Stephen King - Después</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/El_Principito.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">El Principito</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$15.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-                   <div class="card h-100">
-                     <a href="prodtemplate.html">
-                       <img class="img-fluid p-1" src="img/The_Silver_Eyes_.jpg" alt="libro_img">
-                     </a>
-                     <div class="card-body border-top pb-0">
-                       <h5 class="card-title">Five Night's At Freddy's Los Ojos de Plata Libro</h5>
-                     </div>
-                     <div class="p-3 pt-0">
-                       <h5 class="fw-bold">$25.000</h5>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuCarrito" role="button" aria-controls="menuCarrito">
-                         <img src="icons/shopping_cart_white_24dp.svg" alt="">Agregar</a>
-                       <a class="btn btn-sm btn-primary bg-secondary border-secondary" data-bs-toggle="offcanvas" href="#menuFavoritos" role="button" aria-controls="menuFavoritos">
-                         <img src="icons/favorite_border_white_24dp.svg" alt="favorite_icon">
-                       </a>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div> 
-           </div>
-           <button class="carousel-control-prev top-50" type="button" data-bs-target="#carouselOfertas" data-bs-slide="prev">
-             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-             <span class="visually-hidden">Previous</span>
-           </button>
-           <button class="carousel-control-next top-50" type="button" data-bs-target="#carouselOfertas" data-bs-slide="next">
-             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-             <span class="visually-hidden">Next</span>
-           </button>    
-         </div>
-       </div>
-     </div>
-   </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselNovedades" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselNovedades" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
   </section>
+</main>
 {% endblock %}

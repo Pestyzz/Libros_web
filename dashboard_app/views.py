@@ -1,25 +1,124 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.hashers import make_password
 from django.db import IntegrityError
-from .lists import BOOK_LANGUAGES, CATEGORIES
-from .models import Book, CustomUser
+from .lists import BOOK_LANGUAGES, CATEGORIES, STATUS_CLASS_MAPPING
+from .models import *
 
 # Create your views here.
 
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    if request.user.is_staff:
+        return render(request, 'dashboard.html')
+    else:
+        return redirect("home")
 
 def dashboardProfile(request):
+    user = get_object_or_404(CustomUser, id=request.user.id)
+    
+    if request.method == "GET":
+        return render(request, 'adminprofile.html', {"user": user})
+    
+    elif request.method == "POST":
+        try:
+            # Obtener el usuario actualmente autenticado
+            
+            # Obtener los datos del formulario POST
+            print(f"Datos recibidos del formulario POST: {request.POST}")
+            first_name = request.POST.get("name")
+            lastNames = request.POST.get("lastnames").split()
+            surname = lastNames[0]
+            last_name = lastNames[1]
+            email = request.POST.get("email")
+            password = request.POST.get("psw")
+            phone_number = request.POST.get("phone")
+            address = request.POST.get("address")
+            about = request.POST.get("about")
+            
+            # Verificar si el email ya existe en otro usuario
+            if CustomUser.objects.exclude(id=user.id).filter(email=email).exists():
+                raise IntegrityError("El email ya existe en otro usuario.")
+            
+            # Actualizar los campos del usuario
+            user.first_name = first_name
+            user.surname = surname
+            user.last_name = last_name
+            user.email = email
+            
+            # Actualizar la contraseña solo si se ha proporcionado una nueva
+            if password:
+                user.password = make_password(password)
+                
+            user.phone_number = phone_number
+            user.address = address
+            user.about = about
+            
+            print(user.surname, user.last_name)
+            user.save()
+            print("Usuario guardado exitosamente.")
+            
+            # Redirigir a la página de inicio del dashboard
+            return redirect('dashboardHome')
+        
+        except IntegrityError as e:
+            print(f"Error de integridad al guardar el usuario: {e}")
+            return render(request, 'adminprofile.html', {
+                'error': "Usuario o Email ya existen."
+            })
+        except Exception as e:
+            print(f"Error al guardar el usuario: {e}")
+            return render(request, 'adminprofile.html', {
+                'error': "Error al guardar el usuario. Por favor, intenta nuevamente."
+            })
+    
     return render(request, 'adminprofile.html')
+
 
 def dashboardCharts(request):
     return render(request, 'charts.html')
 
-def dashboardShopping(request):
-    return render(request, 'shopping/shopping.html')
+def get_status_class(status):
+    return STATUS_CLASS_MAPPING.get(status, "")
 
-def dashboardShoppingEdit(request):
-    return render(request, 'shopping/shoppingedit.html')
+def dashboardShopping(request):
+    purchases = Shopping.objects.all()
+    for purchase in purchases:
+        purchase.total_quantity = sum(item.quantity for item in purchase.items.all())
+        purchase.status_class = get_status_class(purchase.status)
+    return render(request, 'shopping/shopping.html', {'purchases': purchases})
+
+def dashboardShoppingEdit(request, shopping_id):
+    purchase = get_object_or_404(Shopping, id=shopping_id)
+    
+    if request.method == "POST":
+        print("Obteniendo Datos")
+        print(request.POST)
+        try:
+            status = request.POST.get("status")
+            if status:
+                purchase.status = status
+                purchase.save()
+                print("Estado actualizado exitosamente.")
+                return redirect('dashboardShopping')
+        except IntegrityError as e:
+            print(f"Error de integridad al actualizar el estado: {e}")
+            return render(request, 'shopping/shoppingedit.html', {
+                'purchase': purchase,
+                'STATUS': STATUS,
+                'error': "Error al actualizar el estado. Por favor, intenta nuevamente."
+            })
+        except Exception as e:
+            print(f"Error al actualizar el estado: {e}")
+            return render(request, 'shopping/shoppingedit.html', {
+                'purchase': purchase,
+                'STATUS': STATUS,
+                'error': "Error al actualizar el estado. Por favor, intenta nuevamente."
+            })
+    
+    return render(request, 'shopping/shoppingedit.html', {
+        'purchase': purchase,
+        'STATUS': STATUS
+    })
+        
 
 def dashboardOrders(request):
     return render(request, 'orders.html')

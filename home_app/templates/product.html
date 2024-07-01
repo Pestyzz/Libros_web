@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block scripts %}
+<script src="{% static "js/stock.js" %}"></script>
+{% endblock scripts %}
+
+{% load custom_filters %}
+{% block content %}
+<main class="container mt-4 bg-white p-3 border border-1 rounded-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-10 col-sm-10 d-flex justify-content-center">
+            <div class="product-media-container border rounded-2">
+                <img class="product-media p-3 m-5" src="{{book.image.url}}" alt="book-image">
+            </div>
+        </div>
+        <div class="product-info col-lg-6 col-md-10 col-sm-10 d-flex flex-column justify-content-between px-4">
+            <div>
+                <h2 class="border-bottom mt-lg-0 mt-md-3 mt-sm-3 mb-4">{{book.book_name}}</h2>
+                <div>
+                    <span class="fw-bold h6">Editorial: </span>
+                    <span class="h6">{{book.publisher}}</span>
+                </div>
+                <div>
+                    <a class="h6">{{book.author}}</a>
+                </div>
+                <div>
+                    <span class="fw-bold h6">ISBN: </span>
+                    <span class="h6">{{book.isbn}}</span>
+                </div> 
+                <div class="mt-4">
+                  <h4 class="border-bottom">Reseña</h4>
+                  <span>{{book.description}}</span>
+                </div>
+            </div>
+            <div class="mt-auto mb-2">
+              <div>
+                <h3 class="fw-bold mt-4">{{book.price|currency_format}}</h3>
+              </div>
+                <a href="{% url "add" book.id %}" class="btn btn-lg btn-secondary">
+                    <i class="fas fa-cart-plus fa-lg me-1"></i>
+                    Añadir al carro
+                </a>
+                <a href="{% url "favAdd" book.id %}" class="btn btn-lg btn-secondary">
+                    <i class="fas fa-heart fa-lg me-1"></i>
+                    Añadir a favoritos
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock content %}

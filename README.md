@@ -23,9 +23,15 @@
 - Migrar proyecto a Django [X]
 - Crear BD con PostgreSQL [X]
 
-- Rework CARDS Home []
-- Añadir Carrito []
-_ Añadir Pago []
+- Rework CARDS Home [X]
+- Añadir Carrito Funcional [X]
+- Añadir Favoritos Funcional [X]
+
+- Añadir Buscador Funcional + Filtros Categoría [X]
+
+- Añadir Pago "Funcional" [X]
+
+- Añadir Historial Funcional [X]
 
 Dashboard - Productos:
 

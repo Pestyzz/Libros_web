@@ -1,0 +1,32 @@
+@import "../../../home_app/static/node_modules/bootstrap/dist/variables";
+@import "../../../home_app/static/node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../../home_app/static/node_modules/bootstrap/dist/bootswatch";
+
+.errorMessage {
+    color: $danger;
+}
+
+.card {
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.img-fluid img {
+    height: 300px;
+    width: 200px;
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-text {
+    max-width: 240px;
+    width: 240px;
+}

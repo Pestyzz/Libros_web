@@ -1,6 +1,7 @@
 {% extends "layouts/baseDashboard.html" %}
 
 {% load static %}
+{% load custom_filters %}
 {% block content %}
   <div class="row">
     <!-- Content Column -->
@@ -16,159 +17,33 @@
               <thead>
                 <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Pagado</th>
-                  <th scope="col">Método</th>
+                  <th scope="col">Cliente</th>
                   <th scope="col">Cant. Productos</th>
+                  <th scope="col">Monto</th>
                   <th scope="col">Fecha</th>
                   <th scope="col">Estado</th>
                 </tr>
               </thead>
               <tbody>
                 <!--Añadir FOR con los datos correspondientes-->
+                {% for purchase in purchases %}
                 <tr>
-                  <th scope="row">210</th>
-                  <td>$45,500</td>
-                  <td>Visa</td>
-                  <td>2</td>
-                  <td>07/04/2024</td>
-                  <td><p class="state delivered rounded-pill bg-opacity-75 fw-semibold">Entregado</p></td>
+                  <th scope="row">{{purchase.id}}</th>
+                  <td>{{purchase.client.first_name}} {{purchase.client.surname}} {{purchase.client.last_name}}</td>
+                  <td>{{purchase.total_quantity}}</td>
+                  <td>{{purchase.paid|currency_format}}</td>
+                  <td>{{purchase.creation_date}}</td>
+                  <td>
+                    <p class="state {{purchase.status_class}} rounded-pill bg-opacity-75 fw-semibold">
+                      {{purchase.get_status_display}}
+                    </p>
+                  </td>
                   <td class="p-1">
                     <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
+                        href="{% url "dashboardShoppingEdit" purchase.id %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">220</th>
-                  <td>$60,300</td>
-                  <td>Master Card</td>
-                  <td>4</td>
-                  <td>09/04/2024</td>
-                  <td><p class="state sent rounded-pill bg-opacity-75 fw-semibold">Enviado</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">230</th>
-                  <td>$25,500</td>
-                  <td>Master Card</td>
-                  <td>1</td>
-                  <td>13/04/2024</td>
-                  <td><p class="state sent rounded-pill bg-opacity-75 fw-semibold">Enviado</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">240</th>
-                  <td>$55,500</td>
-                  <td>Visa</td>
-                  <td>3</td>
-                  <td>13/04/2024</td>
-                  <td><p class="state process rounded-pill bg-opacity-75 fw-semibold">En Proceso</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">250</th>
-                  <td>$45,500</td>
-                  <td>Visa</td>
-                  <td>2</td>
-                  <td>13/04/2024</td>
-                  <td><p class="state delivered rounded-pill bg-opacity-75 fw-semibold">Entregado</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">260</th>
-                  <td>$60,300</td>
-                  <td>Master Card</td>
-                  <td>4</td>
-                  <td>13/04/2024</td>
-                  <td><p class="state sent rounded-pill bg-opacity-75 fw-semibold">Enviado</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">270</th>
-                  <td>$25,500</td>
-                  <td>Master Card</td>
-                  <td>1</td>
-                  <td>13/04/2024</td>
-                  <td><p class="state sent rounded-pill bg-opacity-75 fw-semibold">Enviado</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">280</th>
-                  <td>$55,500</td>
-                  <td>Visa</td>
-                  <td>3</td>
-                  <td>13/04/2024</td>
-                  <td><p class="state process rounded-pill bg-opacity-75 fw-semibold">En Proceso</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">290</th>
-                  <td>$45,500</td>
-                  <td>Visa</td>
-                  <td>2</td>
-                  <td>13/04/2024</td>
-                  <td><p class="state delivered rounded-pill bg-opacity-75 fw-semibold">Entregado</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">300</th>
-                  <td>$60,300</td>
-                  <td>Master Card</td>
-                  <td>4</td>
-                  <td>13/04/2024</td>
-                  <td><p class="state sent rounded-pill bg-opacity-75 fw-semibold">Enviado</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">310</th>
-                  <td>$25,500</td>
-                  <td>Master Card</td>
-                  <td>1</td>
-                  <td>14/04/2024</td>
-                  <td><p class="state sent rounded-pill bg-opacity-75 fw-semibold">Enviado</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">320</th>
-                  <td>$55,500</td>
-                  <td>Visa</td>
-                  <td>3</td>
-                  <td>14/04/2024</td>
-                  <td><p class="state process rounded-pill bg-opacity-75 fw-semibold">En Proceso</p></td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
-                  </td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
