@@ -8,7 +8,11 @@ from .models import *
 
 def dashboard(request):
     if request.user.is_staff:
-        return render(request, 'dashboard.html')
+        purchases = Shopping.objects.all()
+        for purchase in purchases:
+            purchase.total_quantity = sum(item.quantity for item in purchase.items.all())
+            purchase.status_class = get_status_class(purchase.status)
+        return render(request, 'dashboard.html', {"purchases": purchases})
     else:
         return redirect("home")
 
