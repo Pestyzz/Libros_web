@@ -32,6 +32,9 @@
             <div class="dropdown-menu">
                 <!-- Aquí puedes agregar los elementos del menú desplegable -->
                 <a class="dropdown-item" href="{% url "history" %}">Historial</a>
+                {% if user.is_staff %}
+                <a class="dropdown-item" href="{% url "dashboardHome" %}">Dashboard</a>
+                {% endif %}
                 <a class="dropdown-item" href="{% url "logout" %}">Cerrar Sesión</a>
                 <!-- Puedes agregar más elementos según sea necesario -->
             </div>
