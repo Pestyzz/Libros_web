@@ -25,6 +25,8 @@
 
 - Rework CARDS Home [X]
 - Añadir Carrito Funcional [X]
+- Agregar mantención del carro []
+
 - Añadir Favoritos Funcional [X]
 
 - Añadir Buscador Funcional + Filtros Categoría [X]
