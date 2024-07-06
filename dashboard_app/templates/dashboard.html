@@ -29,7 +29,7 @@
             <div class="col">
               <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                 Total Ventas (Mensual)</div>
-                <div class="h5 mb-0 font-weight-bold"><i class="fas fa-caret-up fa-lg text-success me-2"></i>$650,000</div>
+                <div class="h5 mb-0 font-weight-bold"><i class="fas fa-caret-up fa-lg text-success me-2"></i>$650.000</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-dollar-sign fa-2x"></i>
@@ -88,134 +88,12 @@
   <!-- Content Row -->
   <div class="row">
     <!-- Content Column -->
-    <div class="col-lg-6 mb-2">
-    <!--Order Books Status Table-->
-      <div class="info-card card shadow mb-2 h-auto">
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h5 class="m-0 fw-semibold text-light">Seguimiento Órdenes</h5>
-        </div>
-        <div class="card-body mx-2 overflow-auto" style="max-height: 300px;">
-          <div class="table-responsive">
-            <table class="table table-striped text-nowrap">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Pagado</th>
-                  <th scope="col">Método</th>
-                  <th scope="col">Cant. Productos</th>
-                  <th scope="col">Fecha</th>
-                  <th scope="col">Estado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!--Añadir FOR con los datos correspondientes-->
-                <tr>
-                  <th scope="row">430</th>
-                  <td>$445,500</td>
-                  <td>Visa</td>
-                  <td>40</td>
-                  <td>07/04/2024</td>
-                  <td>Entregado</td>
-                </tr>
-                <tr>
-                  <th scope="row">440</th>
-                  <td>$460,300</td>
-                  <td>Master Card</td>
-                  <td>50</td>
-                  <td>09/04/2024</td>
-                  <td>Enviado</td>
-                </tr>
-                <tr>
-                  <th scope="row">450</th>
-                  <td>$225,500</td>
-                  <td>Master Card</td>
-                  <td>20</td>
-                  <td>13/04/2024</td>
-                  <td>Enviado</td>
-                </tr>
-                <tr>
-                  <th scope="row">460</th>
-                  <td>$155,500</td>
-                  <td>Visa</td>
-                  <td>15</td>
-                  <td>13/04/2024</td>
-                  <td>En Proceso</td>
-                </tr>
-                <tr>
-                  <th scope="row">470</th>
-                  <td>$545,500</td>
-                  <td>Visa</td>
-                  <td>85</td>
-                  <td>13/04/2024</td>
-                  <td>Entregado</td>
-                </tr>
-                <tr>
-                  <th scope="row">480</th>
-                  <td>$360,300</td>
-                  <td>Master Card</td>
-                  <td>45</td>
-                  <td>13/04/2024</td>
-                  <td>Enviado</td>
-                </tr>
-                <tr>
-                  <th scope="row">490</th>
-                  <td>$725,500</td>
-                  <td>Master Card</td>
-                  <td>95</td>
-                  <td>13/04/2024</td>
-                  <td>Enviado</td>
-                </tr>
-                <tr>
-                  <th scope="row">500</th>
-                  <td>$455,500</td>
-                  <td>Visa</td>
-                  <td>30</td>
-                  <td>13/04/2024</td>
-                  <td>En Proceso</td>
-                </tr>
-                <tr>
-                  <th scope="row">510</th>
-                  <td>$145,500</td>
-                  <td>Visa</td>
-                  <td>15</td>
-                  <td>13/04/2024</td>
-                  <td>Entregado</td>
-                </tr>
-                <tr>
-                  <th scope="row">520</th>
-                  <td>$360,300</td>
-                  <td>Master Card</td>
-                  <td>40</td>
-                  <td>13/04/2024</td>
-                  <td>Enviado</td>
-                </tr>
-                <tr>
-                  <th scope="row">560</th>
-                  <td>$525,500</td>
-                  <td>Master Card</td>
-                  <td>50</td>
-                  <td>14/04/2024</td>
-                  <td>Enviado</td>
-                </tr>
-                <tr>
-                  <th scope="row">570</th>
-                  <td>$755,500</td>
-                  <td>Visa</td>
-                  <td>85</td>
-                  <td>14/04/2024</td>
-                  <td>En Proceso</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 mb-2">
+    <div class="col-lg-12 mb-2">
       <!--Selled Orders Status Table-->
       <div class="info-card card shadow mb-2 h-auto">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
           <h5 class="m-0 fw-semibold text-light">Seguimiento Compras</h5>
+          <h5 class="m-0 fw-normal"><a href="{% url "dashboardShopping" %}" class="text-info">Más detalles</a></h5>
         </div>
         <div class="card-body mx-2 overflow-auto" style="height: 300px;">
           <div class="table-responsive">
@@ -243,10 +121,6 @@
                     <p class="state {{purchase.status_class}} rounded-pill bg-opacity-75 fw-semibold">
                       {{purchase.get_status_display}}
                     </p>
-                  </td>
-                  <td class="p-1">
-                    <div class="d-flex justify-content-end "><a class="btn btn-sm btn-dark"
-                        href="{% url "dashboardShoppingEdit" purchase.id %}"><i class="fas fa-pen fa-sm me-1"></i>Editar</a></div>
                   </td>
                 </tr>
                 {% endfor %}

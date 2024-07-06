@@ -7,18 +7,19 @@
 <main class="container bg-body p-1 mt-5">
   <h1 class="mt-1 mb-4 ms-3 border-bottom border-primary">Historial de Compras</h1>
   {% if purchases %}
-    <u>
+    <ul>
       {% for purchase in purchases %}
       <li class=" d-flex flex-column border mb-3 p-3 m-3">
         <div class="d-flex flex-row gap-2">
           <p class="text-decoration-none">Compra #{{purchase.id}}</p>
           <p>Fecha de Compra: {{purchase.creation_date}}</p>
           <p>Monto Pagado: {{purchase.paid|currency_format}}</p>
+          <p class="fw-semibold">ESTADO: {{purchase.get_status_display}}</p>
         </div>
         <ul>
           <p class="m-0 fw-bolder">Productos:</p>
           {% for item in purchase.items.all %}
-          <li><a class="text-info text-text-decoration-none" href="{% url "product" item.product_id.id %}">{{item.product_id.book_name}}</a> (Cantidad: {{item.quantity}})</li>
+          <li><a class="text-info" href="{% url "product" item.product_id.id %}">{{item.product_id.book_name}}</a> (Cantidad: {{item.quantity}})</li>
           {% endfor %}
         </ul>
       </li>

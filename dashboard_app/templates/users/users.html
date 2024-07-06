@@ -18,11 +18,11 @@
             <h3 class="fw-semibold text-light text-start">
               Administrar Usuarios
             </h3>
-            <form class="" role="search">
+            {% comment %} <form class="" role="search">
               <input class="form-control" type="text" placeholder="ID/Nombre/Fecha" aria-label="Search">
-            </form>
+            </form> {% endcomment %}
           </div>
-          <div class="d-flex flex-lg-row flex-column align-items-center">
+          {% comment %} <div class="d-flex flex-lg-row flex-column align-items-center">
             <div class="dropdown dropdown-center mt-lg-0 mt-2 mx-lg-2">
               <button class="btn btn-dark text-nowrap dropdown-toggle" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -53,7 +53,7 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> {% endcomment %}
         </div>
         <div class="card-body mx-2 overflow-auto" style="max-height: 600px;">
           <div class="table-responsive">
@@ -79,7 +79,7 @@
                   <td>{{user.first_name}}</td>
                   <td>{{user.surname}} {{user.last_name}}</td>
                   <td>{{user.date_joined}}</td>
-                  <td>30</td>
+                  <td>{{user.purchases_quantity}}</td>
                   {% if user.is_staff%}
                   <td>Staff</td>
                   {% else %}
@@ -99,10 +99,13 @@
                       </a>
                     </div>
                     <div class="ms-2">
-                      <button type="button" class="btn btn-sm btn-danger">
-                        <i class="fas fa-x fa-sm me-1"></i>
-                        Eliminar
-                      </button>
+                      <form action="{% url "dashboardUserDelete" user.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-danger">
+                          <i class="fas fa-x fa-sm me-1"></i>
+                          Eliminar
+                        </button>
+                      </form>
                     </div>
                     </div>
                   </td>

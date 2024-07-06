@@ -21,11 +21,7 @@ def signin(request):
             })
         else:
             login(request, user)
-            
-            if user.is_staff:
-                return redirect('dashboardHome')
-            else:
-                return redirect('home')
+            return redirect('home')
                         
 def signout(request):
     logout(request)

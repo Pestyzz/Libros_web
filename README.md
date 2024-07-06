@@ -34,6 +34,10 @@
 - Añadir Pago "Funcional" [X]
 
 - Añadir Historial Funcional [X]
+- Implementar "Estado" en Historial [X]
+- Si se elimina un producto, debe borrarse del historial también
+
+- Permisos Dashboard [X]
 
 Dashboard - Productos:
 
@@ -53,8 +57,8 @@ Dashboard - Usuarios:
 
 Dashboard - Pedidos:
 
-- Listar Pedidos []
-- Editar Pedidos []
+- Listar Pedidos [X]
+- Editar Pedidos [X]
 
 ## Paleta de colores ##
 

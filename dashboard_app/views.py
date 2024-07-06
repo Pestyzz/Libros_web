@@ -1,21 +1,21 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.decorators import permission_required
 from django.db import IntegrityError
+from django.db.models import Count
 from .lists import BOOK_LANGUAGES, CATEGORIES, STATUS_CLASS_MAPPING
 from .models import *
 
 # Create your views here.
-
+@permission_required("user.is_staff", login_url="/login/")
 def dashboard(request):
-    if request.user.is_staff:
-        purchases = Shopping.objects.all()
-        for purchase in purchases:
-            purchase.total_quantity = sum(item.quantity for item in purchase.items.all())
-            purchase.status_class = get_status_class(purchase.status)
-        return render(request, 'dashboard.html', {"purchases": purchases})
-    else:
-        return redirect("home")
+    purchases = Shopping.objects.all()
+    for purchase in purchases:
+        purchase.total_quantity = sum(item.quantity for item in purchase.items.all())
+        purchase.status_class = get_status_class(purchase.status)
+    return render(request, 'dashboard.html', {"purchases": purchases})
 
+@permission_required("user.is_staff", login_url="/login/")
 def dashboardProfile(request):
     user = get_object_or_404(CustomUser, id=request.user.id)
     
@@ -76,13 +76,14 @@ def dashboardProfile(request):
     
     return render(request, 'adminprofile.html')
 
-
+@permission_required("user.is_staff", login_url="/login/")
 def dashboardCharts(request):
     return render(request, 'charts.html')
 
 def get_status_class(status):
     return STATUS_CLASS_MAPPING.get(status, "")
 
+@permission_required("user.is_staff", login_url="/login/")
 def dashboardShopping(request):
     purchases = Shopping.objects.all()
     for purchase in purchases:
@@ -90,6 +91,7 @@ def dashboardShopping(request):
         purchase.status_class = get_status_class(purchase.status)
     return render(request, 'shopping/shopping.html', {'purchases': purchases})
 
+@permission_required("user.is_staff", login_url="/login/")
 def dashboardShoppingEdit(request, shopping_id):
     purchase = get_object_or_404(Shopping, id=shopping_id)
     
@@ -122,16 +124,14 @@ def dashboardShoppingEdit(request, shopping_id):
         'purchase': purchase,
         'STATUS': STATUS
     })
-        
 
-def dashboardOrders(request):
-    return render(request, 'orders.html')
-
+@permission_required("user.is_staff", login_url="/login/")
 def dashboardProducts(request):
     books = Book.objects.all()
 
     return render(request, 'products/products.html', {"books": books})
 
+@permission_required("user.is_staff", login_url="/login/")
 def dashboardProductAdd(request):
     if request.method == "GET":
         print("Enviando datos")
@@ -180,7 +180,8 @@ def dashboardProductAdd(request):
                 "categories": CATEGORIES,
                 'error': "ISBN ya existente."
             })
-        
+
+@permission_required("user.is_staff", login_url="/login/")       
 def dashboardProductEdit(request, isbn):
     book = get_object_or_404(Book, isbn=isbn)
     
@@ -225,6 +226,7 @@ def dashboardProductEdit(request, isbn):
         
         return redirect("dashboardProducts")
 
+@permission_required("user.is_staff", login_url="/login/")
 def dashboardProductDelete(request, isbn):
     book = get_object_or_404(Book, isbn=isbn)
     
@@ -234,11 +236,13 @@ def dashboardProductDelete(request, isbn):
     
     return redirect("dashboardProducts")
 
+@permission_required("user.is_staff", login_url="/login/")
 def dashboardUsers(request):
-    users = CustomUser.objects.all
+    users = CustomUser.objects.annotate(purchases_quantity=Count('shopping'))
     
     return render(request, 'users/users.html', {"users": users})
 
+@permission_required("user.is_staff", login_url="/login/")
 def dashboardUserAdd(request):
     if request.method == "GET":
         print("Enviando datos")
@@ -281,11 +285,12 @@ def dashboardUserAdd(request):
             
             user.save()
             return redirect('dashboardUsers')   
-        except IntegrityError as e:
+        except IntegrityError:
             return render(request, 'users/users.html', {
                 'error': "Usuario o Email ya existen."
             })
 
+@permission_required("user.is_staff", login_url="/login/")
 def dashboardUserEdit(request, id):
     user = get_object_or_404(CustomUser, id=id)
     
@@ -331,16 +336,23 @@ def dashboardUserEdit(request, id):
             user.save()
             
             return redirect("dashboardUsers")
-        except IntegrityError as e:
-            print(f"IntegrityError: {e}")
+        except IntegrityError:
             return render(request, 'users/useredit.html', {
                 'user': user,
                 'error': "Usuario o Email ya existen."
             })
-        except Exception as e:
-            print(f"Unexpected error: {e}")
+        except Exception:
             return render(request, 'users/useredit.html', {
                 'user': user,
                 'error': "Ocurrió un error inesperado. Por favor, intente de nuevo."
             })
-        
+
+@permission_required("user.is_staff", login_url="/login/")
+def dashboardUserDelete(request, id):
+    user = get_object_or_404(CustomUser, id=id)
+    
+    if request.method == "POST":
+        user.delete()
+        return redirect("dashboardUsers")
+    
+    return redirect("dashboardUsers")

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 from dashboard_app.lists import CATEGORIES
 from dashboard_app.models import Book, Shopping, ShoppingItem
 from home_app.cart import Cart
@@ -22,10 +23,8 @@ def finder(request, category=None):
     if request.method == "GET":
         searchQuery = request.GET.get("search", "")
 
-        # Diccionario que mapea nombres de categorías a sus respectivos números
         category_filters = {cat[1]: cat[0] for cat in CATEGORIES}
 
-        # Filtra según la categoría o busca en nombre y marca si no hay categoría
         if category in category_filters:
             filter_criteria = category_filters[category]
             books = Book.objects.filter(Q(category=filter_criteria) & Q(book_name__icontains=searchQuery))
@@ -90,6 +89,7 @@ def favClean(request):
     favorite.clean()
     return redirect("home")
 
+@login_required(login_url="/login/")
 def history(request):
     if request.user.is_authenticated:
         user = request.user
