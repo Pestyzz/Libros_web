@@ -8,13 +8,9 @@ urlpatterns = [
     path('catalogue/', views.finder, name='finder'),
     path('catalogue/<str:category>', views.finder, name='finderCategory'),
     path('add/<int:product_id>', views.cartAdd, name='add'),
-    path('remove/<int:product_id>', views.cartRemove, name='remove'),
-    path('delete/<int:product_id>', views.cartDelete, name='delete'),
-    path('cls/', views.cartClean, name='cls'),
-    path('fav_add/<int:product_id>', views.favAdd, name='favAdd'),
-    path('fav_remove/<int:product_id>', views.favRemove, name='favRemove'),
-    path('fav_delete/<int:product_id>', views.favDelete, name='favDelete'),
-    path('fav_cls/', views.favClean, name='favCls'),
+    path('remove/<int:item_id>', views.cartRemove, name='remove'),
+    path('fav_add/<int:product_id>', views.favoriteAdd, name='favAdd'),
+    path('fav_remove/<int:item_id>', views.favoriteRemove, name='favRemove'),
     path('logout/', signout, name='logout'),
     path('history/', views.history, name='history')
 ]

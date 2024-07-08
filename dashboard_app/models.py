@@ -3,6 +3,8 @@ from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils import timezone
 import django.contrib.auth.validators
+from django.core.serializers.json import DjangoJSONEncoder
+import json
 from .lists import BOOK_LANGUAGES, CATEGORIES, STATUS
 
 # Create your models here.
@@ -59,6 +61,38 @@ class Book(models.Model):
     def __str__(self):
         return f"ID: {self.id} ISBN: {self.isbn} BOOK NAME: {self.book_name}"
     
+class Cart(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Cart {self.id} for {self.user.email}'
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f'{self.quantity} of {self.book.book_name}'
+
+class Favorite(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Favorite {self.id} for {self.user.email}'
+
+class FavoriteItem(models.Model):
+    favorite = models.ForeignKey(Favorite, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.book.book_name}'
+
+
 class Shopping(models.Model):
     id = models.BigAutoField(primary_key=True)
     client = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -71,9 +105,6 @@ class Shopping(models.Model):
 
     def __str__(self):
         return str(self.id) + '-' + self.client.username
-
-    
-from django.db import models
 
 class ShoppingItem(models.Model):
     shopping = models.ForeignKey(Shopping, on_delete=models.CASCADE, related_name='items')

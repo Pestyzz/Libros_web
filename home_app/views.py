@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from dashboard_app.lists import CATEGORIES
-from dashboard_app.models import Book, Shopping, ShoppingItem
-from home_app.cart import Cart
-from home_app.favorite import Favorite
+from dashboard_app.models import Book, Shopping, ShoppingItem, Cart, CartItem, Favorite, FavoriteItem
 
 # Create your views here.
 
@@ -39,54 +37,45 @@ def finder(request, category=None):
 
         return render(request, "finder.html", data)
 
-
+@login_required(login_url="/login/")
 def cartAdd(request, product_id):
-    cart = Cart(request)
-    product = Book.objects.get(id = product_id)
-    cart.add(product)
-    return redirect("home")
-
-def cartRemove(request, product_id):
-    cart = Cart(request)
-    product = Book.objects.get(id = product_id)
-    cart.remove(product)
-    return redirect("home")
-
-def cartDelete(request, product_id):
-    cart = Cart(request)
-    product = Book.objects.get(id = product_id)
-    cart.delete(product)
-    return redirect("home")
-
-def cartClean(request):
-    cart = Cart(request)
-    cart.clean()
-    return redirect("home")
-
-def favAdd(request, product_id):
-    if request.user.is_authenticated:
-        favorite = Favorite(request)
-        product = Book.objects.get(id = product_id)
-        favorite.add(product)
-        return redirect("home")
+    product = get_object_or_404(Book, id=product_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    quantity = 1
+    
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, book=product)
+    if created:
+        cart_item.quantity = quantity
     else:
-        return redirect("login")
-
-def favRemove(request, product_id):
-    favorite = Favorite(request)
-    product = Book.objects.get(id = product_id)
-    favorite.remove(product)
+         cart_item.quantity += quantity
+         
+    cart_item.save()
     return redirect("home")
 
-def favDelete(request, product_id):
-    favorite = Favorite(request)
-    product = Book.objects.get(id = product_id)
-    favorite.delete(product)
+@login_required(login_url="/login/")
+def cartRemove(request, item_id):
+    cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
+    if cart_item.quantity > 1:
+        cart_item.quantity -= 1
+        cart_item.save()
+    else:
+        cart_item.delete()
     return redirect("home")
 
-def favClean(request):
-    favorite = Favorite(request)
-    favorite.clean()
+@login_required(login_url="/login/")
+def favoriteAdd(request, product_id):
+    product = get_object_or_404(Book, id=product_id)
+    favorite, created = Favorite.objects.get_or_create(user=request.user)
+    favorite_item, created = FavoriteItem.objects.get_or_create(favorite=favorite, book=product)
+         
+    favorite_item.save()
+    return redirect("home")
+
+@login_required(login_url="/login/")
+def favoriteRemove(request, item_id):
+    favorite_item = get_object_or_404(FavoriteItem, id=item_id, favorite__user=request.user)
+    
+    favorite_item.delete()
     return redirect("home")
 
 @login_required(login_url="/login/")

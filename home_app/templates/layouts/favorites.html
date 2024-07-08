@@ -9,31 +9,32 @@
     <div class="offcanvas-body d-flex flex-column justify-content-between">
         <div class="overflow-y-auto overflow-x-hidden">
             <div class="mb-4 border-bottom border-primary">
-                <h6>Artículos ({{request.session.favorite.items|length}})</h6>
+                <h6>Artículos ({{favorite_items|length}})</h6>
             </div>
-            {% if request.session.favorite.items %}
-            {% for key, value in request.session.favorite.items %}
+            {% if favorite_items %}
+            {% for item in favorite_items %}
             <div class="card h-auto mb-4">
                 <div class="row">
                     <div class="col-5">
-                        <a href="{% url "product" value.product_id %}">
-                            <img class="img-fluid p-1" src="{{value.image}}" alt="book-img" style="height: 180px">
+                        <a href="{% url " product" item.book.id %}">
+                            <img class="img-fluid p-1" src="{{item.book.image.url}}" alt="book-img"
+                                style="height: 180px">
                         </a>
                     </div>
                     <div class="col-6 align-content-center mt-3">
-                        <h5 class="card-title">{{value.name}}</h5>
-                        <h5 class="fw-bold">{{value.price|currency_format}}</h5>
+                        <h5 class="card-title">{{item.book.book_name}}</h5>
+                        <h5 class="fw-bold">{{item.book.price|currency_format}}</h5>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
                         <div class="card-body border-top pb-0">
                             <div class="d-flex justify-content-between align-items-center pb-3 pt-0">
-                                <a class="btn btn-primary text-dark" href="{% url "add" value.product_id %}">
+                                <a class="btn btn-primary text-dark" href="{% url " add" item.book.id %}">
                                     <i class="fas fa-cart-plus fa-1x me-1"></i>
                                     Añadir al Carro
                                 </a>
-                                <a class="btn btn-primary text-dark" href="{% url "favRemove" value.product_id %}">
+                                <a class="btn btn-primary text-dark" href="{% url " favRemove" item.id %}">
                                     <i class="fas fa-x fa-1x me-1"></i>
                                     Quitar
                                 </a>

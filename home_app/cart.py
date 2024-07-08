@@ -1,15 +1,24 @@
 from django.contrib import messages
+from dashboard_app.models import Cart as CartModel
 
 class Cart:
     def __init__(self, request):
         self.request = request
-        self.session = request.session
-        cart = self.session.get("cart")
-        if not cart:
-            self.session["cart"] = {}
-            self.cart = self.session["cart"]
+        self.user = request.user
+        if self.user.is_authenticated:
+            try:
+                cart_instance, created = CartModel.objects.get_or_create(user=self.user)
+                self.cart = cart_instance.data
+            except CartModel.DoesNotExist:
+                self.cart = {}
         else:
-            self.cart = cart
+            self.session = request.session
+            cart = self.session.get("cart")
+            if not cart:
+                self.session["cart"] = {}
+                self.cart = self.session["cart"]
+            else:
+                self.cart = cart
     
     def add(self, product):
         id = str(product.id)
@@ -22,7 +31,6 @@ class Cart:
                 "totalPrice": product.price,
                 "quantity": 1,
             }
-            
             messages.success(self.request, f'El libro "{product.book_name}" ha sido añadido al carro.')
         else:
             self.cart[id]["quantity"] += 1
@@ -49,9 +57,16 @@ class Cart:
             self.save()
 
     def save(self):
-        self.session["cart"] = self.cart
-        self.session.modified = True
+        if self.user.is_authenticated:
+            CartModel.objects.update_or_create(user=self.user, defaults={'data': self.cart})
+        else:
+            self.session["cart"] = self.cart
+            self.session.modified = True
     
     def clean(self):
-        self.session["cart"] = {}
-        self.session.modified = True
+        self.cart = {}
+        if self.user.is_authenticated:
+            CartModel.objects.filter(user=self.user).update(data=self.cart)
+        else:
+            self.session["cart"] = {}
+            self.session.modified = True
