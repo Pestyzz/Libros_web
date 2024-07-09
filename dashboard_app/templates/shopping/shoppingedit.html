@@ -82,14 +82,14 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {% for item in purchase.items.all %}
+                      {% for item in items %}
                       <tr>
                         <th scope="row">
                           <a class="" href="{% url "product" item.product_id.id %}">{{item.product_id.book_name}}</a>
                         </th>
                         <td>{{item.quantity}}</td>
                         <td>{{item.product_id.price|currency_format}}</td>
-                        <td>{{purchase.paid|currency_format}}</td>
+                        <td>{{item.totalItem|currency_format}}</td>
                       </tr>
                       {% endfor %}
                       <tr>

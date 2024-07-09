@@ -25,9 +25,10 @@
 
 - Rework CARDS Home [X]
 - Añadir Carrito Funcional [X]
-- Agregar mantención del carro []
+- Agregar mantención del carro [X]
 
 - Añadir Favoritos Funcional [X]
+- Agregar mantención de favoritos [X]
 
 - Añadir Buscador Funcional + Filtros Categoría [X]
 
@@ -35,7 +36,6 @@
 
 - Añadir Historial Funcional [X]
 - Implementar "Estado" en Historial [X]
-- Si se elimina un producto, debe borrarse del historial también
 
 - Permisos Dashboard [X]
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from dashboard_app.lists import CATEGORIES
 from dashboard_app.models import Book, Shopping, ShoppingItem, Cart, CartItem, Favorite, FavoriteItem
 
@@ -46,9 +47,11 @@ def cartAdd(request, product_id):
     cart_item, created = CartItem.objects.get_or_create(cart=cart, book=product)
     if created:
         cart_item.quantity = quantity
+        messages.success(request, f'Se ha añadido con éxito el libro "{cart_item.book.book_name}" al carro.')
     else:
-         cart_item.quantity += quantity
-         
+        cart_item.quantity += quantity
+        messages.success(request, f'Se ha añadido con éxito 1 unidad del libro "{cart_item.book.book_name}" al carro.')
+    
     cart_item.save()
     return redirect("home")
 
@@ -58,8 +61,10 @@ def cartRemove(request, item_id):
     if cart_item.quantity > 1:
         cart_item.quantity -= 1
         cart_item.save()
+        messages.warning(request, f'Se ha removido con éxito 1 unidad del libro "{cart_item.book.book_name}" del carro.')
     else:
         cart_item.delete()
+        messages.warning(request, f'Se ha removido con éxito el libro "{cart_item.book.book_name}" del carro.')
     return redirect("home")
 
 @login_required(login_url="/login/")
@@ -69,6 +74,7 @@ def favoriteAdd(request, product_id):
     favorite_item, created = FavoriteItem.objects.get_or_create(favorite=favorite, book=product)
          
     favorite_item.save()
+    messages.success(request, f'Se ha añadido con éxito el libro "{favorite_item.book.book_name}" a favoritos.')
     return redirect("home")
 
 @login_required(login_url="/login/")
@@ -76,6 +82,7 @@ def favoriteRemove(request, item_id):
     favorite_item = get_object_or_404(FavoriteItem, id=item_id, favorite__user=request.user)
     
     favorite_item.delete()
+    messages.success(request, f'Se ha removido con éxito el libro "{favorite_item.book.book_name}" de favoritos.')
     return redirect("home")
 
 @login_required(login_url="/login/")

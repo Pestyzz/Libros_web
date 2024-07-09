@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Validación Nombre Libro
     const checkBookName = (value) => {
         const MIN_BOOK_NAME_LENGTH = 3;
-        const MAX_BOOK_NAME_LENGTH = 50;
+        const MAX_BOOK_NAME_LENGTH = 100;
     
         // Permitir letras Unicode, espacios y caracteres especiales, pero no números
         const bookNamePattern = new RegExp(`^[A-Za-zÀ-ÖØ-öø-ÿ0-9\\s',.()!\\-]{${MIN_BOOK_NAME_LENGTH},${MAX_BOOK_NAME_LENGTH}}$`);
@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (value.length < 3) {
             showError(publisher, "El nombre de la editorial es demasiado corto. (Mínimo 3 caracteres)");
             return false;
-        } else if (value.length > 15) {
-            showError(publisher, "El nombre de la editorial es demasiado largo. (Máximo 15 caracteres)");
+        } else if (value.length > 30) {
+            showError(publisher, "El nombre de la editorial es demasiado largo. (Máximo 30 caracteres)");
             return false;
         } else {
             clearError(publisher);

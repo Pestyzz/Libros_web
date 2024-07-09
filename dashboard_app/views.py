@@ -94,6 +94,10 @@ def dashboardShopping(request):
 @permission_required("user.is_staff", login_url="/login/")
 def dashboardShoppingEdit(request, shopping_id):
     purchase = get_object_or_404(Shopping, id=shopping_id)
+    items = ShoppingItem.objects.filter(shopping=purchase)
+    
+    for item in items:
+        item.totalItem = item.product_id.price * item.quantity
     
     if request.method == "POST":
         print("Obteniendo Datos")
@@ -109,6 +113,7 @@ def dashboardShoppingEdit(request, shopping_id):
             print(f"Error de integridad al actualizar el estado: {e}")
             return render(request, 'shopping/shoppingedit.html', {
                 'purchase': purchase,
+                'items': items,
                 'STATUS': STATUS,
                 'error': "Error al actualizar el estado. Por favor, intenta nuevamente."
             })
@@ -116,12 +121,14 @@ def dashboardShoppingEdit(request, shopping_id):
             print(f"Error al actualizar el estado: {e}")
             return render(request, 'shopping/shoppingedit.html', {
                 'purchase': purchase,
+                'items': items,
                 'STATUS': STATUS,
                 'error': "Error al actualizar el estado. Por favor, intenta nuevamente."
             })
     
     return render(request, 'shopping/shoppingedit.html', {
         'purchase': purchase,
+        'items': items,
         'STATUS': STATUS
     })
 

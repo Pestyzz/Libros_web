@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from dashboard_app.models import Shopping, ShoppingItem, Book
+from dashboard_app.models import Shopping, ShoppingItem, Book, Cart, CartItem
 
 def payment_view(request):
     if request.method == "POST":
@@ -9,9 +9,10 @@ def payment_view(request):
         address = request.POST.get('address')
         phone_number = request.POST.get('phone')
 
-        cart = request.session.get('cart', {})
-
-        total_paid = sum(item['totalPrice'] for item in cart.values())
+        cart = Cart.objects.get(user=request.user)
+        cart_items = CartItem.objects.filter(cart=cart)
+        
+        total_paid = sum(item.book.price * item.quantity for item in cart_items)
 
         shopping = Shopping.objects.create(
             client=client,
@@ -22,16 +23,16 @@ def payment_view(request):
             status='EP',
         )
 
-        for item_id, item_data in cart.items():
-            book = Book.objects.get(id = item_data['product_id'])
+        for item_data in cart_items:
+            book = Book.objects.get(id = item_data.book.id)
             
             ShoppingItem.objects.create(
                 shopping=shopping,
                 product_id=book,
-                quantity=item_data['quantity']
+                quantity=item_data.quantity
             )
 
-        request.session['cart'] = {}
+        cart_items.delete()
 
         messages.success(request, '¡Compra realizada con éxito!')
 
